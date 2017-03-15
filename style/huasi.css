@@ -74,12 +74,18 @@ body{
   color: #00b698;
 }
 
-/**+Colores Main-header*****/
+/**+Colores Main-header - transiciones*****/
 
 .main-header .header-logo h2,
 .main-nav a{
   font-weight: 400;
   color: #2e3033;
+}
+
+
+.main-header .header-logo h2,
+.main-header .header-logo svg,
+.main-nav a{
   transition: 400ms;
 }
 
@@ -98,6 +104,10 @@ body{
 
  .change a{
    font-size: 1em;
+ }
+
+ .change a:hover{
+   color: #fff;
  }
 
 /***********************
