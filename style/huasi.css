@@ -77,7 +77,7 @@ body{
 
 .main-header .header-logo h2,
 .main-nav a{
-  font-weight: 300;
+  font-weight: 400;
   color: #2e3033;
 }
 
@@ -125,6 +125,10 @@ body{
 
 .hero-subtitle{
   color: #f7f7f7;
+}
+
+.container{
+  padding: 3.75em 2em;
 }
 
 /***********************
