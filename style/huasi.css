@@ -1,0 +1,184 @@
+/* Estilos para Huasi, una pagina llena de estilo.*/
+
+/***********************
+---Reglas Generales-----
+***********************/
+
+/*Definir el box-siszin a border box para todos los elementos*/
+
+*{
+  box-sizing: border-box;
+}
+
+/*Definir el alto de la pagina a 100% por default*/
+:root,
+html,
+body{
+  height: 100%;
+}
+
+/*Definir la fuente para el proyecto*/
+body{
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff;
+}
+
+/***********************
+------Main-Header-------
+***********************/
+
+.main-header{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 1em 2em;
+  height: 4.0625em;
+  width: 100%;
+  max-width: 100%;
+}
+
+.main-header .header-logo a{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-header .header-logo svg{
+  height: 28px;
+  width: auto;
+  margin-right: 0.6em;
+}
+
+.main-nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nav a:not(:last-of-type){
+  padding-right: 2em;
+}
+
+.main-nav a{
+  font-size: 0.9em;
+  transition: 400ms;
+}
+
+.main-nav a:hover{
+  color: #f26f62;
+  color: #00b698;
+}
+
+/**+Colores Main-header*****/
+
+.main-header .header-logo h2,
+.main-nav a{
+  font-weight: 300;
+  color: #2e3033;
+}
+
+/***********************
+--Elementos de Interfaz--
+***********************/
+
+.fixed{
+  position: fixed;
+}
+
+.wrapper{
+  padding-top: 4.0625em;
+}
+
+.full-height{
+  height: calc(100vh - 4.0625em);
+}
+
+.jumbotron{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.all-midle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-row{
+  flex-direction: row;
+}
+
+.f-colum{
+  flex-direction: column;
+}
+
+.hero-title{
+  color: #f7f7f7;
+  font-size: 2.5em;
+}
+
+.hero-subtitle{
+  color: #f7f7f7;
+}
+
+/***********************
+-----Bg-Jumbotrones-----
+***********************/
+
+#top-hero{
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
+  background-image: url("../img/panecillo.jpg");
+}
+
+/***********************
+-----Estilos Formas-----
+***********************/
+
+.form-busqueda{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#top-hero .form-busqueda{
+  margin-top: 2em;
+}
+
+
+.form-busqueda input[type="text"],
+.form-busqueda button[type="submit"]{
+  padding: 0.7em 1.5em;
+  border: 0;
+}
+
+.form-busqueda input[type="text"]:not(:last-of-type){
+  border-right: 1px solid #C7C7CD;
+}
+
+input:focus {
+  outline:none;
+}
+
+/***********************
+-----Estilos Botones-----
+***********************/
+
+.btn{
+  outline: 0;
+  cursor: pointer;
+}
+
+.btn-submit{
+  color: #fff;
+  background-color:  #39aa94;
+}
+
+.btn-submit:hover{
+  background-color:#00b698
+}
