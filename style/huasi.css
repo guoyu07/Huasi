@@ -29,16 +29,10 @@ body{
 
 .main-header{
   position: fixed;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   flex-direction: row;
-  -webkit-flex-direction: stretch;
   align-items: stretch;
   justify-content: space-between;
-  -webkit-flex-justify-content: space-between;
   background-color: #fff;
   padding: 1em 2em;
   height: 4.0625em;
