@@ -15,6 +15,7 @@
 html,
 body{
   height: 100%;
+  color: #2e3033;
 }
 
 /*Definir la fuente para el proyecto*/
@@ -93,10 +94,10 @@ body{
 /**class change main-header,
  efecto de scrool**/
 
- .change{
-   background-color: transparent;
-   margin-top: 1em;
- }
+.change{
+  background-color: transparent;
+  margin-top: 1em;
+}
 
  .change a,
  .change .header-logo h2{
@@ -110,6 +111,59 @@ body{
  .change a:hover{
    color: #fff;
  }
+
+/***********************
+-----Sistema de Grid----
+***********************/
+
+.col-12{
+  width: 100%;
+}
+
+.col-11{
+  width: 91.66666667%;
+}
+
+.col-10{
+  width: 83.33333333%;
+}
+
+.col-9{
+  width: 75%;
+}
+
+.col-8{
+  width: 66.66666667%;
+}
+
+.col-7{
+  width: 58.33333333%;
+}
+
+.col-6{
+  width: 50%;
+}
+
+.col-5{
+  width: 41.66666667%;
+}
+
+.col-4{
+  width: 33.33333333%;
+}
+
+.col-3{
+  width: 25%;
+}
+
+.col-2{
+  width: 16.66666667%;
+}
+
+.col-1{
+  width: 8.33333333%;
+}
+
 
 /***********************
 --Elementos de Interfaz--
@@ -148,6 +202,21 @@ body{
   flex-direction: column;
 }
 
+.container{
+  padding: 0 2em;
+}
+
+.air-both{
+  padding-top: 3.75em;
+  padding-bottom: 3.75em;
+}
+
+.img-responsive{
+  max-width: 100%;
+}
+
+/*** Textos**/
+
 .hero-title{
   color: #f7f7f7;
   font-size: 2.5em;
@@ -157,8 +226,19 @@ body{
   color: #f7f7f7;
 }
 
-.container{
-  padding: 3.75em 2em;
+.title,
+.subtitle{
+  color: #2e3033;
+}
+
+.title{
+  font-size: 1.9em;
+  font-weight: 600;
+}
+
+.subtitle{
+  font-size: 1.2em;
+  font-weight: 300;
 }
 
 /***********************
@@ -215,5 +295,95 @@ input:focus {
 }
 
 .btn-submit:hover{
-  background-color:#00b698
+  background-color:#00b698;
+}
+
+/***********************
+-----Main-footer-----
+***********************/
+
+.main-footer{
+  padding: 1em 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid #dce0e0;
+}
+
+.main-footer,
+.main-footer a{
+  color: #999;
+}
+
+.main-footer h2{
+  font-weight: 400;
+}
+
+.main-footer p{
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.main-footer img{
+  height: 20px;
+  width: 20px;
+  margin-right: 0.5em;
+}
+
+.main-footer svg{
+  height: 15px;
+  width: 15px;
+  transition: 400ms;
+}
+
+.main-footer .foot-section:last-of-type div:last-of-type a:not(:last-of-type){
+  margin-right: 1em;
+}
+
+.main-footer svg:hover .st0{
+  fill: #2e3033;
+  cursor: pointer;
+}
+
+.main-footer a:hover{
+  color: #2e3033;
+}
+
+.main-footer .foot-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+}
+
+.main-footer .foot-section:first-of-type{
+  padding: 3em 2em;
+  justify-content: flex-start;
+}
+
+.main-footer .col-3{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.main-footer .col-3 p{
+  margin-bottom: 0.5em;
+}
+
+.main-footer .col-3 h2{
+  margin-bottom: 1.5em;
+}
+
+.main-footer .foot-section:last-of-type{
+  border-top: 1px solid #dce0e0;
+}
+
+.main-footer .foot-section:last-of-type div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
