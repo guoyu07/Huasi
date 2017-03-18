@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style/normalize.css">
     <!--Fuente para el proyecto-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
     <!-- Estilos base-->
     <link rel="stylesheet" href="style/huasi.css">
   </head>
@@ -39,8 +40,8 @@
       <!--Forma para buscar-->
       <form>
         <div class="form-busqueda">
-          <input type="text" placeholder="Lugar">
-          <input type="text" placeholder="Tiempo">
+          <input type="text" class="datePicker"placeholder="Llegada">
+          <input type="text" class="datePicker"placeholder="Salida">
           <input type="text" placeholder="Personas">
           <button type="submit" name="button" class="btn btn-submit">Buscar</button>
         </div>
@@ -49,13 +50,45 @@
 
     <!-- Wrappewr-->
     <div class="wrapper">
-      <div class="full-height container air-both">
-        <h2>Elementos</h2>
+      <div class="all-midle container">
+
+        <div class="vp-show">
+          <h2 class="subtitle">Recomendaciones</h2>
+          <div class="slide-show">
+            <a href="#" class="col-3">
+            <div class="vp-host">
+              <div id="vp-1"></div>
+              <p>Hola</p>
+            </div>
+            </a>
+            <a href="#" class="col-3">
+            <div class="vp-host">
+              <div id="vp-2"></div>
+              <p>Hola</p>
+            </div>
+            </a>
+            <a href="#" class="col-3">
+            <div class="vp-host">
+              <div id="vp-3"></div>
+              <p>Hola</p>
+            </div>
+            </a>
+            <a href="#" class="col-3">
+            <div class="vp-host">
+              <div id="vp-4"></div>
+              <p>Hola</p>
+            </div>
+            </a>
+
+          </div>
+        </div>
+        <!--<h2>Texto</h2>
         <h2 class="title">Titulo</h2>
-        <h2 class="subtitle">Sub titulo</h2>
+        <h2 class="subtitle">Sub titulo</h2>-->
       </div>
     </div>
 
+    <!--Main Footer-->
     <div class="main-footer">
       <div class="foot-section">
         <div class="col-3">

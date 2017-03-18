@@ -24,6 +24,10 @@ body{
   background-color: #fff;
 }
 
+a{
+  color: #2e3033;
+}
+
 /***********************
 ------Main-Header-------
 ***********************/
@@ -35,6 +39,7 @@ body{
   align-items: stretch;
   justify-content: space-between;
   background-color: #fff;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.18);
   padding: 1em 2em;
   height: 4.0625em;
   width: 100%;
@@ -96,6 +101,7 @@ body{
 
 .change{
   background-color: transparent;
+  box-shadow: none;
   margin-top: 1em;
 }
 
@@ -268,7 +274,7 @@ body{
 
 .form-busqueda input[type="text"],
 .form-busqueda button[type="submit"]{
-  padding: 0.7em 1.5em;
+  padding: 0.8em 1.5em;
   border: 0;
 }
 
@@ -296,6 +302,51 @@ input:focus {
 
 .btn-submit:hover{
   background-color:#00b698;
+}
+
+/***********************
+-------Slide-Show-------
+***********************/
+
+.vp-show{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-show{
+  padding: 2em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.vp-host div:first-of-type{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+}
+
+.slide-show a:not(:last-of-type){
+  margin-right: 1em;
+}
+
+#vp-1{
+  background-image: url("../img/vp/vp-1.jpeg");
+}
+
+#vp-2{
+  background-image: url("../img/vp/vp-2.jpeg");
+}
+
+#vp-3{
+  background-image: url("../img/vp/vp-3.jpg");
+}
+
+#vp-4{
+  background-image: url("../img/vp/vp-4.jpeg");
 }
 
 /***********************

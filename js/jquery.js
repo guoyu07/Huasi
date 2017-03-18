@@ -24,4 +24,9 @@ $(document).scroll(function(){
 
 });
 
+//Asignar al funcion datepicker a todos los inputs que tengan la clase .datePicker.
+/*$( function() {
+    $( ".datePicker" ).datepicker();
+  } );
+*/
 });
