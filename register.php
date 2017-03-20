@@ -35,28 +35,30 @@
 
     <!-- Wrapper-->
     <div class="wrapper">
-      <div class="all-middle full-height f-colum">
-        <div class="register-section">
-          <div class="col-5 container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim felis vel orci ullamcorper tincidunt. Nulla facilisi. Pellentesque fermentum sollicitudin pretium.</h1>
-          </div>
-          <div class="col-7 container">
+      <div class="all-middle f-colum">
+        <div class="jumbotron register-section">
+          <!--<h2 class="subtitle">Forma Parte de Huasi!</h2>-->
             <form>
               <div class="register-form">
+                <h2 class="subtitle">Unete a Huasi:</h2>
+                <label for="user-mail">Dirección de correo electrónico:</label>
+                <input type="mail" name="user-mail">
                 <label for="user-name">Nombre:</label>
                 <input type="text" name="user-name">
-                <label for="user-lastName">Apellido:</label>
+                <label for="user-lastName">Apellidos:</label>
                 <input type="text" name="user-lastName">
-                <label for="user-mail">Mail:</label>
-                <input type="mail" name="user-mail">
                 <label for="user-password">Constraseña:</label>
-                <input type="password" name="user-password">
+                <input type="password" name="user-password" placeholder="minimo 6 caracteres">
                 <label for="user-password">Verificar Contraseña:</label>
                 <input type="password" name="user-password">
+                <div>
+                <input type="checkbox">
+                <span>Aceptas los <a href="#">Terminos</a> y las <a href="#">Condiciones</a></span>
+                </div>
                 <button type="submit" class="btn btn-submit"id="register-button">Resgistrate</button>
               </div>
             </form>
-          </div>
+
         </div>
       </div>
     </div>
