@@ -314,6 +314,7 @@ input:focus {
   outline: 0;
   border: 0;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .btn-submit{
@@ -322,7 +323,12 @@ input:focus {
 }
 
 .btn-submit:hover{
+  background-color: #41C1A8;
+}
 
+.btn-secondary{
+  color: #39aa94;
+  border: 2px solid #39aa94;
 }
 
 /***********************
@@ -449,7 +455,9 @@ color: #00b698;
 ----Forma-Registro------
 ***********************/
 
-.register-section{
+
+.register-section,
+.login-section{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -460,22 +468,27 @@ color: #00b698;
   background-color: #00b698;
 }
 
-.register-section form{
+.register-section form,
+.login-section form{
   width:35%;
 }
 
-.register-form{
+.login-section{
+  min-height: calc(100vh - 4.0625em);
+}
+
+.form{
   display: flex;
   flex-direction: column;
   padding: 3em 2em;
   background-color: #fff;
 }
 
-.register-form h2{
+.form h2{
   margin-bottom: 1.5em;
 }
 
-.register-form input{
+.form input{
   outline: 0;
   border: 0;
   border: 1px solid  #dce0e0;
@@ -484,13 +497,18 @@ color: #00b698;
 
 }
 
-.register-form input{
+.form input{
   margin: 1em 0;
 }
 
-.register-form button{
+.form a{
+  width: 100%;
+}
+
+.form button{
   padding: 1em 0.5em;
   margin-top: 1em;
+  width: 100%;
 }
 
 
