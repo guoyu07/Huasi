@@ -39,7 +39,7 @@ a{
   align-items: stretch;
   justify-content: space-between;
   background-color: #fff;
-  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.18);
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
   padding: 1em 2em;
   height: 4.0625em;
   width: 100%;
@@ -98,7 +98,7 @@ a{
 }
 
 /**class change main-header,
- efecto de scrool**/
+efecto de scrool**/
 
 .change{
   background-color: transparent;
@@ -106,18 +106,18 @@ a{
   margin-top: 1em;
 }
 
- .change a,
- .change .header-logo h2{
-   color: #fff;
- }
+.change a,
+.change .header-logo h2{
+  color: #fff;
+}
 
- .change a{
-   font-size: 1em;
- }
+.change a{
+  font-size: 1em;
+}
 
- .change a:hover{
-   color: #fff;
- }
+.change a:hover{
+  color: #fff;
+}
 
 /***********************
 -----Sistema de Grid----
@@ -181,7 +181,8 @@ a{
 }
 
 .wrapper{
-
+  padding-top:4.0625em;
+  min-height: 100vh;
 }
 
 .full-height{
@@ -192,7 +193,7 @@ a{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  /*background-attachment: fixed;*/
 }
 
 .all-middle{
@@ -311,16 +312,17 @@ input:focus {
 
 .btn{
   outline: 0;
+  border: 0;
   cursor: pointer;
 }
 
 .btn-submit{
   color: #fff;
-  background-color:  #39aa94;
+  background-color:#00b698;
 }
 
 .btn-submit:hover{
-  background-color:#00b698;
+  background-color:  #39aa94;
 }
 
 /***********************
@@ -371,7 +373,7 @@ input:focus {
 }
 
 /*.slide-show a:hover .vp-host p{
-  color: #00b698;
+color: #00b698;
 }*/
 
 #vp-1{
@@ -393,6 +395,7 @@ input:focus {
 
 .deal-show .slide-show{
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .deal-show .slide-show a:not(:nth-child(4n+1)){
@@ -401,7 +404,7 @@ input:focus {
 
 .deal-show .slide-show a{
   margin-bottom: 1em;
-  flex: 1 calc(25% - 1em);
+  flex-basis: calc(25% - 1em);
   transition: 400ms;
 }
 
@@ -441,6 +444,64 @@ input:focus {
   border: 1px solid  #dce0e0;
   box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.4);
 }
+
+/***********************
+----Forma-Registro------
+***********************/
+
+.register-section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3em 0;
+  width: 100%;
+}
+
+
+.register-section .col-7{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-section h1{
+  color: #00b698;
+  font-weight: 300;
+}
+
+.register-section form{
+  width: 60%;
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+  padding: 3em 0;
+}
+
+.register-form input{
+  outline: 0;
+  border: 0;
+  border: 1px solid  #dce0e0;
+  box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.4);
+  padding: 10px 1em;
+
+}
+
+.register-form input{
+  margin: 1em 0;
+}
+
+.register-form button{
+  padding: 10px 0.5em;
+  margin-top: 1em;
+  border-radius: 5px;
+}
+
+
+
 
 /***********************
 -----Main-footer-----
