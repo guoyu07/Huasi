@@ -36,7 +36,7 @@
     <!-- Wrapper-->
     <div class="wrapper">
       <div class="all-middle f-colum">
-        <div class="login-section">
+        <div class="jumbotron login-section">
           <form>
             <div class="form">
               <h2 class="subtitle">Bienvenido otra vez</h2>
