@@ -733,6 +733,11 @@ margin-top: 5px;
   margin-left: 1em;
 }
 
+.related-hosts{
+  border-top: 1px solid #dce0e0;
+  padding-top: 2em;
+}
+
 .host-reserve{
   background-color: #fff;
   border-bottom: 1px solid #dce0e0;

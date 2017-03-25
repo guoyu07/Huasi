@@ -152,7 +152,6 @@
             <div class=" b-border margin-bottom"></div>
             <h2 class="subtitle">Ubicación</h2>
             <p>Av.Regresando al futuro 0e-212 y Rocafeller St</p>
-            <div class=" b-border margin-bottom"></div>
           </div>
         </div>
 
