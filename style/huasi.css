@@ -270,14 +270,26 @@ efecto de scrool**/
   margin-right: 2em;
 }
 
+.margin-top{
+  margin-top: 2em;
+}
+
+.margin-bottom{
+  margin-bottom: 2em;
+}
+
 .air-both{
-  padding-top: 3.75em;
-  padding-bottom: 3.75em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .img-responsive{
   max-width: 100%;
   height: auto;
+}
+
+.b-border{
+  border-bottom: 1px solid #dce0e0;
 }
 
 /*** Textos**/
@@ -292,7 +304,8 @@ efecto de scrool**/
 }
 
 .title,
-.subtitle{
+.subtitle,
+p{
   color: #2e3033;
 }
 
@@ -306,9 +319,18 @@ efecto de scrool**/
   font-weight: 300;
 }
 
+p{
+  font-weight: 400;
+  font-size: 1em;
+}
+
 .caption-text{
   font-size: 0.9em;
   font-weight: 300;
+}
+
+.text-left{
+  text-align: left;
 }
 
 .middle-line{
@@ -602,6 +624,36 @@ color: #00b698;
 }
 
 /***********************
+-----Forma-reserva------
+***********************/
+
+.form-reserva{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2em 1em;
+}
+
+.form-reserva .flex,
+.form-reserva .all-middle{
+  width: 100%;
+}
+
+.form-reserva input{
+  width: 100%;
+  box-shadow: none;
+  padding: 0.9em 1em;
+}
+
+.form-reserva .flex:last-of-type input:first-of-type{
+  border-left: none;
+}
+
+
+
+/***********************
 -----Hospedajes-----
 ***********************/
 
@@ -615,13 +667,75 @@ color: #00b698;
   font-size: 1.3em;
 }
 
-.host-hero .img-responsive{
-  height: 500px;
+.host-info{
+  padding-right: 2em;
+}
+
+#descripcion,
+#evaluaciones,
+#ubicacion,
+.related-hosts{
+  margin-top: 2em;
+}
+
+
+
+#descripcion .perks ul{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0;
+  height: 200px;
+
+}
+
+#descripcion .perks ul li{
+  padding: 1em 0;
+}
+
+#descripcion .perks ul li::before{
+  content: "• ";
+  color: #F26F62;
+}
+
+#evaluaciones span:first-of-type{
+  margin-left: 1em;
+}
+
+#evaluaciones span img{
+  height: 20px;
+}
+
+.host-coment{
+  width: 100%;
+  border: 1px solid #dce0e0;
+  margin-top: 1em;
+  padding: 1em;
+}
+
+.host-coment img{
+  height: 60px;
+  border-radius: 100%;
+}
+
+.coment-user{
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.coment-user p{
+margin-top: 5px;
+}
+
+.related-hosts a:not(:first-of-type){
+  margin-left: 1em;
 }
 
 .host-reserve{
   background-color: #fff;
-  border-bottom: 1px solid  #dce0e0;
+  border-bottom: 1px solid #dce0e0;
   position: fixed;
   top: 60px;
   display: flex;
@@ -651,15 +765,18 @@ color: #00b698;
 }
 
 .host-reserve .col-3 .caption-reserve{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   position: absolute;
   top: 57.78px;
-  height: 500px;
   width: calc(25% - 1em);
   margin: 0;
   padding: 0;
   background-color: #fff;
   border: 1px solid #dce0e0;
 }
+
 
 
 
