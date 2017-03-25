@@ -36,7 +36,7 @@ a{
   position: fixed;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
   background-color: #fff;
   border-bottom: 1px solid #dce0e0;
@@ -57,29 +57,37 @@ a{
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-size: 1em;
+}
+
+.main-header .header-logo h2{
+  font-size: 1.2em;
 }
 
 .main-header .header-logo svg{
-  height: 28px;
+  height: 21px;
   max-height: 100%;
-  width: 28px;
-  margin-right: 0.6em;
+  width: 21px;
+  margin-right: 0.4em;
 }
 
-.main-nav{
+.nav{
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.main-nav{
   justify-content: center;
 }
 
-.main-nav a:not(:last-of-type){
+.nav a:not(:last-of-type){
   padding-right: 2em;
 }
 
 .main-nav a{
-  font-size: 0.9em;
-
+  font-size: 0.89em;
 }
 
 .main-nav a:hover{
@@ -114,6 +122,15 @@ efecto de scrool**/
 .change a,
 .change .header-logo h2{
   color: #fff;
+}
+
+.change .header-logo h2{
+  font-size: 1.5em;
+}
+
+.change .header-logo svg{
+  height: 27px;
+  width: 27px;
 }
 
 .change a{
@@ -185,8 +202,13 @@ efecto de scrool**/
   position: fixed;
 }
 
+.relative{
+  position: relative;
+}
+
 .wrapper,
-.wrapper-busqueda{
+.wrapper-busqueda,
+.wrapper-host{
   min-height: 100vh;
 }
 
@@ -196,6 +218,10 @@ efecto de scrool**/
 
 .wrapper-busqueda{
   padding-top: 108px;
+}
+
+.wrapper-host{
+  padding-top: 120px;
 }
 
 .full-height{
@@ -213,6 +239,10 @@ efecto de scrool**/
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.flex{
+  display: flex;
 }
 
 .v-middle{
@@ -247,6 +277,7 @@ efecto de scrool**/
 
 .img-responsive{
   max-width: 100%;
+  height: auto;
 }
 
 /*** Textos**/
@@ -320,7 +351,7 @@ efecto de scrool**/
 
 .form-filtro input,
 .form-busqueda input,
-.form-busqueda button[type="button"]{
+.form-busqueda button{
   padding: 0.8em 1.5em;
   border: 0;
 }
@@ -569,6 +600,69 @@ color: #00b698;
   margin-top: 1em;
   width: 100%;
 }
+
+/***********************
+-----Hospedajes-----
+***********************/
+
+.host-title{
+  text-align: left;
+  flex: 1;
+  margin: 2em 0;
+}
+
+.hero-title .subtitle{
+  font-size: 1.3em;
+}
+
+.host-hero .img-responsive{
+  height: 500px;
+}
+
+.host-reserve{
+  background-color: #fff;
+  border-bottom: 1px solid  #dce0e0;
+  position: fixed;
+  top: 60px;
+  display: flex;
+  align-items: stretch;
+  right: 0;
+  height: 60px;
+  width: 100%;
+}
+
+.host-reserve .nav a:not(:first-of-type){
+  padding-left: 3em;
+}
+
+.host-reserve .col-3{
+  background-color: #00b698;
+}
+
+.host-reserve .col-3 .big{
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.host-reserve .col-3 h2:first-of-type{
+  color: #fff;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.host-reserve .col-3 .caption-reserve{
+  position: absolute;
+  top: 57.78px;
+  height: 500px;
+  width: calc(25% - 1em);
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #dce0e0;
+}
+
+
+
 
 
 

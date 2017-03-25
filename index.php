@@ -26,7 +26,7 @@
         <h2>Huasi</h2>
       </a>
     </div>
-    <div class="main-nav">
+    <div class="nav main-nav">
       <a href="#"><div>Promociona tu hospedaje</div></a>
       <a href="#"><div>Ayuda</div></a>
       <a href="register.php"><div>Regístrate</div></a>
@@ -39,14 +39,12 @@
     <h4 class="hero-subtitle">Visítalo y sabrás por qué</h4>
 
     <!--Forma para buscar-->
-    <form>
+    <form action="busqueda.php" method="POST">
       <div class="form-busqueda">
         <input type="text" class="datePicker"placeholder="Llegada">
         <input type="text" class="datePicker"placeholder="Salida">
         <input type="text" placeholder="Huéspedes">
-        <a href="busqueda.php">
-          <button type="button" name="button" class="btn btn-submit">Buscar</button>
-        </a>
+        <button type="submit" name="button" class="btn btn-submit">Buscar</button>
       </div>
     </form>
   </div>

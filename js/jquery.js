@@ -6,7 +6,7 @@ var $main_nav = $(".main-nav");
 function headerScroll(){
   scrollStarts = $(this).scrollTop();
   //remover la clase change cuando se haya scroleado mas de 20 la pagina.
-  if(scrollStarts > 140){
+  if(scrollStarts > 1){
     $main_header.removeClass('change');
   }else{
     //añadir la clase change cuando el scrool sea mejor a 20.
