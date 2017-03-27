@@ -241,7 +241,7 @@
         <h2 class="subtitle">Usuarios</h2>
         <a href=""><p>Registrate</p></a>
         <a href=""><p>Iniciar Sesión</p></a>
-        <a href=""><p>Convierte en Host</p></a>
+        <a href=""><p>Conviertete en Host</p></a>
       </div>
     </div>
     <div class="foot-section">
