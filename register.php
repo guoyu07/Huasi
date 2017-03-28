@@ -25,7 +25,7 @@
         <h2>Huasi</h2>
       </a>
     </div>
-    <div class="main-nav">
+    <div class="nav main-nav">
       <a href="#"><div>Promociona tu hospedaje</div></a>
       <a href="#"><div>Ayuda</div></a>
       <a href="#"><div>Regístrate</div></a>
@@ -36,23 +36,23 @@
   <!-- Wrapper-->
   <div class="wrapper">
     <div class="all-middle f-colum">
-      <div class="register-section">
+      <div class="jumbotron register-section">
         <form>
           <div class="form">
             <h2 class="subtitle">Unete a Huasi:</h2>
             <label for="user-mail">Dirección de correo electrónico:</label>
-            <input type="mail" name="user-mail">
+            <input type="mail" name="user-mail" placeholder="huasi@huasi.com">
             <label for="user-name">Nombre:</label>
-            <input type="text" name="user-name">
+            <input type="text" name="user-name" placeholder="Mark">
             <label for="user-lastName">Apellidos:</label>
-            <input type="text" name="user-lastName">
+            <input type="text" name="user-lastName" placeholder="Huasi">
             <label for="user-password">Constraseña:</label>
-            <input type="password" name="user-password" placeholder="minimo 6 caracteres">
+            <input type="password" name="user-password" placeholder="mínimo 6 caracteres">
             <label for="user-password">Verificar Contraseña:</label>
             <input type="password" name="user-password">
             <div>
               <input type="checkbox">
-              <span>Aceptas los <a href="#">Terminos</a> y las <a href="#">Condiciones</a></span>
+              <span>Acepto los <a href="#">Terminos</a> y las <a href="#">Condiciones</a></span>
             </div>
             <button type="submit" class="btn btn-submit"id="register-button">Resgistrate</button>
             <a href="login.php">

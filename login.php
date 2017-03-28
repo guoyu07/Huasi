@@ -25,7 +25,7 @@
           <h2>Huasi</h2>
         </a>
       </div>
-      <div class="main-nav">
+      <div class="nav main-nav">
         <a href="#"><div>Promociona tu hospedaje</div></a>
         <a href="#"><div>Ayuda</div></a>
         <a href="register.php"><div>Regístrate</div></a>
@@ -36,7 +36,7 @@
     <!-- Wrapper-->
     <div class="wrapper">
       <div class="all-middle f-colum">
-        <div class="login-section">
+        <div class="jumbotron login-section">
           <form>
             <div class="form">
               <h2 class="subtitle">Bienvenido otra vez</h2>

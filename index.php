@@ -19,14 +19,14 @@
 <body>
 
   <!--Menu de navegación-->
-  <div class="main-header">
+  <div class="main-header drop-shadow">
     <div class="header-logo">
       <a href="../">
         <?php echo file_get_contents("img/logo.svg");?>
         <h2>Huasi</h2>
       </a>
     </div>
-    <div class="main-nav">
+    <div class="nav main-nav">
       <a href="#"><div>Promociona tu hospedaje</div></a>
       <a href="#"><div>Ayuda</div></a>
       <a href="register.php"><div>Regístrate</div></a>
@@ -39,11 +39,11 @@
     <h4 class="hero-subtitle">Visítalo y sabrás por qué</h4>
 
     <!--Forma para buscar-->
-    <form>
+    <form action="busqueda.php" method="POST">
       <div class="form-busqueda">
         <input type="text" class="datePicker"placeholder="Llegada">
         <input type="text" class="datePicker"placeholder="Salida">
-        <input type="text" placeholder="Personas">
+        <input type="text" placeholder="Huéspedes">
         <button type="submit" name="button" class="btn btn-submit">Buscar</button>
       </div>
     </form>
@@ -55,28 +55,28 @@
     <div class="vp-show">
       <h2 class="subtitle">Recomendaciones</h2>
       <div class="slide-show">
-        <a href="#" class="col-3">
+        <a href="hospedaje.php" class="col-3">
           <div class="vp-host">
             <div id="vp-1"></div>
             <p>Ejemplo Habitación</p>
             <p>$70</p>
           </div>
         </a>
-        <a href="#" class="col-3">
+        <a href="hospedaje.php" class="col-3">
           <div class="vp-host">
             <div id="vp-2"></div>
             <p>Ejemplo Habitación</p>
             <p>$70</p>
           </div>
         </a>
-        <a href="#" class="col-3">
+        <a href="hospedaje.php" class="col-3">
           <div class="vp-host">
             <div id="vp-3"></div>
             <p>Ejemplo Habitación</p>
             <p>$70</p>
           </div>
         </a>
-        <a href="#" class="col-3">
+        <a href="hospedaje.php" class="col-3">
           <div class="vp-host">
             <div id="vp-4"></div>
             <p>Ejemplo Habitación</p>
