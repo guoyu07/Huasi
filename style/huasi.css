@@ -28,6 +28,7 @@ a{
   color: #2e3033;
 }
 
+
 /***********************
 ------Main-Header-------
 ***********************/
@@ -208,11 +209,13 @@ efecto de scrool**/
 
 .wrapper,
 .wrapper-busqueda,
-.wrapper-host{
+.wrapper-host,
+.wrapper-usuario{
   min-height: 100vh;
 }
 
-.wrapper{
+.wrapper,
+.wrapper-usuario{
   padding-top:60px;
 }
 
@@ -746,7 +749,7 @@ margin-top: 5px;
   display: flex;
   align-items: stretch;
   right: 0;
-  height: 60px;
+  height: 50px;
   width: 100%;
 }
 
@@ -774,7 +777,6 @@ margin-top: 5px;
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
-  top: 57.78px;
   width: calc(25% - 1em);
   margin: 0;
   padding: 0;
@@ -783,7 +785,18 @@ margin-top: 5px;
 }
 
 
+/***********************
+-----Perfil-usuario-----
+***********************/
 
+.wrapper-usuario{
+  width: 80%;
+  margin: auto;
+}
+
+.wrapper-usuario img{
+  width: 240px;
+}
 
 
 

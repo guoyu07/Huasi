@@ -42,7 +42,7 @@
     <div class="col-3 all-middle">
       <h2><span class="big">$109.99</span> por Noche</h2>
       <div class="caption-reserve">
-        <form class="form form-reserva" action="index.html" method="post">
+        <form class="form form-reserva" action="reservar.php" method="post">
           <div class="all-middle f-colum">
             <div class="flex f-row">
               <div class="flex f-colum">
@@ -111,7 +111,7 @@
               <div class="flex f-row">
                 <img src="img/user/user-1.jpg" alt="">
                 <div class="coment-user">
-                  <h2 class="subtitle">Pedro Picapiedra</h2>
+                  <h2 class="subtitle"><a href="usuario.php">Pedro Picapiedra</a></h2>
                   <p>Marzo de 2017</p>
                 </div>
               </div>
