@@ -58,7 +58,7 @@
         <a href="hospedaje.php" class="col-3">
           <div class="vp-host">
             <div id="vp-1"></div>
-            <p>Ejemplo Habitación</p>
+            <p>Ejemplo Habitación 1</p>
             <p>$70</p>
           </div>
         </a>
