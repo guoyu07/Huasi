@@ -1033,20 +1033,16 @@ background-image: url("../img/fondo.jpg");
 .wrapper-ayuda form{
   margin-top: 2em;
   padding: 0;
-  background-color: #39aa94;
 }
 
-.wrapper-ayuda .col-12:first-of-type{
-  background-color: #39aa94;
+.wrapper-ayuda .col-4:first-of-type{
+  height: 450px;
+  margin-left: 1em;
   order: 2;
 }
 
-.wrapper-ayuda .col-12:first-of-type h2{
-  color: #fff;
-}
 
 .wrapper-ayuda .form button{
-  width: 15%;
   padding: 0.5em;
   border-radius: 5px;
   align-self: flex-end;

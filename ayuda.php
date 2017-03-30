@@ -28,21 +28,22 @@
     <div class="nav main-nav">
       <a href="#"><div>Promociona tu hospedaje</div></a>
       <a href="#"><div>Ayuda</div></a>
-      <a href="login.php"><div>Pablo Piedra</div></a>
+      <a href="register.php"><div>Regístrate</div></a>
+      <a href="login.php"><div>Iniciar Sesión</div></a>
     </div>
   </div>
 
   <!-- Wrapper-->
   <div class="wrapper-ayuda">
-    <div class="flex f-colum container">
-      <div class="col-12 card-container">
+    <div class="flex f-row container">
+      <div class="col-4 card-container">
         <h2 class="subtitle">Comparte tus dudas con nosotros</h2>
         <form class="form">
-          <textarea placeholder="Queremos ayudarte:" rows="5" class="card-container"></textarea>
-          <button type="subtmi" name="button" class="btn btn-submit-white card-container">Enviar</button>
+          <textarea placeholder="Queremos ayudarte:" rows="10" class="card-container"></textarea>
+          <button type="subtmi" name="button" class="btn btn-submit">Enviar</button>
         </form>
       </div>
-      <div class="col-12 card-container">
+      <div class="col-8 card-container">
         <h2 class="title">Preguntas Frecuentes:</h2>
         <div class=" b-border margin-bottom"></div>
         <div class="preguntas">
