@@ -36,7 +36,7 @@
 
   <div class="jumbotron full-height all-middle f-colum" id="top-hero">
     <h2 class="hero-title">Quito es mucho más que una luz</h2>
-    <h4 class="hero-subtitle">Visítalo y sabrás por qué</h4>
+    <h4 class="hero-subtitle">Visítalo y conocerás por qué</h4>
 
     <!--Forma para buscar-->
     <form action="busqueda.php" method="POST">
