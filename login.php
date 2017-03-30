@@ -44,6 +44,10 @@
               <input type="mail" name="user-mail">
               <label for="user-password">Constraseña:</label>
               <input type="password" name="user-password">
+              <div>
+                <input type="checkbox">
+                <span>Recordarme</span>
+              </div>
               <a href="#" class="imp-link">¿Has olvidado tu contraseña?</a>
               <button type="submit" class="btn btn-submit"id="register-button">Iniciar Sesion</button>
               <a href="register.php">

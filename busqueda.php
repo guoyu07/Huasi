@@ -48,56 +48,56 @@
       <h2 class="caption-text">200 resultados</h2>
       <div class="host-show container">
         <div class="slide-show">
-          <a href="hospedaje.php" class="col-3">
+          <a href="hospedaje.php" class="col-3 card-container">
             <div class="host">
               <div id="vp-1"></div>
               <p>Ejemplo Habitación</p>
               <p>$70</p>
             </div>
           </a>
-          <a href="hospedaje.php" class="col-3">
+          <a href="hospedaje.php" class="col-3 card-container">
             <div class="host">
               <div id="vp-2"></div>
               <p>Ejemplo Habitación</p>
               <p>$70</p>
             </div>
           </a>
-          <a href="hospedaje.php" class="col-3">
+          <a href="hospedaje.php" class="col-3 card-container">
             <div class="host">
               <div id="vp-3"></div>
               <p>Ejemplo Habitación</p>
               <p>$70</p>
             </div>
           </a>
-          <a href="hospedaje.php" class="col-3">
+          <a href="hospedaje.php" class="col-3 card-container">
             <div class="host">
               <div id="vp-4"></div>
               <p>Ejemplo Habitación</p>
               <p>$70</p>
             </div>
           </a>
-          <a href="hospedaje.php" class="col-3">
+          <a href="hospedaje.php" class="col-3 card-container">
             <div class="host">
               <div id="vp-1"></div>
               <p>Ejemplo Habitación</p>
               <p>$70</p>
             </div>
           </a>
-          <a href="hospedaje.php" class="col-3">
+          <a href="hospedaje.php" class="col-3 card-container">
             <div class="host">
               <div id="vp-2"></div>
               <p>Ejemplo Habitación</p>
               <p>$70</p>
             </div>
           </a>
-          <a href="hospedaje.php" class="col-3">
+          <a href="hospedaje.php" class="col-3 card-container">
             <div class="host">
               <div id="vp-3"></div>
               <p>Ejemplo Habitación</p>
               <p>$70</p>
             </div>
           </a>
-          <a href="hospedaje.php" class="col-3">
+          <a href="hospedaje.php" class="col-3 card-container">
             <div class="host">
               <div id="vp-4"></div>
               <p>Ejemplo Habitación</p>

@@ -5,6 +5,7 @@ $(document).ready(function() {
   var $hostReserve = $(".host-reserve");
   var $navHostReserve = $(".host-reserve > .nav");
   var $captionReserve = $(".caption-reserve");
+  var $mainHeaderBottom;
   var $lastComentOffset;
   var $navHostReserveOffset;
   var $navHostReserveHeight;
@@ -14,11 +15,12 @@ $(document).ready(function() {
   var $captionReserveBottom;
 
   function updateVariables(){
+    $mainHeaderBottom = $mainHeader.offset().top + $mainHeader.outerHeight();
     $navHostReserveOffset = $navHostReserve.offset().top;
-    $navHostReserveHeight = $navHostReserve.height();
+    $navHostReserveHeight = $navHostReserve.outerHeight();
     $navHostReserveBottom = $navHostReserveHeight + $navHostReserveOffset;
     $captionReserveOffset = $captionReserve.offset().top;
-    $captionReserveHeight = $captionReserve.height();
+    $captionReserveHeight = $captionReserve.outerHeight();
     $captionReserveBottom = $captionReserveOffset + $captionReserveHeight;
     $lastComentOffset = $("#evaluaciones > .host-coment:last-of-type").offset().top;
 
@@ -28,15 +30,17 @@ $(document).ready(function() {
 
 
     scrollStarts = $(this).scrollTop();
-    console.log("nav h: " + $navHostReserveBottom);
-    console.log("capt: " + $captionReserveOffset);
+    //console.log("nav h: " + $navHostReserveBottom);
+    //console.log("capt: " + $captionReserveOffset);
+    console.log($mainHeaderBottom);
+    console.log(scrollStarts);
 
     $mainHeader.css('position', 'absolute');
     $hostReserve.css('position', 'absolute');
-    $captionReserve.css('top', $navHostReserveHeight);
 
 
-    if(scrollStarts > $hostReserve.offset().top){
+
+    if(scrollStarts > $mainHeaderBottom){
       $hostReserve.css({'position':'fixed','top' : 0});
     }else{
       //añadir la clase change cuando el scrool sea mejor a 20.
@@ -47,17 +51,21 @@ $(document).ready(function() {
 
   function captionScroll(){
     scrollStarts = $(this).scrollTop();
-    console.log("nav h: " + $navHostReserveBottom);
-    console.log("capt: " + $captionReserveOffset);
+    //console.log("nav h: " + $navHostReserveBottom);
+    //console.log("capt: " + $captionReserveOffset);
+    //console.log("comentn: " + $lastComentOffset);
 
     if(scrollStarts >= $lastComentOffset - 300){
-      $captionReserve.css({'position':'absolute', 'top': $lastComentOffset});
+      $captionReserve.slideUp(200);
+    }else{
+      $captionReserve.css('top', $navHostReserveHeight);
+      $captionReserve.slideDown();
     }
   }
 
   function coolScroll(target, speed){
     $('html, body').animate({
-      scrollTop: target.offset().top - $hostReserve.height()
+      scrollTop: target.offset().top - $hostReserve.outerHeight()
     }, speed);
   }
 

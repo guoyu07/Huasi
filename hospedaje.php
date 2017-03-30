@@ -29,7 +29,7 @@
       <a href="#"><div>Promociona tu hospedaje</div></a>
       <a href="#"><div>Ayuda</div></a>
       <a href="register.php"><div>Regístrate</div></a>
-      <a href="#"><div>Iniciar Sesión</div></a>
+      <a href="login.php"><div>Iniciar Sesión</div></a>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
     <div class="col-3 all-middle">
       <h2><span class="big">$109.99</span> por Noche</h2>
       <div class="caption-reserve">
-        <form class="form form-reserva" action="index.html" method="post">
+        <form class="form form-reserva" action="reservar.php" method="post">
           <div class="all-middle f-colum">
             <div class="flex f-row">
               <div class="flex f-colum">
@@ -70,37 +70,39 @@
   <div class="wrapper-host">
     <div class="flex f-colum container">
       <div class="host-title col-12">
-        <h2 class="subtitle">Hospedaje de Ejemplo</h2>
+        <h2 class="sec-title">Hospedaje de Ejemplo</h2>
       </div>
       <div class="flex f-colum">
         <div class="host-info col-8">
           <img src="img/vp/vp-8.jpg" alt="host" class="img-responsive">
           <div id="descripcion">
             <div class=" b-border margin-bottom"></div>
-            <h2 class="subtitle">Información</h2>
-            <p class="margin-bottom">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget lectus at, luctus vulputate dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla id cursus enim, id gravida leo. Nulla urna elit, porttitor ac pulvinar ut, scelerisque ac libero. Nullam eu rhoncus diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget lectus at, luctus vulputate dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla id cursus enim, id gravida leo. Nulla urna elit, porttitor ac pulvinar ut, scelerisque ac libero. Nullam eu rhoncus diam.
-            </p>
-            <div class="perks">
-              <h2 class="subtitle">Incluye</h2>
-              <ul>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-                <li>Ejemplo</li>
-              </ul>
+            <h2 class="sec-title">Información</h2>
+            <div class="card-container">
+              <p class="margin-bottom">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget lectus at, luctus vulputate dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla id cursus enim, id gravida leo. Nulla urna elit, porttitor ac pulvinar ut, scelerisque ac libero. Nullam eu rhoncus diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget lectus at, luctus vulputate dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla id cursus enim, id gravida leo. Nulla urna elit, porttitor ac pulvinar ut, scelerisque ac libero. Nullam eu rhoncus diam.
+              </p>
+              <div class="perks">
+                <h2 class="subtitle">Incluye</h2>
+                <ul>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                  <li>Ejemplo</li>
+                </ul>
+              </div>
             </div>
           </div>
           <div id="evaluaciones">
             <div class=" b-border margin-bottom"></div>
             <div class="flex">
-              <h2 class="subtitle">10 Evaluaciones</h2>
+              <h2 class="sec-title">10 Evaluaciones</h2>
               <span><img src="img/svg/icons/star.svg" alt=""></span>
               <span><img src="img/svg/icons/star.svg" alt=""></span>
               <span><img src="img/svg/icons/star.svg" alt=""></span>
@@ -111,7 +113,7 @@
               <div class="flex f-row">
                 <img src="img/user/user-1.jpg" alt="">
                 <div class="coment-user">
-                  <h2 class="subtitle">Pedro Picapiedra</h2>
+                  <h2 class="subtitle"><a href="usuario.php">Pedro Picapiedra</a></h2>
                   <p>Marzo de 2017</p>
                 </div>
               </div>
@@ -150,43 +152,49 @@
           </div>
           <div id="ubicacion">
             <div class=" b-border margin-bottom"></div>
-            <h2 class="subtitle">Ubicación</h2>
-            <p>Av.Regresando al futuro 0e-212 y Rocafeller St</p>
+            <h2 class="sec-title">Ubicación</h2>
+            <div class="card-container">
+              <p>Av.Regresando al futuro 0e-212 y Rocafeller St</p>
+            </div>
           </div>
         </div>
 
         <div class="related-hosts all-middle f-colum">
-          <h2 class="subtitle">Hospedajes Similares</h2>
-          <div class="slide-show">
-            <a href="hospedaje.php" class="col-3">
-              <div class="host">
-                <div id="vp-1"></div>
-                <p>Ejemplo Habitación</p>
-                <p>$70</p>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-3">
-              <div class="host">
-                <div id="vp-2"></div>
-                <p>Ejemplo Habitación</p>
-                <p>$70</p>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-3">
-              <div class="host">
-                <div id="vp-3"></div>
-                <p>Ejemplo Habitación</p>
-                <p>$70</p>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-3">
-              <div class="host">
-                <div id="vp-4"></div>
-                <p>Ejemplo Habitación</p>
-                <p>$70</p>
-              </div>
-            </a>
+          <h2 class="sec-title">Hospedajes Similares</h2>
+          <div class="card-container col-12">
+            <div class="slide-show">
+
+              <a href="hospedaje.php" class="col-3">
+                <div class="host">
+                  <div id="vp-2"></div>
+                  <p>Ejemplo Habitación</p>
+                  <p>$70</p>
+                </div>
+              </a>
+              <a href="hospedaje.php" class="col-3">
+                <div class="host">
+                  <div id="vp-3"></div>
+                  <p>Ejemplo Habitación</p>
+                  <p>$70</p>
+                </div>
+              </a>
+              <a href="hospedaje.php" class="col-3">
+                <div class="host">
+                  <div id="vp-4"></div>
+                  <p>Ejemplo Habitación</p>
+                  <p>$70</p>
+                </div>
+              </a>
+              <a href="hospedaje.php" class="col-3">
+                <div class="host">
+                  <div id="vp-4"></div>
+                  <p>Ejemplo Habitación</p>
+                  <p>$70</p>
+                </div>
+              </a>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
