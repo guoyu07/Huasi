@@ -574,6 +574,20 @@ color: #00b698;
   background-color: #00b698;
   height: 105vh;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+  background-image: url("../img/registro.jpg");
+}
+
+.login-section2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 3em;
+  padding: 4em 2em;
+  background-color: #00b698;
+  height: 105vh;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
   background-image: url("../img/fondo.jpg");
 }
 
