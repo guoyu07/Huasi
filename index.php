@@ -250,7 +250,7 @@
         <h2 class="subtitle">Huasi</h2>
       </div>
       <div>
-        <a href="#"><p>Terminos y Privacidad</p></a>
+        <a href="#"><p>Términos y Privacidad</p></a>
         <a href="#">
           <?php echo file_get_contents("img/svg/facebook.svg");?>
         </a>
