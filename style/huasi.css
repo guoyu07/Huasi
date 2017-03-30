@@ -438,6 +438,15 @@ input:focus {
   border: 2px solid #39aa94;
 }
 
+.verify{
+  background-color: #70E593;
+  background-color:  #39aa94;
+  padding: 1em;
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+}
+
 /***********************
 -------Slide-Show-------
 ***********************/
@@ -887,6 +896,27 @@ margin-top: 5px;
   height: 400px;
 }
 
+.wrapper-usuario .col-4 p{
+  margin-left: 2em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+
+.wrapper-usuario .col-4 p::before{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  content: url(../img/svg/icons/check.svg);
+  margin-right: 1em;
+  vertical-align: middle;
+
+}
+
+.wrapper-usuario .col-4 p:first-of-type{
+  margin-top: 3em;
+}
+
 .user-profile-info{
   padding: 2em 2em;
   display: flex;
@@ -911,6 +941,16 @@ margin-top: 5px;
 .user-profile-info p:last-of-type{
   margin-top: 0.3em;
 }
+
+.user-whishlist{
+  padding: 2em;
+}
+
+.user-whishlist .sec-title{
+  margin-bottom: 1em;
+}
+
+
 
 
 

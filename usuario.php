@@ -44,12 +44,20 @@
             <p>Miembro desde Agosto 2016</p>
           </div>
         </div>
-        <div class="user-travels card-container full-height">
-
+        <div class="user-whishlist card-container">
+          <h2 class="sec-title">WishList</h2>
+          <div class=" b-border margin-bottom"></div>
+          <div class="wishlist">
+            
+          </div>
         </div>
       </div>
-      <div class="col-4 card-container">
-
+      <div class="col-4 card-container flex f-colum">
+        <div class="verify">Información Verificada</div>
+        <p>Tarjeta de credito</p>
+        <p>Documento de identificación</p>
+        <p>Dirección de correo electronico</p>
+        <p>Número de telefono</p>
       </div>
     </div>
   </div>
