@@ -48,9 +48,22 @@
           <h2 class="sec-title">WishList</h2>
           <div class=" b-border margin-bottom"></div>
           <div class="wishlist">
-            <a href="hospedaje.php">
-              <div>
-
+            <a href="hospedaje.php" class="col-6">
+              <div id="vp-1">
+                <h2 class="sec-title">Habitación Ejemplo</h2>
+                <h2 class="subtitle">$70</h2>
+              </div>
+            </a>
+            <a href="hospedaje.php" class="col-6">
+              <div id="vp-1">
+                <h2 class="sec-title">Habitación Ejemplo</h2>
+                <h2 class="subtitle">$70</h2>
+              </div>
+            </a>
+            <a href="hospedaje.php" class="col-6">
+              <div id="vp-1">
+                <h2 class="sec-title">Habitación Ejemplo</h2>
+                <h2 class="subtitle">$70</h2>
               </div>
             </a>
           </div>
