@@ -37,7 +37,7 @@
     <div class="flex f-row container">
       <div class="col-8">
         <div class="user-profile-info card-container">
-          <img src="img/user/user-1.jpg" alt="" class="img-responsive">
+          <img src="img/user/user-2.jpg" alt="" class="img-responsive">
           <div class="flex f-colum">
             <h2 class="sec-title">Pablo Piedra</h2>
             <p>Quito, Ecuador</p>
@@ -55,13 +55,13 @@
               </div>
             </a>
             <a href="hospedaje.php" class="col-6">
-              <div id="vp-1">
+              <div id="vp-2">
                 <h2 class="sec-title">Habitación Ejemplo</h2>
                 <h2 class="subtitle">$70</h2>
               </div>
             </a>
             <a href="hospedaje.php" class="col-6">
-              <div id="vp-1">
+              <div id="vp-3">
                 <h2 class="sec-title">Habitación Ejemplo</h2>
                 <h2 class="subtitle">$70</h2>
               </div>

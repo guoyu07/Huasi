@@ -210,14 +210,16 @@ efecto de scrool**/
 .wrapper,
 .wrapper-busqueda,
 .wrapper-host,
-.wrapper-usuario{
+.wrapper-usuario,
+.wrapper-prom{
   min-height: 100vh;
   padding-bottom: 4em;
 }
 
 .wrapper,
 .wrapper-usuario,
-.wrapper-logsig{
+.wrapper-logsig,
+.wrapper-prom{
   padding-top:60px;
 }
 

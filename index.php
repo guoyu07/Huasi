@@ -27,7 +27,7 @@
       </a>
     </div>
     <div class="nav main-nav">
-      <a href="#"><div>Promociona tu hospedaje</div></a>
+      <a href="promHospedaje.php"><div>Promociona tu hospedaje</div></a>
       <a href="#"><div>Ayuda</div></a>
       <a href="register.php"><div>Regístrate</div></a>
       <a href="login.php"><div>Iniciar Sesión</div></a>
@@ -54,7 +54,7 @@
     <div class="all-middle f-colum container">
 
       <div class="vp-show">
-        <h2 class="subtitle">Recomendaciones</h2>
+        <h2 class="sec-title">Recomendaciones</h2>
         <div class="slide-show">
           <a href="hospedaje.php" class="col-3 card-container">
             <div class="vp-host">
@@ -87,7 +87,7 @@
         </div>
       </div>
       <div class="deal-show">
-        <h2 class="subtitle">Habitaciones de Oferta</h2>
+        <h2 class="sec-title">Habitaciones de Oferta</h2>
         <div class="slide-show f-row">
           <a href="#" class="col-3">
             <div class="deal-host">
