@@ -208,6 +208,7 @@ efecto de scrool**/
 }
 
 .wrapper,
+.wrapper-res,
 .wrapper-busqueda,
 .wrapper-host,
 .wrapper-usuario,
@@ -221,7 +222,8 @@ efecto de scrool**/
 .wrapper-usuario,
 .wrapper-logsig,
 .wrapper-prom,
-.wrapper-ayuda{
+.wrapper-ayuda,
+.wrapper-res{
   padding-top:60px;
 }
 
@@ -1047,6 +1049,35 @@ background-image: url("../img/fondo.jpg");
   border-radius: 5px;
   align-self: flex-end;
 }
+
+/***********************
+---------Reserva--------
+***********************/
+
+.wrapper-res .container{
+  padding-top: 3em;
+}
+
+.wrapper-res .card-container{
+  padding: 2em;
+}
+
+.wrapper-res .card-container img{
+  height: 300px;
+}
+
+.wrapper-res .reserva-info{
+  margin-left: 2em;
+}
+
+.wrapper-res .btn-submit{
+  border-radius: 5px;
+}
+
+.wrapper-res .btn-submit:last-of-type{
+  margin-left: 1em;
+}
+
 
 
 
