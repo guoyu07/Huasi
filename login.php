@@ -34,9 +34,9 @@
     </div>
 
     <!-- Wrapper-->
-    <div class="wrapper">
+    <div class="wrapper-logsig">
       <div class="all-middle f-colum">
-        <div class="jumbotron login-section2">
+        <div class="jumbotron login-section">
           <form>
             <div class="form">
               <h2 class="subtitle">Bienvenido otra vez</h2>

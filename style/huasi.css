@@ -210,13 +210,15 @@ efecto de scrool**/
 .wrapper,
 .wrapper-busqueda,
 .wrapper-host,
-.wrapper-usuario{
+.wrapper-usuario
+.wrapper-logsig{
   min-height: 100vh;
   padding-bottom: 4em;
 }
 
 .wrapper,
-.wrapper-usuario{
+.wrapper-usuario,
+.wrapper-logsig{
   padding-top:60px;
 }
 
@@ -612,15 +614,13 @@ color: #00b698;
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 3em;
   padding: 4em 2em;
   background-color: #00b698;
-  height: 105vh;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
   background-image: url("../img/panecillo.jpg");
 }
 
-.login-section2{
+/*.login-section2{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -632,7 +632,7 @@ color: #00b698;
   height: 105vh;
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
   background-image: url("../img/fondo.jpg");
-}
+}*/
 
 .register-section form,
 .login-section form{
@@ -647,7 +647,7 @@ color: #00b698;
   display: flex;
   flex-direction: column;
   padding: 3em 2em;
-  background-color: rgba(255,255,255,0.8);
+  background-color: #fff;
 }
 
 .form h2{

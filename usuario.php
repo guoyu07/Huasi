@@ -48,7 +48,11 @@
           <h2 class="sec-title">WishList</h2>
           <div class=" b-border margin-bottom"></div>
           <div class="wishlist">
-            
+            <a href="hospedaje.php">
+              <div>
+
+              </div>
+            </a>
           </div>
         </div>
       </div>

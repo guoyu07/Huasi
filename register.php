@@ -34,7 +34,7 @@
   </div>
 
   <!-- Wrapper-->
-  <div class="wrapper">
+  <div class="wrapper-logsig">
     <div class="all-middle f-colum">
       <div class="jumbotron register-section">
         <form>
