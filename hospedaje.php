@@ -74,7 +74,7 @@
       </div>
       <div class="flex f-colum">
         <div class="host-info col-8">
-          <img src="img/vp/vp-1.jpeg" alt="host" class="img-responsive">
+          <img src="img/vp/vp-8.jpg" alt="host" class="img-responsive">
           <div id="descripcion">
             <div class=" b-border margin-bottom"></div>
             <h2 class="subtitle">Información</h2>
