@@ -440,6 +440,11 @@ input:focus {
   background-color:  #fff;
 }
 
+.btn-submit-important{
+  color: #fff;
+  background-color: #f26f62;
+}
+
 .btn-submit:hover{
   background-color: #41C1A8;
 }
@@ -1070,11 +1075,11 @@ background-image: url("../img/fondo.jpg");
   margin-left: 2em;
 }
 
-.wrapper-res .btn-submit{
+.wrapper-res .btn{
   border-radius: 5px;
 }
 
-.wrapper-res .btn-submit:last-of-type{
+.wrapper-res .btn-submit-important:last-of-type{
   margin-left: 1em;
 }
 

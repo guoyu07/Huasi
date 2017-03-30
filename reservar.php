@@ -60,7 +60,7 @@
             </div>
             <div class="flex f-row">
               <button type="submit" class="btn btn-submit">Reservar</button>
-              <button type="submit" class="btn btn-submit">Pagar</button>
+              <button type="submit" class="btn btn-submit-important">Pagar</button>
             </div>
           </form>
         </div>
