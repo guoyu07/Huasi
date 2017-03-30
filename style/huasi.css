@@ -211,7 +211,8 @@ efecto de scrool**/
 .wrapper-busqueda,
 .wrapper-host,
 .wrapper-usuario,
-.wrapper-prom{
+.wrapper-prom,
+.wrapper-ayuda{
   min-height: 100vh;
   padding-bottom: 4em;
 }
@@ -219,7 +220,8 @@ efecto de scrool**/
 .wrapper,
 .wrapper-usuario,
 .wrapper-logsig,
-.wrapper-prom{
+.wrapper-prom,
+.wrapper-ayuda{
   padding-top:60px;
 }
 
@@ -430,6 +432,10 @@ input:focus {
 .btn-submit{
   color: #fff;
   background-color:  #39aa94;
+}
+
+.btn-submit-white{
+  background-color:  #fff;
 }
 
 .btn-submit:hover{
@@ -655,7 +661,8 @@ background-image: url("../img/fondo.jpg");
   margin-bottom: 1.5em;
 }
 
-.form input{
+.form input,
+.form textarea{
   outline: 0;
   border: 0;
   border: 1px solid  #dce0e0;
@@ -664,7 +671,8 @@ background-image: url("../img/fondo.jpg");
 
 }
 
-.form input{
+.form input,
+.form textarea{
   margin: 0.5em 0;
 }
 
@@ -992,6 +1000,56 @@ background-image: url("../img/fondo.jpg");
 
 .user-whishlist .wishlist a:hover div:first-of-type{
   border: 1px solid;
+}
+
+
+
+/***********************
+----------Ayuda--------
+***********************/
+
+
+.wrapper-ayuda{
+  padding-top: 5em;
+}
+
+.wrapper-ayuda .title{
+  font-size: 1.4em;
+}
+
+.wrapper-ayuda .title:first-of-type{
+  margin-bottom: 0.5em;
+}
+
+.wrapper-ayuda .preguntas{
+  padding-top: 1em;
+}
+
+.wrapper-ayuda .preguntas p{
+  max-width: 70%;
+  margin-bottom: 2em;
+}
+
+.wrapper-ayuda form{
+  margin-top: 2em;
+  padding: 0;
+  background-color: #39aa94;
+}
+
+.wrapper-ayuda .col-12:first-of-type{
+  background-color: #39aa94;
+  order: 2;
+}
+
+.wrapper-ayuda .col-12:first-of-type h2{
+  color: #fff;
+}
+
+.wrapper-ayuda .form button{
+  width: 15%;
+  padding: 0.5em;
+  border-radius: 5px;
+  align-self: flex-end;
 }
 
 

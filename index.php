@@ -28,7 +28,7 @@
     </div>
     <div class="nav main-nav">
       <a href="promHospedaje.php"><div>Promociona tu hospedaje</div></a>
-      <a href="#"><div>Ayuda</div></a>
+      <a href="ayuda.php"><div>Ayuda</div></a>
       <a href="register.php"><div>Regístrate</div></a>
       <a href="login.php"><div>Iniciar Sesión</div></a>
     </div>
