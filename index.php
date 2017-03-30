@@ -50,176 +50,179 @@
   </div>
 
   <!-- Wrappewr-->
-  <div class="all-middle f-colum container">
+  <div class="wrapper">
+    <div class="all-middle f-colum container">
 
-    <div class="vp-show">
-      <h2 class="subtitle">Recomendaciones</h2>
-      <div class="slide-show">
-        <a href="hospedaje.php" class="col-3">
-          <div class="vp-host">
-            <div id="vp-1"></div>
-            <p>Ejemplo Habitación 1</p>
-            <p>$70</p>
-          </div>
-        </a>
-        <a href="hospedaje.php" class="col-3">
-          <div class="vp-host">
-            <div id="vp-2"></div>
-            <p>Ejemplo Habitación</p>
-            <p>$70</p>
-          </div>
-        </a>
-        <a href="hospedaje.php" class="col-3">
-          <div class="vp-host">
-            <div id="vp-3"></div>
-            <p>Ejemplo Habitación</p>
-            <p>$70</p>
-          </div>
-        </a>
-        <a href="hospedaje.php" class="col-3">
-          <div class="vp-host">
-            <div id="vp-4"></div>
-            <p>Ejemplo Habitación</p>
-            <p>$70</p>
-          </div>
-        </a>
+      <div class="vp-show">
+        <h2 class="subtitle">Recomendaciones</h2>
+        <div class="slide-show">
+          <a href="hospedaje.php" class="col-3 card-container">
+            <div class="vp-host">
+              <div id="vp-1"></div>
+              <p>Ejemplo Habitación 1</p>
+              <p>$70</p>
+            </div>
+          </a>
+          <a href="hospedaje.php" class="col-3 card-container">
+            <div class="vp-host">
+              <div id="vp-2"></div>
+              <p>Ejemplo Habitación</p>
+              <p>$70</p>
+            </div>
+          </a>
+          <a href="hospedaje.php" class="col-3 card-container">
+            <div class="vp-host">
+              <div id="vp-3"></div>
+              <p>Ejemplo Habitación</p>
+              <p>$70</p>
+            </div>
+          </a>
+          <a href="hospedaje.php" class="col-3 card-container">
+            <div class="vp-host">
+              <div id="vp-4"></div>
+              <p>Ejemplo Habitación</p>
+              <p>$70</p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="deal-show">
-      <h2 class="subtitle">Habitaciones de Oferta</h2>
-      <div class="slide-show f-row">
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+      <div class="deal-show">
+        <h2 class="subtitle">Habitaciones de Oferta</h2>
+        <div class="slide-show f-row">
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+          </a>
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+          </a>
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+          </a>
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+          </a>
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/doubleRoom.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+          </a>
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/doubleRoom.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+          </a>
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+          </a>
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-        <a href="#" class="col-3">
-          <div class="deal-host">
-            <div>
-              <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
-            </div>
-            <div class="margin-left">
-              <p>Ejemplo Habitación</p>
-              <div class="v-middle">
-                <p class="middle-line">$70.30</p>
-                <p>$55.30</p>
+          </a>
+          <a href="#" class="col-3">
+            <div class="deal-host">
+              <div>
+                <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
+              </div>
+              <div class="margin-left">
+                <p>Ejemplo Habitación</p>
+                <div class="v-middle">
+                  <p class="middle-line">$70.30</p>
+                  <p>$55.30</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="">
+      <div class="">
 
+      </div>
     </div>
   </div>
+
 
   <!--Main Footer-->
   <div class="main-footer">
