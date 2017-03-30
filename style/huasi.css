@@ -1026,7 +1026,7 @@ background-image: url("../img/fondo.jpg");
 }
 
 .wrapper-ayuda .preguntas p{
-  max-width: 70%;
+  max-width: 100%;
   margin-bottom: 2em;
 }
 
