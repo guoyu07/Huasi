@@ -20,7 +20,7 @@
     <!--Menu de navegación-->
     <div class="main-header">
       <div class="header-logo">
-        <a href="../">
+        <a href="index.php">
           <?php echo file_get_contents("img/logo.svg");?>
           <h2>Huasi</h2>
         </a>
@@ -35,8 +35,8 @@
 
     <div class="form-filtro">
       <form>
-        <input type="text" class="datePicker"placeholder="Llegada">
-        <input type="text" class="datePicker"placeholder="Salida">
+        <input type="text" class="datePicker" placeholder="Llegada">
+        <input type="text" class="datePicker" placeholder="Salida">
         <input type="text" placeholder="Huéspedes : 1">
         <input type="text" placeholder="Precios">
         <input type="text" placeholder="Categoria">

@@ -21,7 +21,7 @@
   <!--Menu de navegación-->
   <div class="main-header drop-shadow">
     <div class="header-logo">
-      <a href="../">
+      <a href="index.php">
         <?php echo file_get_contents("img/logo.svg");?>
         <h2>Huasi</h2>
       </a>
