@@ -11,7 +11,8 @@
   <!--Resetear css de los navegadores-->
   <link rel="stylesheet" href="style/normalize.css">
   <!--Fuente para el proyecto-->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>
+  <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
   <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
   <!-- Estilos base-->
   <link rel="stylesheet" href="style/huasi.css">
@@ -69,18 +70,18 @@
   <!-- Wrapper-->
   <div class="wrapper-host">
     <div class="flex f-colum container">
-      <div class="host-title col-12">
-        <h2 class="sec-title">Hospedaje de Ejemplo</h2>
-      </div>
       <div class="flex f-colum">
         <div class="host-info col-8">
-          <img src="img/vp/vp-8.jpg" alt="host" class="img-responsive">
-          <div id="descripcion">
-            <div class=" b-border margin-bottom"></div>
+          <div id="host-name"class="card-container">
+            <div class="host-title col-8">
+              <h2 class="sec-title">Hospedaje de Ejemplo</h2>
+            </div>
+            <img src="img/vp/vp-8.jpg" alt="host" class="img-responsive">
+          </div>
+          <div id="descripcion" class="card-container">
             <h2 class="sec-title">Información</h2>
-            <div class="card-container">
               <p class="margin-bottom">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget lectus at, luctus vulputate dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla id cursus enim, id gravida leo. Nulla urna elit, porttitor ac pulvinar ut, scelerisque ac libero. Nullam eu rhoncus diam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget lectus at, luctus vulputate dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla id cursus enim, id gravida leo. Nulla urna elit, porttitor ac pulvinar ut, scelerisque ac libero. Nullam eu rhoncus diam.
+          Y, viéndole don Quijote de aquella manera, con muestras de tanta tristeza, le dijo: Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti no te cabe parte dellas.Y, viéndole don Quijote de aquella manera, con muestras de tanta tristeza, le dijo: Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti no
               </p>
               <div class="perks">
                 <h2 class="subtitle">Incluye</h2>
@@ -97,10 +98,10 @@
                   <li>Ejemplo</li>
                 </ul>
               </div>
-            </div>
           </div>
-          <div id="evaluaciones">
-            <div class=" b-border margin-bottom"></div>
+          <div class=" b-border margin-bottom"></div>
+          <div id="evaluaciones" class="card-container">
+
             <div class="flex">
               <h2 class="sec-title">10 Evaluaciones</h2>
               <span><img src="img/svg/icons/star.svg" alt=""></span>
@@ -150,18 +151,15 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget.</p>
             </div>
           </div>
-          <div id="ubicacion">
-            <div class=" b-border margin-bottom"></div>
+          <div id="ubicacion" class="card-container">
             <h2 class="sec-title">Ubicación</h2>
-            <div class="card-container">
-              <p>Av.Regresando al futuro 0e-212 y Rocafeller St</p>
-            </div>
+            <p>Av.Regresando al futuro 0e-212 y Rocafeller St</p>
           </div>
         </div>
 
         <div class="related-hosts all-middle f-colum">
-          <h2 class="sec-title">Hospedajes Similares</h2>
-          <div class="card-container col-12">
+          <div class="all-middle f-colum card-container col-12">
+            <h2 class="sec-title">Hospedajes Similares</h2>
             <div class="slide-show">
 
               <a href="hospedaje.php" class="col-3">

@@ -20,7 +20,7 @@ body{
 
 /*Definir la fuente para el proyecto*/
 body{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #fff;
 }
 
@@ -327,8 +327,7 @@ efecto de scrool**/
 }
 
 .title,
-.subtitle,
-p{
+.subtitle{
   color: #2e3033;
 }
 
@@ -353,8 +352,12 @@ p{
 }
 
 p{
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1em;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  color: #333 ;
+  text-rendering: optimizeLegibility;
 }
 
 .caption-text{
@@ -376,8 +379,8 @@ p{
 ***********************/
 
 #top-hero{
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
-  background-image: url("../img/registro.jpg");
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+  background-image: url("../img/aereo.jpg");
   height: 100vh;
 }
 
@@ -533,7 +536,12 @@ input:focus {
 
 .vp-show .card-container,
 .host-show .card-container{
-  padding: 0.5em 0.5em 1em 0.5em;
+  padding: 0;
+}
+
+.vp-show .card-container p,
+.host-show .card-container p{
+  padding: 0 1em;
 }
 
 .vp-show .card-container:hover,
@@ -736,10 +744,13 @@ background-image: url("../img/fondo.jpg");
 -----Hospedajes-----
 ***********************/
 
+
+
 .host-title{
   text-align: left;
   flex: 1;
-  margin: 2em 0;
+  margin-bottom: 1.5em;
+  padding: 0 1em;
 }
 
 .hero-title .subtitle{
@@ -755,6 +766,7 @@ background-image: url("../img/fondo.jpg");
 #ubicacion,
 .related-hosts{
   margin-top: 2em;
+  padding-top: 3em;
 }
 
 .card-container{
@@ -763,6 +775,17 @@ background-image: url("../img/fondo.jpg");
   padding: 1em;
   border-radius: 5px;
   box-shadow: 0px 4px 18px 6px rgba(0,0,0,0.05);
+}
+
+#host-name{
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-top: 1.5em;
+}
+
+#host-name img{
+  vertical-align: middle;
 }
 
 #descripcion .perks ul{
@@ -794,10 +817,12 @@ background-image: url("../img/fondo.jpg");
 .host-coment{
   width: 100%;
   background-color: #fff;
-  box-shadow: 0px 4px 18px 6px rgba(0,0,0,0.05);
-  border-radius: 5px;
   margin-top: 1em;
-  padding: 1em;
+  padding: 1.6em 1em;
+}
+
+.host-coment:not(:last-of-type){
+  border-bottom: 1px solid #dbe0e0;
 }
 
 .host-coment img{
@@ -832,6 +857,8 @@ background-image: url("../img/fondo.jpg");
 }
 
 .related-hosts .card-container{
+  padding-top: 2em;
+  padding-bottom: 2em;
   margin-top: 2.5em;
 }
 
@@ -845,7 +872,7 @@ background-image: url("../img/fondo.jpg");
   right: 0;
   height: 50px;
   width: 100%;
-  z-index: 100;
+  z-index: 100000;
 }
 
 .host-reserve .nav a:hover div{
@@ -880,6 +907,7 @@ background-image: url("../img/fondo.jpg");
 
 .host-reserve .col-3 .caption-reserve{
   display: flex;
+  width: 100%;
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
@@ -1080,6 +1108,10 @@ background-image: url("../img/fondo.jpg");
   margin-left: 2em;
 }
 
+.wrapper-res .reserva-info .form{
+  padding-left: 0;
+}
+
 .wrapper-res .btn{
   border-radius: 5px;
 }
@@ -1094,12 +1126,11 @@ background-image: url("../img/fondo.jpg");
 ***********************/
 
 .wrapper-prom{
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
-  background-image: url("../img/panecillo.jpg");
+
 }
 
 .wrapper-prom .container{
-  padding-top: 2em;
+
 }
 
 .wrapper-prom .container .col-4{

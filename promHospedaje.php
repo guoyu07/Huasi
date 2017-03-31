@@ -10,8 +10,8 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <!--Resetear css de los navegadores-->
   <link rel="stylesheet" href="style/normalize.css">
-  <!--Fuente para el proyecto-->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>
+  <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
   <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
   <!-- Estilos base-->
   <link rel="stylesheet" href="style/huasi.css">
@@ -34,9 +34,8 @@
   </div>
 
   <!-- Wrapper-->
-  <div class="wrapper-prom">
-    <div class="flex f-colum col-12 container">
-      <div class="card-container all-middle f-row full-height">
+  <div class="wrapper-prom full-height">
+      <div class="full-height all-middle f-row container">
         <div class="all-middle col-4">
           <h2 class="caption-title">Forma parte de la mejor comunidad hotelera de Quito</h2>
         </div>
@@ -48,7 +47,7 @@
 
         </div>
       </div>
-    </div>
+
   </div>
 
   <!--Main Footer-->

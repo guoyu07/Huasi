@@ -13,6 +13,7 @@ $(document).ready(function() {
   var $captionReserveOffset;
   var $captionReserveHeight;
   var $captionReserveBottom;
+  var $test;
 
   function updateVariables(){
     $mainHeaderBottom = $mainHeader.offset().top + $mainHeader.outerHeight();
@@ -23,6 +24,7 @@ $(document).ready(function() {
     $captionReserveHeight = $captionReserve.outerHeight();
     $captionReserveBottom = $captionReserveOffset + $captionReserveHeight;
     $lastComentOffset = $("#evaluaciones > .host-coment:last-of-type").offset().top;
+    $test = $('.host-reserve > .col-3').offset().left;
 
   }
 
@@ -32,8 +34,9 @@ $(document).ready(function() {
     scrollStarts = $(this).scrollTop();
     //console.log("nav h: " + $navHostReserveBottom);
     //console.log("capt: " + $captionReserveOffset);
-    console.log($mainHeaderBottom);
-    console.log(scrollStarts);
+    //console.log($mainHeaderBottom);
+    //console.log(scrollStarts);
+    //console.log($navHostReserveOffsetLeft);
 
     $mainHeader.css('position', 'absolute');
     $hostReserve.css('position', 'absolute');
@@ -55,11 +58,14 @@ $(document).ready(function() {
     //console.log("capt: " + $captionReserveOffset);
     //console.log("comentn: " + $lastComentOffset);
 
+
     if(scrollStarts >= $lastComentOffset - 300){
       $captionReserve.slideUp(200);
+
     }else{
       $captionReserve.css('top', $navHostReserveHeight);
       $captionReserve.slideDown();
+      $captionReserve.css('left', $test);
     }
   }
 
@@ -78,12 +84,14 @@ $(document).ready(function() {
     }
   });
 
-
-
   updateVariables();
   captionScroll();
   headerScroll();
 
+  $(window).resize(function(){
+    updateVariables();
+    captionScroll();
+  });
 
   $(document).scroll(function(){
     updateVariables();
