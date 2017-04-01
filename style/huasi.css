@@ -1287,10 +1287,13 @@ background-image: url("../img/fondo.jpg");
   margin-bottom: 0;
 }
 
-
-
-.profile-form .btn{
+.profile-form .btn,
+.security-form .btn{
   width: 20%;
+}
+
+.security-form input{
+  width: 80%;
 }
 
 .select{

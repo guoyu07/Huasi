@@ -29,58 +29,28 @@
     <div class="nav main-nav">
       <a href="#"><div>Promociona tu hospedaje</div></a>
       <a href="#"><div>Ayuda</div></a>
-      <a href="usuario.php" id="menu-triger"><div>Pablo Piedra</div></a>
+      <a href="login.php" id="menu-triger"><div>Pablo Piedra</div></a>
       <div class="user-caption drop-shadow" id="user-menu">
-        <a href="editarPerfil.php"><div>Editar Perfil</div></a>
-        <a href="editarSeguridad.php"><div>Seguridad</div></a>
-        <a href="../"><div>Salir</div></a>
+        <a href="#"><div>Editar Perfil</div></a>
+        <a href="#"><div>Seguridad</div></a>
+        <a href="#"><div>Salir</div></a>
       </div>
     </div>
   </div>
 
   <!-- Wrapper-->
   <div class="wrapper-usuario">
-    <div class="flex f-row container">
-      <div class="col-8">
-        <div class="user-profile-info card-container">
-          <img src="img/user/user-2.jpg" alt="" class="img-responsive">
-          <div class="flex f-colum">
-            <h2 class="sec-title">Pablo Piedra</h2>
-            <p>Quito, Ecuador</p>
-            <p>Miembro desde Agosto 2016</p>
-          </div>
-        </div>
-        <div class="user-whishlist card-container">
-          <h2 class="sec-title">WishList</h2>
-          <div class=" b-border margin-bottom"></div>
-          <div class="wishlist">
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-1">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-2">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-3">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-4 card-container flex f-colum">
-        <div class="verify">Información Verificada</div>
-        <p>Tarjeta de credito</p>
-        <p>Documento de identificación</p>
-        <p>Dirección de correo electronico</p>
-        <p>Número de telefono</p>
+    <div class="all-middle air-both">
+      <div class="card-container col-8">
+        <form class="form security-form" action="index.html" method="post">
+          <label>Contraseña actual</label>
+          <input type="password" name="" value="">
+          <label>Nueva contraseña</label>
+          <input type="password" name="" value="">
+          <label>Confirmar contraseña</label>
+          <input type="password" name="" value="">
+          <button type="submit" name="button" class="btn btn-submit-important">Guardar</button>
+        </form>
       </div>
     </div>
   </div>
