@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="91px" height="91px" viewBox="0 0 91 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Triangle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="45.5 0 91 91 0 91"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Triangle" transform="translate(45.500000, 45.500000) scale(1, -1) translate(-45.500000, -45.500000) ">
+            <use fill="#D8D8D8" xlink:href="#path-1"></use>
+            <use fill="#A2A2A2" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

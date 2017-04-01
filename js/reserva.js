@@ -32,11 +32,7 @@ $(document).ready(function() {
 
 
     scrollStarts = $(this).scrollTop();
-    //console.log("nav h: " + $navHostReserveBottom);
-    //console.log("capt: " + $captionReserveOffset);
-    //console.log($mainHeaderBottom);
-    //console.log(scrollStarts);
-    //console.log($navHostReserveOffsetLeft);
+
 
     $mainHeader.css('position', 'absolute');
     $hostReserve.css('position', 'absolute');
@@ -54,10 +50,6 @@ $(document).ready(function() {
 
   function captionScroll(){
     scrollStarts = $(this).scrollTop();
-    //console.log("nav h: " + $navHostReserveBottom);
-    //console.log("capt: " + $captionReserveOffset);
-    //console.log("comentn: " + $lastComentOffset);
-
 
     if(scrollStarts >= $lastComentOffset - 300){
       $captionReserve.slideUp(200);

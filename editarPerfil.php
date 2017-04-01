@@ -31,56 +31,65 @@
       <a href="#"><div>Ayuda</div></a>
       <a href="login.php" id="menu-triger"><div>Pablo Piedra</div></a>
       <div class="user-caption drop-shadow" id="user-menu">
-        <a href="editarPerfil.php"><div>Editar Perfil</div></a>
+        <a href="#"><div>Editar Perfil</div></a>
         <a href="#"><div>Seguridad</div></a>
-        <a href="../"><div>Salir</div></a>
+        <a href="#"><div>Salir</div></a>
       </div>
     </div>
   </div>
 
   <!-- Wrapper-->
   <div class="wrapper-usuario">
-    <div class="flex f-row container">
-      <div class="col-8">
-        <div class="user-profile-info card-container">
-          <img src="img/user/user-2.jpg" alt="" class="img-responsive">
-          <div class="flex f-colum">
-            <h2 class="sec-title">Pablo Piedra</h2>
-            <p>Quito, Ecuador</p>
-            <p>Miembro desde Agosto 2016</p>
+    <div class="all-middle air-both">
+      <div class="card-container col-8">
+        <form class="form profile-form" action="index.html" method="post">
+          <label>Nombre</label>
+          <input type="text" name="" value="Jose Ignacio">
+          <label>Apellido</label>
+          <input type="text" name="" value="Guerrero Vinueza">
+          <label>Dirección de correo electrónico</label>
+          <input type="text" name="" value="josevinguerrero@gmail.com">
+          <label>Soy</label>
+          <div class="user-sex">
+            <div class="select">
+              <select name="sex">
+                <option value="">Sexo</option>
+                <option selected="selected"value="">Hombre</option>
+                <option value="">Mujer</option>
+                <option value="">Otro</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="user-whishlist card-container">
-          <h2 class="sec-title">WishList</h2>
-          <div class=" b-border margin-bottom"></div>
-          <div class="wishlist">
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-1">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-2">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-3">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
+          <label>Fecha de nacimiento</label>
+          <div class="user-age">
+            <div class="select">
+              <select name="Age">
+                <option value="1">23</option>
+                <option value="">23</option>
+                <option value="">23</option>
+                <option value="">23</option>
+              </select>
+            </div>
+            <div class="select">
+              <select name="Age">
+                <option value="1">23</option>
+                <option value="">23</option>
+                <option value="">23</option>
+                <option value="">23</option>
+              </select>
+            </div>
+            <div class="select">
+              <select name="Age">
+                <option value="1">23</option>
+                <option value="">23</option>
+                <option value="">23</option>
+                <option value="">23</option>
+              </select>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-4 card-container flex f-colum">
-        <div class="verify">Información Verificada</div>
-        <p>Tarjeta de credito</p>
-        <p>Documento de identificación</p>
-        <p>Dirección de correo electronico</p>
-        <p>Número de telefono</p>
+
+          <button type="submit" name="button" class="btn btn-submit-important">Guardar</button>
+        </form>
       </div>
     </div>
   </div>
