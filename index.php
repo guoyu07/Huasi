@@ -44,17 +44,17 @@
       <div class="form-busqueda">
         <input type="text" class="datePicker"placeholder="Llegada">
         <input type="text" class="datePicker"placeholder="Salida">
-        <input type="text" placeholder="Huéspedes">
+        <input type="text" placeholder="Huéspedes" readonly="readonly">
         <button type="submit" name="button" class="btn btn-submit">Buscar</button>
       </div>
     </form>
   </div>
 
   <!-- Wrappewr-->
-  <div class="wrapper">
-    <div class="all-middle f-colum container">
+  <div class="wrapper-index">
+    <div class="all-middle f-colum">
 
-      <div class="vp-show">
+      <div class="vp-show container">
         <h2 class="sec-title">Recomendaciones</h2>
         <div class="slide-show">
           <a href="hospedaje.php" class="col-3 card-container">
@@ -87,8 +87,8 @@
           </a>
         </div>
       </div>
-      <div class="deal-show">
-        <h2 class="sec-title">Habitaciones de Oferta</h2>
+      <div class="deal-show container">
+        <h2 class="sec-title second">Habitaciones de Oferta</h2>
         <div class="slide-show f-row">
           <a href="#" class="col-3">
             <div class="deal-host">
@@ -218,7 +218,6 @@
           </a>
         </div>
       </div>
-      <div class="">
 
       </div>
     </div>

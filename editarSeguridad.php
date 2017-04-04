@@ -43,6 +43,7 @@
     <div class="all-middle air-both">
       <div class="card-container col-8">
         <form class="form security-form" action="index.html" method="post">
+          <h2 class="sec-title">Cambia tu contraseña</h2>
           <label>Contraseña actual</label>
           <input type="password" name="" value="">
           <label>Nueva contraseña</label>

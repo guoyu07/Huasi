@@ -37,7 +37,10 @@
   <div class="wrapper-res">
     <div class="container">
       <div class="card-container flex f-row">
-        <img src="img/vp/vp-8.jpg" alt="host" class="img-responsive">
+        <div class="col-6">
+          <img src="img/rooms/room1.jpeg" alt="host" class="img-responsive">  
+        </div>
+
         <div class="reserva-info col-6">
           <h2 class="subtitle">Hospedaje Ejemplo</h2>
 

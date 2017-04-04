@@ -39,16 +39,46 @@
       <div class="jumbotron register-section">
         <form>
           <div class="form">
-            <h2 class="subtitle">Unete a Huasi:</h2>
-            <label for="user-mail">Dirección de correo electrónico:</label>
+            <h2 class="subtitle">Unete a Huasi</h2>
+            <label for="user-mail">Dirección de correo electrónico</label>
             <input type="mail" name="user-mail" placeholder="huasi@huasi.com">
-            <label for="user-name">Nombre:</label>
+            <label for="user-name">Nombre</label>
             <input type="text" name="user-name" placeholder="Mark">
-            <label for="user-lastName">Apellidos:</label>
+            <label for="user-lastName">Apellidos</label>
             <input type="text" name="user-lastName" placeholder="Huasi">
-            <label for="user-password">Constraseña:</label>
+            <label>Edad</label>
+            <div class="user-age">
+                <div class="select">
+                  <select name="user-month">
+                    <option selected disabled>Mes</option>
+                    <option value="1">23</option>
+                    <option value="">23</option>
+                    <option value="">23</option>
+                    <option value="">23</option>
+                  </select>
+                </div>
+                <div class="select">
+                  <select name="user-day">
+                    <option selected disabled>Día</option>
+                    <option value="1">23</option>
+                    <option value="">23</option>
+                    <option value="">23</option>
+                    <option value="">23</option>
+                  </select>
+                </div>
+                <div class="select">
+                  <select name="user-year">
+                    <option selected disabled>Año</option>
+                    <option value="1">23</option>
+                    <option value="">23</option>
+                    <option value="">23</option>
+                    <option value="">23</option>
+                  </select>
+                </div>
+              </div>
+            <label for="user-password">Constraseña</label>
             <input type="password" name="user-password" placeholder="mínimo 6 caracteres">
-            <label for="user-password">Verificar Contraseña:</label>
+            <label for="user-password">Verificar Contraseña</label>
             <input type="password" name="user-password">
             <div>
               <input type="checkbox">

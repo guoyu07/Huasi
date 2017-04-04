@@ -222,7 +222,8 @@ efecto de scrool**/
 .wrapper-host,
 .wrapper-usuario,
 .wrapper-prom,
-.wrapper-ayuda{
+.wrapper-ayuda,
+.wrapper-index{
   min-height: 100vh;
   padding-bottom: 4em;
 }
@@ -236,6 +237,7 @@ efecto de scrool**/
   padding-top:60px;
 }
 
+
 .wrapper-busqueda{
   padding-top: 108px;
   z-index: -100;
@@ -248,12 +250,17 @@ efecto de scrool**/
 .wrapper-host,
 .wrapper-usuario,
 .wrapper-busqueda,
+.wrapper-index,
+.wrapper-res,
+.wrapper-ayuda,
+.wrapper-prom,
 .wrapper{
   background-color: #FAFAFA;
+  background-color: #f1f5f5;
 }
 
 .full-height{
-  height: calc(100vh - 4.0625em);
+  height: calc(100vh - 60px);
 }
 
 .jumbotron{
@@ -288,6 +295,7 @@ efecto de scrool**/
 
 .container{
   padding: 0 2em;
+  max-width: 100%;
 }
 
 .margin-left{
@@ -355,6 +363,10 @@ efecto de scrool**/
   font-weight: 400;
 }
 
+.second{
+  color: #647276;
+}
+
 .subtitle{
   font-size: 1.2em;
   font-weight: 300;
@@ -374,8 +386,16 @@ p{
   font-weight: 300;
 }
 
+.mute-text{
+  color: #8b989c;
+}
+
 .text-left{
   text-align: left;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .middle-line{
@@ -403,6 +423,11 @@ p{
   flex-direction: row;
   align-items: center;
   z-index: 1000;
+}
+
+::-webkit-input-placeholder {
+  color: #2e3033;
+  opacity: 1;
 }
 
 .form-filtro{
@@ -502,6 +527,15 @@ background-color: #F4897E;
   flex-direction: column;
   text-align: center;
   padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.deal-show{
+  padding-top: 5em;
+}
+
+.vp-show{
+  background-color: #fff;
 }
 
 .wrapper-busqueda .caption-text{
@@ -563,9 +597,15 @@ background-color: #F4897E;
   padding: 0 1em;
 }
 
+.vp-show .card-container,
+.host-show .card-container{
+  box-shadow: 6px 6px 23px -5px rgba(0,0,0,0.5);
+  transition: 400ms;
+}
+
 .vp-show .card-container:hover,
 .host-show .card-container:hover{
-  box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.4);
+  box-shadow: 6px 6px 23px -5px rgba(0,0,0,0.7);
 }
 
 .host-show .slide-show a:hover .host div:first-of-type,
@@ -579,18 +619,22 @@ color: #00b698;
 
 #vp-1{
   background-image: url("../img/vp/vp-5.jpeg");
+  background-image: url("../img/rooms/room1.jpeg");
 }
 
 #vp-2{
   background-image: url("../img/vp/vp-6.jpg");
+  background-image: url("../img/rooms/room4.jpeg");
 }
 
 #vp-3{
   background-image: url("../img/vp/vp-7.jpg");
+  background-image: url("../img/rooms/room3.jpeg");
 }
 
 #vp-4{
   background-image: url("../img/vp/vp-8.jpg");
+  background-image: url("../img/rooms/room2.jpeg");
 }
 
 
@@ -616,6 +660,7 @@ color: #00b698;
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: #fff;
   box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.2);
   box-shadow: 0px 4px 18px 6px rgba(0,0,0,0.05);
   padding: 0 1em;
@@ -666,19 +711,14 @@ color: #00b698;
   background-image: url("../img/panecillo.jpg");
 }
 
-/*.login-section2{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 100%;
-margin-bottom: 3em;
-padding: 4em 2em;
-background-color: #00b698;
-height: 105vh;
-box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
-background-image: url("../img/fondo.jpg");
-}*/
+.register-section .user-age{
+  margin-bottom: 0;
+}
+
+.register-section form .form,
+.login-section form .form{
+  border-radius: 5px;
+}
 
 .register-section form,
 .login-section form{
@@ -795,6 +835,7 @@ background-image: url("../img/fondo.jpg");
   padding: 1em;
   border-radius: 5px;
   box-shadow: 0px 4px 18px 6px rgba(0,0,0,0.05);
+  box-shadow: 6px 6px 23px -5px rgba(0,0,0,0.2);
 }
 
 #host-name{
@@ -1137,10 +1178,6 @@ background-image: url("../img/fondo.jpg");
   padding: 2em;
 }
 
-.wrapper-res .card-container img{
-  height: 300px;
-}
-
 .wrapper-res .reserva-info{
   margin-left: 2em;
 }
@@ -1162,12 +1199,22 @@ background-image: url("../img/fondo.jpg");
 -----Prom-Hospedaje-----
 ***********************/
 
-.wrapper-prom{
-
+.wrapper-prom .jumbotron{
+  background-image: url("../img/hotel.jpeg");
 }
 
-.wrapper-prom .container{
+.wrapper-prom .hotel-show{
+  padding-top: 4em;
+}
 
+.wrapper-prom .hotel-show .all-middle:last-of-type{
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.wrapper-prom .hotel-show img{
+  width: 15%;
+  margin: 0 1em;
 }
 
 .wrapper-prom .container .col-4{
@@ -1300,7 +1347,6 @@ background-image: url("../img/fondo.jpg");
   position: relative;
   display: flex;
   align-items: center;
-  pointer-events: inherit;
 }
 
 .select::before{

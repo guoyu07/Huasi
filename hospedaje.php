@@ -76,7 +76,7 @@
             <div class="host-title col-8">
               <h2 class="sec-title">Hospedaje de Ejemplo</h2>
             </div>
-            <img src="img/vp/vp-8.jpg" alt="host" class="img-responsive">
+            <img src="img/rooms/room1.jpeg" alt="host" class="img-responsive">
           </div>
           <div id="descripcion" class="card-container">
             <h2 class="sec-title">Información</h2>

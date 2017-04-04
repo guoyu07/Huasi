@@ -43,6 +43,7 @@
     <div class="all-middle air-both">
       <div class="card-container col-8">
         <form class="form profile-form" action="index.html" method="post">
+          <h2 class="sec-title">Modifica tu información personal</h2>
           <label>Nombre</label>
           <input type="text" name="" value="Jose Ignacio">
           <label>Apellido</label>
