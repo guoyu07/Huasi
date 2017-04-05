@@ -29,6 +29,14 @@ a{
 }
 
 
+.ui-datepicker{
+  background-color: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 0.5em 1em;
+
+}
+
 /***********************
 ------Main-Header-------
 ***********************/
@@ -425,6 +433,7 @@ p{
   z-index: 1000;
 }
 
+
 ::-webkit-input-placeholder {
   color: #2e3033;
   opacity: 1;
@@ -444,11 +453,24 @@ p{
 
 #top-hero .form-busqueda .btn{
   border-radius: 0;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
-.form-filtro input,
+.form-busqueda{
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+}
+
+
 .form-busqueda input,
 .form-busqueda button{
+  padding: 0.9em 1.5em;
+  border: 0;
+}
+
+.form-filtro input{
   padding: 0.8em 1.5em;
   border: 0;
 }

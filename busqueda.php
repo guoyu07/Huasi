@@ -35,8 +35,8 @@
 
     <div class="form-filtro">
       <form>
-        <input type="text" class="datePicker" placeholder="Llegada">
-        <input type="text" class="datePicker" placeholder="Salida">
+        <input type="text" class="datePicker" placeholder="Llegada" readonly="readonly">
+        <input type="text" class="datePicker" placeholder="Salida" readonly="readonly">
         <input type="text" placeholder="Huéspedes : 1">
         <input type="text" placeholder="Precios">
         <input type="text" placeholder="Categoria">

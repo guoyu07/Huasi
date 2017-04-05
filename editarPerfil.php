@@ -54,7 +54,7 @@
           <div class="user-sex">
             <div class="select">
               <select name="sex">
-                <option value="">Sexo</option>
+                <option selected disabled>Sexo</option>
                 <option selected="selected"value="">Hombre</option>
                 <option value="">Mujer</option>
                 <option value="">Otro</option>
@@ -64,31 +64,33 @@
           <label>Fecha de nacimiento</label>
           <div class="user-age">
             <div class="select">
-              <select name="Age">
+              <select name="dia">
+                <option selected disabled>Día</option>
                 <option value="1">23</option>
-                <option value="">23</option>
-                <option value="">23</option>
-                <option value="">23</option>
+                <option value="">24</option>
+                <option selected="selected" value="">25</option>
+                <option value="">26</option>
               </select>
             </div>
             <div class="select">
-              <select name="Age">
-                <option value="1">23</option>
-                <option value="">23</option>
-                <option value="">23</option>
-                <option value="">23</option>
+              <select name="Mes">
+                <option selected disabled>Mes</option>
+                <option value="1">Enero</option>
+                <option value="">Febrero</option>
+                <option selected="selected" value="">Marzo</option>
+                <option value="">Abril</option>
               </select>
             </div>
             <div class="select">
-              <select name="Age">
-                <option value="1">23</option>
-                <option value="">23</option>
-                <option value="">23</option>
-                <option value="">23</option>
+              <select name="Año">
+                <option selected disabled>Año</option>
+                <option value="1">1990</option>
+                <option selected="selected" value="">1997</option>
+                <option value="">1998</option>
+                <option value="">1999</option>
               </select>
             </div>
           </div>
-
           <button type="submit" name="button" class="btn btn-submit-important">Guardar</button>
         </form>
       </div>

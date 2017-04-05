@@ -42,8 +42,8 @@
     <!--Forma para buscar-->
     <form action="busqueda.php" method="POST">
       <div class="form-busqueda">
-        <input type="text" class="datePicker"placeholder="Llegada">
-        <input type="text" class="datePicker"placeholder="Salida">
+        <input type="text" class="datePicker"placeholder="Llegada" readonly="readonly">
+        <input type="text" class="datePicker"placeholder="Salida" readonly="readonly">
         <input type="text" placeholder="Huéspedes" readonly="readonly">
         <button type="submit" name="button" class="btn btn-submit">Buscar</button>
       </div>
@@ -218,56 +218,55 @@
           </a>
         </div>
       </div>
-
-      </div>
     </div>
   </div>
+</div>
 
 
-  <!--Main Footer-->
-  <div class="main-footer">
-    <div class="foot-section">
-      <div class="col-2">
-        <h2 class="subtitle">Huasi</h2>
-        <a href=""><p>Acerca de</p></a>
-        <a href=""><p>Ayuda</p></a>
-        <a href=""><p>Privacidad</p></a>
-      </div>
-      <div class="col-2">
-        <h2 class="subtitle">Hoteles</h2>
-        <a href=""><p>Programas</p></a>
-        <a href=""><p>Promoción</p></a>
-        <a href=""><p>Manejo de Hospedajes</p></a>
-        <a href=""><p>Quejas</p></a>
-      </div>
-      <div class="col-2">
-        <h2 class="subtitle">Usuarios</h2>
-        <a href=""><p>Registrate</p></a>
-        <a href=""><p>Iniciar Sesión</p></a>
-        <a href=""><p>Conviertete en Host</p></a>
-      </div>
+<!--Main Footer-->
+<div class="main-footer">
+  <div class="foot-section">
+    <div class="col-2">
+      <h2 class="subtitle">Huasi</h2>
+      <a href=""><p>Acerca de</p></a>
+      <a href=""><p>Ayuda</p></a>
+      <a href=""><p>Privacidad</p></a>
     </div>
-    <div class="foot-section">
-      <div>
-        <img src="img/logo.svg" alt="logo">
-        <h2 class="subtitle">Huasi</h2>
-      </div>
-      <div>
-        <a href="#"><p>Términos y Privacidad</p></a>
-        <a href="#">
-          <?php echo file_get_contents("img/svg/facebook.svg");?>
-        </a>
-        <a href="#">
-          <?php echo file_get_contents("img/svg/twitter.svg");?>
-        </a>
-        <a href="#">
-          <?php echo file_get_contents("img/svg/instagram.svg");?>
-        </a>
-      </div>
+    <div class="col-2">
+      <h2 class="subtitle">Hoteles</h2>
+      <a href=""><p>Programas</p></a>
+      <a href=""><p>Promoción</p></a>
+      <a href=""><p>Manejo de Hospedajes</p></a>
+      <a href=""><p>Quejas</p></a>
+    </div>
+    <div class="col-2">
+      <h2 class="subtitle">Usuarios</h2>
+      <a href=""><p>Registrate</p></a>
+      <a href=""><p>Iniciar Sesión</p></a>
+      <a href=""><p>Conviertete en Host</p></a>
     </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script src="js/jquery.js"></script>
+  <div class="foot-section">
+    <div>
+      <img src="img/logo.svg" alt="logo">
+      <h2 class="subtitle">Huasi</h2>
+    </div>
+    <div>
+      <a href="#"><p>Términos y Privacidad</p></a>
+      <a href="#">
+        <?php echo file_get_contents("img/svg/facebook.svg");?>
+      </a>
+      <a href="#">
+        <?php echo file_get_contents("img/svg/twitter.svg");?>
+      </a>
+      <a href="#">
+        <?php echo file_get_contents("img/svg/instagram.svg");?>
+      </a>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="js/jquery.js"></script>
 </body>
 </html>
