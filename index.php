@@ -1,4 +1,9 @@
+<?php
 
+require "uiElements/Ui.php";
+
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,20 +25,9 @@
 <body>
 
   <!--Menu de navegación-->
-  <div class="main-header drop-shadow">
-    <div class="header-logo">
-      <a href="index.php">
-        <?php echo file_get_contents("img/logo.svg");?>
-        <h2>Huasi</h2>
-      </a>
-    </div>
-    <div class="nav main-nav">
-      <a href="promHospedaje.php"><div>Promociona tu hospedaje</div></a>
-      <a href="ayuda.php"><div>Ayuda</div></a>
-      <a href="register.php"><div>Regístrate</div></a>
-      <a href="login.php"><div>Iniciar Sesión</div></a>
-    </div>
-  </div>
+
+  <?php MainHeader(); ?>
+
 
   <div class="jumbotron full-height all-middle f-colum" id="top-hero">
     <h2 class="hero-title">Quito es mucho más que una luz</h2>

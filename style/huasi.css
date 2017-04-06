@@ -1042,6 +1042,10 @@ color: #00b698;
   color: #39aa94;
 }
 
+.change #menu-triger{
+  color: #fff;
+}
+
 #user-menu a{
   margin: 2em 0;
 }
