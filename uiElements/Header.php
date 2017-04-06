@@ -4,25 +4,25 @@
 
 class HeaderBase{
 
+  //Definir el titulo y logo del header
   protected $titulo = "Huasi";
   protected $logoPath = "img/logo.svg";
+  //Crear array para opciones y link de cada opcion
   protected $menuOpciones = array();
   protected $menuOpcionesLinks = array();
 
+  //Función para Definir las opciones del menu
   public function setOpciones($opcion, $link){
     $this->menuOpciones[] = $opcion;
     $this->menuOpcionesLinks[] = $link;
   }
 
-  public function setSvg($path){
-    $this->logoPath = $path;
-  }
-
+  //Funcion para defrinir los datos dentro de cada clase
   protected function setData(){}
 
   }
 
-
+  //Clase para generar el estado normal del header
   class HeaderNormal extends HeaderBase{
 
     protected function setData(){
@@ -36,6 +36,7 @@ class HeaderBase{
 
     }
 
+    //funcion para imprimir el header
     public function printComponent(){
 
       $this->setData();
@@ -65,10 +66,14 @@ class HeaderBase{
 
   }
 
+
+  //Clase para generar el estado de login del header
   class HeaderUsuario extends Headerbase{
 
+    //Id del usuario : id del usuario dentro de la DB
     protected $idUsuario;
 
+    //Requerir el id del usuario al crear la clase
     function __construct($id){
       $this->idUsuario = $id;
     }
@@ -82,6 +87,7 @@ class HeaderBase{
       }
     }
 
+    //funcion para imprimir el header
     public function printComponent(){
 
       $this->setData();
