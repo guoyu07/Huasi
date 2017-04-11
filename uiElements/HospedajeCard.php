@@ -25,7 +25,7 @@ abstract class HospedajeBase{
   }
 
   public function searchIngredients(){
-
+    
   }
 
   public function printComponent(){

@@ -4,6 +4,7 @@
 require_once "Header.php";
 require_once "Footer.php";
 require_once "HospedajeCard.php";
+require_once "BirthSelector.php";
 $gTitulo = "Huasi";
 
 
@@ -11,8 +12,10 @@ $gTitulo = "Huasi";
 function MainHeader(){
 
   //Defirnir e imprimir una nueva instancia de header
-  $mainHeader = new HeaderUsuario("Jose Guerrero");
+  $mainHeader = new HeaderNormal();
+  //$mainHeader = new HeaderUsuario("Jose Guerrero");
   $mainHeader->printComponent();
+
 }
 
 function MainFooter(){

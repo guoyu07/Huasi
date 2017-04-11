@@ -42,8 +42,8 @@
         </div>
         <div class="col-6">
           <div class="form">
-            <button type="button" name="button" class="btn btn-submit">Cadenas Hoteleras</button>
-            <button type="button" name="button" class="btn btn-secondary">Pequeños Hospedajes</button>
+            <button type="button" name="button" class="btn btn-submit">Iniciar sesión</button>
+            <button type="button" name="button" class="btn btn-secondary">Registrate</button>
           </div>
         </div>
       </div>

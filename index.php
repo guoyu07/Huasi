@@ -214,7 +214,6 @@ require "uiElements/Ui.php";
       </div>
     </div>
   </div>
-</div>
 
 
 <!--Main Footer-->

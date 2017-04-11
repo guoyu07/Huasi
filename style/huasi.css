@@ -22,6 +22,8 @@ body{
 body{
   font-family: 'Roboto', sans-serif;
   background-color: #fff;
+  height: 100%;
+  width: 100%;
 }
 
 a{
@@ -436,7 +438,6 @@ p{
 
 ::-webkit-input-placeholder {
   color: #2e3033;
-  opacity: 1;
 }
 
 .form-filtro{

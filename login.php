@@ -41,9 +41,9 @@
             <div class="form">
               <h2 class="subtitle">Bienvenido otra vez</h2>
               <label for="user-mail">Dirección de correo electrónico:</label>
-              <input type="mail" name="user-mail">
+              <input type="mail" name="userMail">
               <label for="user-password">Constraseña:</label>
-              <input type="password" name="user-password">
+              <input type="password" name="userPassword">
               <div>
                 <input type="checkbox">
                 <span>Recordarme</span>
@@ -52,6 +52,9 @@
               <button type="submit" class="btn btn-submit"id="register-button">Iniciar Sesion</button>
               <a href="register.php">
                 <button type="button" class="btn btn-secondary"id="register-button">Crea una cuenta</button>
+              </a>
+              <a href="#">
+                <p>Inicia sesion como empresa</p>
               </a>
             </div>
           </form>
