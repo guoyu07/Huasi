@@ -27,9 +27,9 @@ class Footer{
   //Funciones para defirnir los nombres
   //y links de cada elemento secundario
   public function setSecundarios($arrayName){
-
-    $this->seccionesSecundarias[] = $nombre;
-    $this->linksSecundarios[] = $link;
+    for($i=0; $i< count($arrayName); $i++){
+        
+    }
 
   }
 
@@ -37,6 +37,7 @@ class Footer{
 
   public function printComponent(){
     $mTitulo = $this->titulo;
+    echo $this->seccionesSecundarias[0];
     ?>
 
     <div class="main-footer">

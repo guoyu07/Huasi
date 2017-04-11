@@ -3,6 +3,7 @@
 //Requerir los elementos de la interfaz
 require_once "Header.php";
 require_once "Footer.php";
+require_once "HospedajeCard.php";
 $gTitulo = "Huasi";
 
 
@@ -12,7 +13,6 @@ function MainHeader(){
   //Defirnir e imprimir una nueva instancia de header
   $mainHeader = new HeaderUsuario("Jose Guerrero");
   $mainHeader->printComponent();
-
 }
 
 function MainFooter(){
@@ -28,9 +28,12 @@ function MainFooter(){
     array("Programas", "programas.php") => "Hoteles",
     array("Programas", "programas.php") => "Hoteles"
   );
+
+  echo $secundarios[0][0];
   $secLinks = array();
   $mainFooter = new Footer("Huasi");
   $mainFooter->setSecPrincipales($principales);
+  $mainFooter->setSecundarios($secundarios);
 
   $mainFooter->printComponent();
 

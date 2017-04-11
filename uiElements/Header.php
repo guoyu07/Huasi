@@ -7,6 +7,7 @@ class HeaderBase{
   //Definir el titulo y logo del header
   protected $titulo = "Huasi";
   protected $logoPath = "img/logo.svg";
+  
   //Crear array para opciones y link de cada opcion
   protected $menuOpciones = array();
   protected $menuOpcionesLinks = array();
