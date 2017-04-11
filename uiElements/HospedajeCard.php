@@ -24,10 +24,6 @@ abstract class HospedajeBase{
     $this->imagenPath = $mPath;
   }
 
-  public function searchIngredients(){
-    
-  }
-
   public function printComponent(){
     $mIdHospedaje = $this->idHospedaje;
     $mNombreHospedaje = $this->nombreHospedaje;

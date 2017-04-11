@@ -1,6 +1,7 @@
 <?php
 require_once "uiElements/BirthSelector.php";
 $selectors = new BirthSelectorRegister();
+//$selectors = new BirthSelectorChange("Enero", 1, 2017);
 ?>
 <!DOCTYPE html>
 <html>

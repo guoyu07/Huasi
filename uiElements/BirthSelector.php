@@ -92,5 +92,82 @@ class BirthSelectorRegister extends BirthSelectorBase{
 }
 
 
+class BirthSelectorChange extends BirthSelectorBase{
+
+  protected $userMonth;
+  protected $userDay;
+  protected $userYear;
+
+
+  function __construct($month, $day, $year){
+    parent::__construct(); // Llamar al constructor de la clase heredada
+    $this->userMonth = $month;
+    $this->userDay = $day;
+    $this->userYear = $year;
+  }
+
+  public function printYears(){
+
+    $html = "<div class='select'>";
+    $html .= "<select name='userYear'>";
+    $html .= "<option selected disabled>Año</option>";
+    for($i=0; $i < count($this->years); $i++){
+      $year = $this->years[$i];
+      if($year == $this->userYear){
+        $html .= "<option selected='selected' value = $year> $year </option>";
+      }else{
+        $html .= "<option value = $year> $year </option>";
+      }
+    }
+    $html .= "</select>";
+    $html .= "</div>";
+
+    echo $html;
+
+  }
+
+  public function printMonths(){
+
+    $html = "<div class='select'>";
+    $html .= "<select name='userMonth'>";
+    $html .= "<option selected disabled>Mes</option>";
+    for($i=0; $i < count($this->months); $i++){
+      $month = $this->months[$i];
+      if($month == $this->userMonth){
+        $html .= "<option selected='selected' value = $month > $month </option>";
+      }else{
+        $html .= "<option value = $month > $month </option>";
+      }
+    }
+    $html .= "</select>";
+    $html .= "</div>";
+
+    echo $html;
+
+  }
+
+  public function printDays(){
+
+    $html = "<div class='select'>";
+    $html .= "<select name='userDay'>";
+    $html .= "<option selected disabled>Día</option>";
+    for($i=1; $i <= count($this->days); $i++){
+      $day = $this->days[$i];
+      if($day == $this->userDay){
+        $html .= "<option selected='selected' value = $day > $day </option>";
+      }else{
+        $html .= "<option value = $day > $day </option>";
+      }
+    }
+    $html .= "</select>";
+    $html .= "</div>";
+
+    echo $html;
+
+  }
+
+}
+
+
 
 ?>
