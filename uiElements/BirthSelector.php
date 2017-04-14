@@ -14,12 +14,12 @@ abstract class BirthSelectorBase{
     $this->actualYear = $date['year'];
 
     //Llenar el array de años hasta el año actual.
-    for( $i = $this->actualYear, $j = 0; $i >= 1910; $i--, $j++ ){
+    for( $i = $this->actualYear-18, $j = 0; $i >= 1910; $i--, $j++ ){
       $this->years[$j]=$i;
     }
 
     //Llenar el array de meses.
-    $mMonths = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+    $mMonths = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
 
     for($i = 0; $i < count($mMonths); $i++){
       $this->months[$i] = $mMonths[$i];

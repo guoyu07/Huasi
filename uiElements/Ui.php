@@ -1,45 +1,36 @@
 <?php
+session_start();
 
 //Requerir los elementos de la interfaz
-require_once "Header.php";
-require_once "Footer.php";
-require_once "HospedajeCard.php";
-require_once "BirthSelector.php";
-$gTitulo = "Huasi";
+require_once 'Header.php'; //Requerir la clase header
+require_once 'Footer.php'; //Requerir la clase footer;
+require_once 'HospedajeCard.php'; //Requerir la clase para generar los container de los hospedajes
+require_once 'BirthSelector.php'; //Requerir la clase para generar el selector de fechas de nacimiento
+require_once 'userEngine/userStatus.php'; //Requerir el script para ver si existe o no una session.
 
 
 //Funcion para generar el Header
-function MainHeader(){
+function MainHeader($shadow){
 
+  global $user;
   //Defirnir e imprimir una nueva instancia de header
-  $mainHeader = new HeaderNormal();
+  if(!empty($user)){
+    $mainHeader = new HeaderUsuario($shadow, $user['userName']);
+  }else{
+    $mainHeader = new HeaderNormal($shadow);
+
+  }
+
   //$mainHeader = new HeaderUsuario("Jose Guerrero");
   $mainHeader->printComponent();
 
 }
 
 function MainFooter(){
-
+  
   //datos
-  $principales = array("Huasi", "Hoteles", "Usuarios");
-  $secundarios = array(
-    array("Acerda de", "about.php") => "Huasi",
-    array("Ayuda", "ayuda.php") => "Huasi",
-    array("Privacidad", "privacidad.php") => "Huasi",
-    array("Programas", "programas.php") => "Hoteles",
-    array("Programas", "programas.php") => "Hoteles",
-    array("Programas", "programas.php") => "Hoteles",
-    array("Programas", "programas.php") => "Hoteles"
-  );
-
-  echo $secundarios[0][0];
-  $secLinks = array();
-  $mainFooter = new Footer("Huasi");
-  $mainFooter->setSecPrincipales($principales);
-  $mainFooter->setSecundarios($secundarios);
-
-  $mainFooter->printComponent();
+  $footer = new Footer();
 
 }
 
- ?>
+?>

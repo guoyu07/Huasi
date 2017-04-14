@@ -1,7 +1,18 @@
 <?php
+session_start();
 require_once "uiElements/BirthSelector.php";
+require_once "userEngine/userEngine.php";
+require_once 'DbConnection.php';
+
+if(isset($_SESSION['userId'])){
+  header("Location: /");
+}
+
+
+$test = new UserRegister($conn);
+$test->setNewUser();
+
 $selectors = new BirthSelectorRegister();
-//$selectors = new BirthSelectorChange("Enero", 1, 2017);
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,7 +52,7 @@ $selectors = new BirthSelectorRegister();
   <div class="wrapper-logsig">
     <div class="all-middle f-colum">
       <div class="jumbotron register-section">
-        <form>
+        <form name="register" method="POST" action="register.php">
           <div class="form">
             <h2 class="subtitle">Unete a Huasi</h2>
             <label for="user-mail">Dirección de correo electrónico</label>

@@ -602,8 +602,9 @@ background-color: #F4897E;
   z-index: 1;
 }
 
-.vp-host p{
-  transition: 400ms;
+.vp-host p,
+.vp-host a{
+  transition: 200ms;
 }
 
 .vp-show .slide-show a:not(:first-of-type){
@@ -631,9 +632,8 @@ background-color: #F4897E;
   box-shadow: 6px 6px 23px -5px rgba(0,0,0,0.7);
 }
 
-.host-show .slide-show a:hover .host div:first-of-type,
-.vp-show .slide-show a:hover .vp-host div:first-of-type{
-
+.vp-show .slide-show a:hover {
+  margin-top: 0.5em;
 }
 
 /*.slide-show a:hover .vp-host p{

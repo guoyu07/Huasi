@@ -5,12 +5,22 @@
 class HeaderBase{
 
   //Definir el titulo y logo del header
-  protected $titulo = "Huasi";
-  protected $logoPath = "img/logo.svg";
-  
+  protected $titulo = 'Huasi';
+  protected $logoPath = 'img/logo.svg';
+  protected $headerStyle = "";
+
   //Crear array para opciones y link de cada opcion
   protected $menuOpciones = array();
   protected $menuOpcionesLinks = array();
+
+  //Constructor de la clase
+  function __construct($shadow=false){
+    if($shadow == true){
+      $this->headerStyle = 'drop-shadow';
+    }else{
+      $this->headerStyle = '';
+    }
+  }
 
   //Función para Definir las opciones del menu
   public function setOpciones($opcion, $link){
@@ -18,18 +28,19 @@ class HeaderBase{
     $this->menuOpcionesLinks[] = $link;
   }
 
-  //Funcion para defrinir los datos dentro de cada clase
-  protected function setData(){}
-
-  }
+}
 
   //Clase para generar el estado normal del header
   class HeaderNormal extends HeaderBase{
 
+    function __construct($shadow){
+      parent::__construct($shadow);
+    }
+
     protected function setData(){
 
-      $opciones = array("Promociona tu hospedaje","Ayuda","Regístrate","Iniciar Sesión");
-      $links = array("promHospedaje.php", "ayuda.php", "register.php", "login.php");
+      $opciones = array('Promociona tu hospedaje','Ayuda','Regístrate','Iniciar Sesión');
+      $links = array('promHospedaje.php', 'ayuda.php', 'register.php', 'login.php');
 
       for($i=0; $i < count($opciones); $i++){
         $this->setOpciones($opciones[$i], $links[$i]);
@@ -42,7 +53,7 @@ class HeaderBase{
 
       $this->setData();
       ?>
-      <div class="main-header drop-shadow">
+      <div class="main-header <?=$this->headerStyle?>">
         <div class="header-logo">
           <a href="index.php">
             <?php echo file_get_contents($this->logoPath);?>
@@ -75,13 +86,14 @@ class HeaderBase{
     protected $idUsuario;
 
     //Requerir el id del usuario al crear la clase
-    function __construct($id){
+    function __construct($shadow, $id){
+      parent::__construct($shadow);
       $this->idUsuario = $id;
     }
 
     protected function setData(){
-      $opciones = array("Promociona tu hospedaje","Ayuda","$this->idUsuario");
-      $links = array("promHospedaje.php", "ayuda.php", "usuario.php");
+      $opciones = array('Promociona tu hospedaje','Ayuda',"$this->idUsuario");
+      $links = array('promHospedaje.php', 'ayuda.php', 'usuario.php');
 
       for($i=0; $i < count($opciones); $i++){
         $this->setOpciones($opciones[$i], $links[$i]);
@@ -93,7 +105,7 @@ class HeaderBase{
 
       $this->setData();
       ?>
-      <div class="main-header drop-shadow">
+      <div class="main-header <?=$this->headerStyle?>">
         <div class="header-logo">
           <a href="index.php">
             <?php echo file_get_contents($this->logoPath);?>
@@ -110,7 +122,14 @@ class HeaderBase{
             if($i < count($this->menuOpciones)-1){
               echo "<a href=$link><div>$opcion</div></a>\n";
             }else{
-              echo "<a href=$link id='menu-triger'><div>$opcion</div></a>\n";
+              $html = "<a href=$link id='menu-triger'><div>$opcion</div></a>\n";
+              $html.= '<div class="user-caption drop-shadow" id="user-menu">';
+              $html.= '<a href="editarPerfil.php"><div>Editar Perfil</div></a>';
+              $html.= '<a href="editarSeguridad.php"><div>Seguridad</div></a>';
+              $html.= '<a href="userEngine/logout.php"><div>Salir</div></a>';
+              $html.= '</div>';
+
+              echo $html;
             }
 
           }

@@ -5,62 +5,35 @@
 
 class Footer{
 
-  protected $titulo = "";
-  protected $seccionesPrincipales = array();
-  protected $seccionesSecundarias = array();
-  protected $linksSecundarios = array();
-
   //Constructor de la clase
-  function __construct($titulo){
-    $this->titulo = $titulo;
+  function __construct(){
+    $this->printFooter();
   }
 
-  //funcion para definir los titulos de cada menu
-  public function setSecPrincipales($arrayName){
+  public function printFooter(){
 
-    for($i=0; $i<count($arrayName); $i++){
-      $this->seccionesPrincipales[$i] = $arrayName[$i];
-    }
-
-  }
-
-  //Funciones para defirnir los nombres
-  //y links de cada elemento secundario
-  public function setSecundarios($arrayName){
-    for($i=0; $i< count($arrayName); $i++){
-        
-    }
-
-  }
-
-
-
-  public function printComponent(){
-    $mTitulo = $this->titulo;
-    echo $this->seccionesSecundarias[0];
     ?>
-
     <div class="main-footer">
       <div class="foot-section">
-
-        <?php
-        for($i=0; $i<count($this->seccionesPrincipales); $i++){
-          $opPrincipal = $this->seccionesPrincipales[$i];
-          ?>
-          <div class="col-2">
-            <h2 class="subtitle"><?=$opPrincipal?></h2>
-          <?php
-          for($j=0; $j<count($this->seccionesSecundarias); $j++){
-            $opSecundaria = $this->seccionesSecundarias[$j];
-            ?>
-              <a href=""><p><?=$opSecundaria?></p></a>
-            <?php
-          }
-          ?>
-          </div>
-          <?php
-        }
-        ?>
+        <div class="col-2">
+          <h2 class="subtitle">Huasi</h2>
+          <a href=""><p>Acerca de</p></a>
+          <a href=""><p>Ayuda</p></a>
+          <a href=""><p>Privacidad</p></a>
+        </div>
+        <div class="col-2">
+          <h2 class="subtitle">Hoteles</h2>
+          <a href=""><p>Programas</p></a>
+          <a href=""><p>Promoción</p></a>
+          <a href=""><p>Manejo de Hospedajes</p></a>
+          <a href=""><p>Quejas</p></a>
+        </div>
+        <div class="col-2">
+          <h2 class="subtitle">Usuarios</h2>
+          <a href=""><p>Registrate</p></a>
+          <a href=""><p>Iniciar Sesión</p></a>
+          <a href=""><p>Convierte en Host</p></a>
+        </div>
       </div>
       <div class="foot-section">
         <div>
@@ -68,7 +41,7 @@ class Footer{
           <h2 class="subtitle">Huasi</h2>
         </div>
         <div>
-          <a href="#"><p>Términos y Privacidad</p></a>
+          <a href="#"><p>Terminos y Privacidad</p></a>
           <a href="#">
             <?php echo file_get_contents("img/svg/facebook.svg");?>
           </a>
@@ -81,17 +54,10 @@ class Footer{
         </div>
       </div>
     </div>
-
     <?php
+
   }
 
-
-
-
-
 }
-
-
-
 
 ?>

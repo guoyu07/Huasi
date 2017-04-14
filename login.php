@@ -1,4 +1,17 @@
+<?php
+session_start();
+require_once "userEngine/userEngine.php";
+require_once 'DbConnection.php';
 
+if(isset($_SESSION['userId'])){
+  header("Location: /");
+}
+
+$logEngine = new UserLogin($conn);
+$logEngine->logUser();
+
+
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -37,12 +50,12 @@
     <div class="wrapper-logsig">
       <div class="all-middle f-colum">
         <div class="jumbotron login-section">
-          <form>
+          <form name="login" method="POST" action="login.php">
             <div class="form">
               <h2 class="subtitle">Bienvenido otra vez</h2>
-              <label for="user-mail">Dirección de correo electrónico:</label>
+              <label for="userMail">Dirección de correo electrónico:</label>
               <input type="mail" name="userMail">
-              <label for="user-password">Constraseña:</label>
+              <label for="userPassword">Constraseña:</label>
               <input type="password" name="userPassword">
               <div>
                 <input type="checkbox">

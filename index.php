@@ -1,6 +1,6 @@
 <?php
 
-require "uiElements/Ui.php";
+require_once "uiElements/Ui.php";
 
 
  ?>
@@ -26,7 +26,7 @@ require "uiElements/Ui.php";
 
   <!--Menu de navegación-->
 
-  <?php MainHeader(); ?>
+  <?php MainHeader(true); ?>
 
 
   <div class="jumbotron full-height all-middle f-colum" id="top-hero">
@@ -51,165 +51,30 @@ require "uiElements/Ui.php";
       <div class="vp-show container">
         <h2 class="sec-title">Recomendaciones</h2>
         <div class="slide-show">
-          <a href="hospedaje.php" class="col-3 card-container">
-            <div class="vp-host">
-              <div id="vp-1"></div>
-              <p>Ejemplo Habitación 1</p>
-              <p>$70</p>
-            </div>
-          </a>
-          <a href="hospedaje.php" class="col-3 card-container">
-            <div class="vp-host">
-              <div id="vp-2"></div>
-              <p>Ejemplo Habitación</p>
-              <p>$70</p>
-            </div>
-          </a>
-          <a href="hospedaje.php" class="col-3 card-container">
-            <div class="vp-host">
-              <div id="vp-3"></div>
-              <p>Ejemplo Habitación</p>
-              <p>$70</p>
-            </div>
-          </a>
-          <a href="hospedaje.php" class="col-3 card-container">
-            <div class="vp-host">
-              <div id="vp-4"></div>
-              <p>Ejemplo Habitación</p>
-              <p>$70</p>
-            </div>
-          </a>
+
+          <?php
+          for($i=1; $i<=4; $i++){
+            $host = new HospedajeVip(1000+$i);
+            $host->setNombre("Hospedaje ".$i);
+            $host->setPrecio(200*$i-$i);
+            $host->setImagePath("img/rooms/room".$i.".jpeg");
+            $host->printComponent();
+          }
+          ?>
         </div>
       </div>
       <div class="deal-show container">
         <h2 class="sec-title second">Habitaciones de Oferta</h2>
         <div class="slide-show f-row">
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/doubleRoom.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/simpleBed.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="col-3">
-            <div class="deal-host">
-              <div>
-                <?php echo file_get_contents("img/svg/icons/doubleBed.svg");?>
-              </div>
-              <div class="margin-left">
-                <p>Ejemplo Habitación</p>
-                <div class="v-middle">
-                  <p class="middle-line">$70.30</p>
-                  <p>$55.30</p>
-                </div>
-              </div>
-            </div>
-          </a>
+          <?php
+          for($i=1; $i<=9; $i++){
+            $hostDeal = new HospedajeDeal($i);
+            $hostDeal->setNombre("Hospedaje ".$i);
+            $hostDeal->setPrecio(200*$i);
+            $hostDeal->setImagePath("img/svg/icons/doubleBed.svg");
+            $hostDeal->printComponent();
+          }
+           ?>
         </div>
       </div>
     </div>
@@ -223,5 +88,6 @@ require "uiElements/Ui.php";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="js/jquery.js"></script>
+<script src="js/usuario.js"></script>
 </body>
 </html>

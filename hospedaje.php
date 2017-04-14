@@ -1,4 +1,6 @@
-
+<?php
+require_once "uiElements/Ui.php";
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,20 +21,9 @@
 </head>
 <body>
   <!--Menu de navegación-->
-  <div class="main-header">
-    <div class="header-logo">
-      <a href="index.php">
-        <?php echo file_get_contents("img/logo.svg");?>
-        <h2>Huasi</h2>
-      </a>
-    </div>
-    <div class="nav main-nav">
-      <a href="#"><div>Promociona tu hospedaje</div></a>
-      <a href="#"><div>Ayuda</div></a>
-      <a href="register.php"><div>Regístrate</div></a>
-      <a href="login.php"><div>Iniciar Sesión</div></a>
-    </div>
-  </div>
+  <?php
+    MainHeader();
+   ?>
 
   <div class="host-reserve container">
     <div class="nav col-8">
@@ -243,5 +234,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="js/reserva.js"></script>
+  <script src="js/usuario.js"></script>
 </body>
 </html>
