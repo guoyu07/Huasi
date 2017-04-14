@@ -1,6 +1,29 @@
 <?php
+session_start();
+$rq_userId = $_REQUEST['userId'];
 require_once "uiElements/Ui.php";
- ?>
+require_once 'DbConnection.php';
+
+//Si no se esta apuntando a ningun usuario
+//Redirecionar al home
+if(empty($rq_userId) ){
+  header("Location: /");
+}
+
+$records = $conn->prepare('SELECT userId, userMail, userName, userLastName, userMonth, userDay, userYear, userImagePath FROM Users WHERE userId = :userId');
+$records->bindParam(':userId', $rq_userId);
+$records->execute();
+$results = $records->fetch(PDO::FETCH_ASSOC);
+$userProfile = NULL;
+
+if( count($results) > 0){
+  $userProfile = $results;
+}else{
+  echo "no";
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,21 +44,30 @@ require_once "uiElements/Ui.php";
 </head>
 <body>
   <!--Menu de navegación-->
-<?php
-MainHeader();
- ?>
+  <?php
+
+  MainHeader();
+
+  ?>
 
   <!-- Wrapper-->
   <div class="wrapper-usuario">
     <div class="flex f-row container">
       <div class="col-8">
         <div class="user-profile-info card-container">
-          <img src="img/user/user-2.jpg" alt="" class="img-responsive">
+          <img src="<?=$userProfile['userImagePath']?>" alt="" class="img-responsive">
           <div class="flex f-colum">
-            <h2 class="sec-title">Pablo Piedra</h2>
+            <h2 class="sec-title"><?=$userProfile['userName']. ' ' . $userProfile['userLastName']?></h2>
             <p>Quito, Ecuador</p>
             <p>Miembro desde Agosto 2016</p>
           </div>
+          <!--Mostrar solo si existe una session-->
+          <?php
+          if($_SESSION['userId'] === $rq_userId){
+          echo '<a id="user-edit" href="editarPerfil.php">Editar</a>';
+          }
+           ?>
+
         </div>
         <div class="user-whishlist card-container">
           <h2 class="sec-title">WishList</h2>
@@ -74,8 +106,8 @@ MainHeader();
 
   <!--Main Footer-->
   <?php
-    MainFooter();
-   ?>
+  MainFooter();
+  ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="js/usuario.js"></script>

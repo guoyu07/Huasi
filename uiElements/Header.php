@@ -83,17 +83,20 @@ class HeaderBase{
   class HeaderUsuario extends Headerbase{
 
     //Id del usuario : id del usuario dentro de la DB
-    protected $idUsuario;
+    protected $nameUser;
+    protected $idUser;
 
     //Requerir el id del usuario al crear la clase
-    function __construct($shadow, $id){
+    function __construct($shadow, $name, $id){
       parent::__construct($shadow);
-      $this->idUsuario = $id;
+      $this->nameUser = $name;
+      $this->idUser = $id;
     }
 
     protected function setData(){
-      $opciones = array('Promociona tu hospedaje','Ayuda',"$this->idUsuario");
-      $links = array('promHospedaje.php', 'ayuda.php', 'usuario.php');
+      $opciones = array('Promociona tu hospedaje','Ayuda',"$this->nameUser");
+      //cancion.php?albmID=$albmID
+      $links = array('promHospedaje.php', 'ayuda.php', "usuario.php?userId=$this->idUser");
 
       for($i=0; $i < count($opciones); $i++){
         $this->setOpciones($opciones[$i], $links[$i]);

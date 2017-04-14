@@ -1,5 +1,7 @@
 <?php
 require_once 'uiElements/Ui.php';
+require_once "userEngine/userEngine.php";
+require_once 'DbConnection.php';
 ejectToOrigin();
 
  ?>
@@ -31,12 +33,12 @@ MainHeader();
   <div class="wrapper-usuario">
     <div class="all-middle air-both">
       <div class="card-container col-8">
-        <form class="form security-form" action="index.html" method="post">
+        <form class="form security-form" method="POST" action="editarSeguridad.php">
           <h2 class="sec-title">Cambia tu contraseña</h2>
           <label>Contraseña actual</label>
-          <input type="password" name="" value="">
+          <input type="password" name="userPassword" value="">
           <label>Nueva contraseña</label>
-          <input type="password" name="" value="">
+          <input type="password" name="userNewPassword" value="">
           <label>Confirmar contraseña</label>
           <input type="password" name="" value="">
           <button type="submit" name="button" class="btn btn-submit-important">Guardar</button>

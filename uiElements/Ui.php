@@ -15,8 +15,10 @@ function MainHeader($shadow){
   global $user;
   //Defirnir e imprimir una nueva instancia de header
   if(!empty($user)){
-    $name = $user['userName'].' '. $user['userLastName'];
-    $mainHeader = new HeaderUsuario($shadow, $name);
+    $firstName = explode(' ', $user['userName']);
+    $lastName = explode(' ', $user['userLastName']);
+    $name = current($firstName).' '.current($lastName);
+    $mainHeader = new HeaderUsuario($shadow, $name, $user['userId']);
   }else{
     $mainHeader = new HeaderNormal($shadow);
 

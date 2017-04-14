@@ -44,7 +44,6 @@ a{
 ***********************/
 
 .main-header{
-  border-bottom: 1px solid #EFEEF1;
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -1081,10 +1080,12 @@ color: #00b698;
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
 }
 
 .user-profile-info img{
   width: 200px;
+  height: 200px;
   border-radius: 100%;
   margin-right: 3em;
 }
@@ -1099,6 +1100,13 @@ color: #00b698;
 
 .user-profile-info p:last-of-type{
   margin-top: 0.3em;
+}
+
+.user-profile-info #user-edit{
+  color: #39aa94;
+  position: absolute;
+  bottom: 1em;
+  right: 2em;
 }
 
 .user-whishlist{

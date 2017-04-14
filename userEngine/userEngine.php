@@ -174,10 +174,34 @@ class UserInfoUpdate extends UserEngine{
 
 class UserSecurityUpdate extends UserEngine{
 
-  public function __construct($dbConn){
+  protected $userNewPassword;
+  protected $userId;
+
+  public function __construct($dbConn, $id){
     parent::__construct($dbConn);
+    $this->userId = $id;
   }
 
+  public function checkPassword(){
+
+    $sql = "SELECT userPassword FROM Users WHERE userPassword = $this->userId";
+    $records = $this->connection->prepare($sql);
+    $records->bindParam(':userPassword', $this->userPassword);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+    $message = '';
+    if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) ){
+      $_SESSION['userId'] = $results['userId'];
+      header("Location: /");
+    }else{
+      $message = 'Lo sentimos, esas credenciales no coinciden';
+    }
+  }
+
+}
+
+class UserDataOutput extends UserEngine{
+  
 }
 
 

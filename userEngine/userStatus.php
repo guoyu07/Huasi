@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once 'DbConnection.php';
 
 //Chequear si existe un usuario en la session.
