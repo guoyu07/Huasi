@@ -1,8 +1,42 @@
 <?php
 require_once 'uiElements/Ui.php';
+require_once "uiElements/BirthSelector.php";
+require_once "userEngine/userEngine.php";
+require_once 'DbConnection.php';
+
+//Ir al home si no existe una session
 ejectToOrigin();
 
- ?>
+global $user;
+$selectors = new BirthSelectorChange($user['userMonth'], $user['userDay'], $user['userYear']);
+$updateEngine = new UserInfoUpdate($conn, $user['userId']);
+$updateEngine->updateUserInfo();
+
+function modifyUserData(){
+  global $user;
+  ?>
+  <label>Nombre</label>
+  <input type="text" name="userName" value="<?=$user['userName']?>">
+  <label>Apellido</label>
+  <input type="text" name="userLastName" value="<?=$user['userLastName']?>">
+  <label>Dirección de correo electrónico</label>
+  <input type="text" name="userMail" value="<?=$user['userMail']?>">
+  <!--<label>Soy</label>
+  <div class="user-sex">
+  <div class="select">
+  <select name="sex">
+  <option selected disabled>Sexo</option>
+  <option selected="selected"value="">Hombre</option>
+  <option value="">Mujer</option>
+  <option value="">Otro</option>
+</select>
+</div>
+</div>-->
+<?php
+
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,62 +58,26 @@ ejectToOrigin();
 <body>
   <!--Menu de navegación-->
 
-<?php
-MainHeader();
- ?>
+  <?php
+  MainHeader();
+  ?>
 
   <!-- Wrapper-->
   <div class="wrapper-usuario">
     <div class="all-middle air-both">
       <div class="card-container col-8">
-        <form class="form profile-form" action="index.html" method="post">
+        <form class="form profile-form" method="POST" action="editarPerfil.php">
           <h2 class="sec-title">Modifica tu información personal</h2>
-          <label>Nombre</label>
-          <input type="text" name="" value="Jose Ignacio">
-          <label>Apellido</label>
-          <input type="text" name="" value="Guerrero Vinueza">
-          <label>Dirección de correo electrónico</label>
-          <input type="text" name="" value="josevinguerrero@gmail.com">
-          <label>Soy</label>
-          <div class="user-sex">
-            <div class="select">
-              <select name="sex">
-                <option selected disabled>Sexo</option>
-                <option selected="selected"value="">Hombre</option>
-                <option value="">Mujer</option>
-                <option value="">Otro</option>
-              </select>
-            </div>
-          </div>
+          <?php
+          modifyUserData();
+          ?>
           <label>Fecha de nacimiento</label>
           <div class="user-age">
-            <div class="select">
-              <select name="dia">
-                <option selected disabled>Día</option>
-                <option value="1">23</option>
-                <option value="">24</option>
-                <option selected="selected" value="">25</option>
-                <option value="">26</option>
-              </select>
-            </div>
-            <div class="select">
-              <select name="Mes">
-                <option selected disabled>Mes</option>
-                <option value="1">Enero</option>
-                <option value="">Febrero</option>
-                <option selected="selected" value="">Marzo</option>
-                <option value="">Abril</option>
-              </select>
-            </div>
-            <div class="select">
-              <select name="Año">
-                <option selected disabled>Año</option>
-                <option value="1">1990</option>
-                <option selected="selected" value="">1997</option>
-                <option value="">1998</option>
-                <option value="">1999</option>
-              </select>
-            </div>
+            <?php
+            $selectors->printMonths();
+            $selectors->printDays();
+            $selectors->printYears();
+            ?>
           </div>
           <button type="submit" name="button" class="btn btn-submit-important">Guardar</button>
         </form>
@@ -88,9 +86,9 @@ MainHeader();
   </div>
 
   <!--Main Footer-->
-<?php
-MainFooter();
- ?>
+  <?php
+  MainFooter();
+  ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

@@ -130,8 +130,44 @@ class UserLogin extends UserEngine{
 
 class UserInfoUpdate extends UserEngine{
 
-  public function __construct($dbConn){
+  protected $userId;
+
+  public function __construct($dbConn, $id){
     parent::__construct($dbConn);
+    $this->userId = $id;
+  }
+
+  public function isUpdateFormReady(){
+    return
+    $this->isNameReady() && $this->isLastNameReady() &&
+    $this->isMailReady() && $this->isDateReay();
+  }
+
+  public function updateUserInfo(){
+
+    if($this->isUpdateFormReady()){
+      //Ingresar usuario a la base de datos.
+      $sql = "UPDATE Users SET userName = :userName, userLastName = :userLastName, userMail = :userMail, userMonth = :userMonth, userDay = :userDay, userYear = :userYear WHERE userId = $this->userId";
+
+      //Preparar el statement
+      $stmt = $this->connection->prepare($sql);
+
+      //Guardar los parametros en la base de datos
+      $stmt->bindParam('userMail', $this->userMail);
+      $stmt->bindParam('userName', $this->userName);
+      $stmt->bindParam('userLastName', $this->userLastName);
+      $stmt->bindParam('userMonth', $this->userMonth);
+      $stmt->bindParam('userDay', $this->userDay);
+      $stmt->bindParam('userYear', $this->userYear);
+
+      if( $stmt->execute() ){
+        header("Location: usuario.php");
+        //$message = "Cuenta creada satisfactoriamente";
+      }else{
+        $errorMessage = "No se pudo actualizar la información.";
+      }
+    }
+
   }
 
 }

@@ -748,7 +748,9 @@ color: #00b698;
   width:37%;
 }
 
-
+.register-section input[type="text"]{
+  text-transform: capitalize;
+}
 
 .login-section{
   min-height: calc(100vh - 4.0625em);
