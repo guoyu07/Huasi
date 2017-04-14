@@ -1,5 +1,7 @@
 <?php
 require_once 'uiElements/Ui.php';
+ejectToOrigin();
+
  ?>
 <!DOCTYPE html>
 <html>

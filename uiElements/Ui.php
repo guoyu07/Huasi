@@ -15,7 +15,8 @@ function MainHeader($shadow){
   global $user;
   //Defirnir e imprimir una nueva instancia de header
   if(!empty($user)){
-    $mainHeader = new HeaderUsuario($shadow, $user['userName']);
+    $name = $user['userName'].' '. $user['userLastName'];
+    $mainHeader = new HeaderUsuario($shadow, $name);
   }else{
     $mainHeader = new HeaderNormal($shadow);
 
@@ -27,10 +28,21 @@ function MainHeader($shadow){
 }
 
 function MainFooter(){
-  
+
   //datos
   $footer = new Footer();
 
+}
+
+function jsScripts(){
+
+}
+
+function ejectToOrigin(){
+  global $user;
+  if(empty($user)){
+    header("Location: /");
+  }
 }
 
 ?>

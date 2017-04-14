@@ -3,7 +3,7 @@
 //Datos para conectar a la base de datos.
 $server = 'localhost';
 $userName = 'root';
-$password = 'Jay087712578';
+$password = 'root';
 $database = 'Huasi';
 
 //Verificar coneccion con la base de datos

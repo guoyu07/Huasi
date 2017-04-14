@@ -734,7 +734,7 @@ color: #00b698;
   background-image: url("../img/panecillo.jpg");
 }
 
-.register-section .user-age{
+.register-section .age{
   margin-bottom: 0;
 }
 
@@ -747,6 +747,8 @@ color: #00b698;
 .login-section form{
   width:37%;
 }
+
+
 
 .login-section{
   min-height: calc(100vh - 4.0625em);
@@ -1032,6 +1034,7 @@ color: #00b698;
 #user-menu{
   text-align: left;
   position: absolute;
+  display: none;
   right: 30px;
   top: 60px;
   background: #fff;
