@@ -1,27 +1,9 @@
 <?php
-
 require_once "uiElements/Ui.php";
 
+newPageHead("Home");
 
  ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Huasi | Style Guidelines</title>
-  <!--favicon-->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <!--Resetear css de los navegadores-->
-  <link rel="stylesheet" href="style/normalize.css">
-  <!--Fuente para el proyecto-->
-  <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-  <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
-  <!-- Estilos base-->
-  <link rel="stylesheet" href="style/huasi.css">
-</head>
 <body>
 
   <!--Menu de navegación-->

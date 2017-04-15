@@ -44,6 +44,7 @@ a{
 ***********************/
 
 .main-header{
+  box-shadow: inset 0px -1px 5px 0px rgba(0,0,0,0.13);
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -118,7 +119,7 @@ a{
 
 .main-header .header-logo h2,
 .main-nav a{
-  font-weight: 400;
+  font-weight: 300;
   color: #2e3033;
 }
 
@@ -232,7 +233,8 @@ efecto de scrool**/
 .wrapper-usuario,
 .wrapper-prom,
 .wrapper-ayuda,
-.wrapper-index{
+.wrapper-index,
+.wrapper-completeInfo{
   min-height: 100vh;
   padding-bottom: 4em;
 }
@@ -242,7 +244,8 @@ efecto de scrool**/
 .wrapper-logsig,
 .wrapper-prom,
 .wrapper-ayuda,
-.wrapper-res{
+.wrapper-res,
+.wrapper-completeInfo{
   padding-top:60px;
 }
 
@@ -263,7 +266,8 @@ efecto de scrool**/
 .wrapper-res,
 .wrapper-ayuda,
 .wrapper-prom,
-.wrapper{
+.wrapper,
+.wrapper-completeInfo{
   background-color: #FAFAFA;
   background-color: #f1f5f5;
 }
@@ -535,6 +539,16 @@ background-color: #F4897E;
   text-align: center;
   border-radius: 5px;
   color: #fff;
+  position: relative;
+
+}
+
+.verify h2{
+  color: #fff;
+}
+
+.wrapper-completeInfo .verify{
+  text-align: left;
 }
 
 /***********************
@@ -766,7 +780,7 @@ color: #00b698;
   margin-bottom: 1.5em;
 }
 
-.form input,
+.form input:not([type="file"]),
 .form textarea,
 .form select{
   outline: 0;
@@ -823,6 +837,8 @@ color: #00b698;
 .form-reserva .flex:last-of-type input:first-of-type{
   border-left: none;
 }
+
+
 
 
 
@@ -1083,11 +1099,32 @@ color: #00b698;
   position: relative;
 }
 
-.user-profile-info img{
+.user-profile-info .user-img,
+.wrapper-completeInfo .user-img{
   width: 200px;
   height: 200px;
   border-radius: 100%;
   margin-right: 3em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper-completeInfo .user-img{
+  background-color: #f1f5f5;
+  background-size: 30%;
+  background-position: center;
+  background-image: url('../img/svg/icons/camera.svg');
+}
+
+.wrapper-completeInfo .form{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.wrapper-completeInfo .form .btn-submit{
+  width: 30%;
+  padding: 0.8em;
 }
 
 .user-profile-info .sec-title{
@@ -1372,6 +1409,10 @@ color: #00b698;
 
 .profile-form input:last-of-type{
   margin-bottom: 0;
+}
+
+.profile-form input[type="text"]{
+  text-transform: capitalize;
 }
 
 .profile-form .btn,

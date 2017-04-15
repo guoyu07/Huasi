@@ -3,14 +3,13 @@ session_start();
 require_once "uiElements/Ui.php";
 require_once "uiElements/BirthSelector.php";
 require_once "userEngine/userEngine.php";
-require_once 'DbConnection.php';
 
 if(isset($_SESSION['userId'])){
   header("Location: /");
 }
 
 
-$test = new UserRegister($conn);
+$test = new UserRegister();
 $test->setNewUser();
 
 $selectors = new BirthSelectorRegister();

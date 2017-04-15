@@ -1,6 +1,6 @@
 <?php
 
-abstract class UserEngine{
+abstract class UserEngine extends DbConnection{
 
   //Variables
   protected $connection;
@@ -11,12 +11,17 @@ abstract class UserEngine{
   protected $userDay;
   protected $userMonth;
   protected $userYear;
+  protected $userImagePath;
+  protected $userPhoneNumber;
+  protected $userSex;
+  protected $userDescription;
+  protected $userFirstLogin;
   public $errorMessage = "";
 
   //constructor
-  public function __construct($dbConn) {
+  public function __construct() {
     //Asignar la conexion
-    $this->connection = $dbConn;
+    $this->connection = $this->connectToDataBase();
     //Asginar los parametros
     $this->userName = $_POST['userName'];
     $this->userLastName = $_POST['userLastName'];
@@ -25,6 +30,9 @@ abstract class UserEngine{
     $this->userDay = $_POST['userDay'];
     $this->userMonth = $_POST['userMonth'];
     $this->userYear = $_POST['userYear'];
+    $this->userPhoneNumber = $_POST['userPhoneNumber'];
+    $this->userSex = $_POST['userSex'];
+    $this->userDescription = $_POST['userDescription'];
   }
 
   public function isNameReady(){
@@ -47,13 +55,34 @@ abstract class UserEngine{
     return !empty($this->userDay) && !empty($this->userMonth) && !empty($this->userYear);
   }
 
+  public function isImagePathReady(){
+    return !empty($this->userImagePath);
+  }
+
+  public function isUserPhoneNumberReady(){
+    return !empty($this->userPhoneNumber);
+  }
+
+  public function isUserSexReady(){
+    return !empty($this->userSex);
+  }
+
+  public function isUserDescriptionReady(){
+    return !empty($this->userDescription);
+  }
+
+  public function isUserFirstLogin(){
+    return $this->userFirstLogin === 0;
+  }
+
+
 }
 
 
 class UserRegister extends UserEngine{
 
-  public function __construct($dbConn){
-    parent::__construct($dbConn);
+  public function __construct(){
+    parent::__construct();
   }
 
   public function isRegisterFormReady(){
@@ -76,8 +105,8 @@ class UserRegister extends UserEngine{
 
       //Guardar los parametros en la base de datos
       $stmt->bindParam('userMail', $this->userMail);
-      $stmt->bindParam('userName', $this->userName);
-      $stmt->bindParam('userLastName', $this->userLastName);
+      $stmt->bindParam('userName', strtolower($this->userName));
+      $stmt->bindParam('userLastName', strtolower($this->userLastName));
       $stmt->bindParam('userMonth', $this->userMonth);
       $stmt->bindParam('userDay', $this->userDay);
       $stmt->bindParam('userYear', $this->userYear);
@@ -100,8 +129,8 @@ class UserLogin extends UserEngine{
 
   protected $userId;
 
-  public function __construct($dbConn){
-    parent::__construct($dbConn);
+  public function __construct(){
+    parent::__construct();
   }
 
   public function isLoginFormReady(){
@@ -111,12 +140,16 @@ class UserLogin extends UserEngine{
   public function logUser(){
 
     if($this->isLoginFormReady()){
-      $records = $this->connection->prepare('SELECT userId, userMail, userPassword FROM Users WHERE userMail = :userMail');
+      $records = $this->connection->prepare('SELECT userId, userMail, userPassword, userFirstLogin FROM Users WHERE userMail = :userMail');
       $records->bindParam(':userMail', $this->userMail);
       $records->execute();
       $results = $records->fetch(PDO::FETCH_ASSOC);
       $message = '';
-      if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) ){
+      if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) && $results['userFirstLogin'] === 0 ){
+        $_SESSION['userId'] = $results['userId'];
+        header("Location: /completarInfoUser.php");
+
+      }else if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) && $results['userFirstLogin']> 0){
         $_SESSION['userId'] = $results['userId'];
         header("Location: /");
       }else{
@@ -128,12 +161,63 @@ class UserLogin extends UserEngine{
 }
 
 
+class userCompleteInfo extends UserEngine{
+
+  protected $userId;
+  protected $secondLogin;
+
+  public function __construct($imgPath, $idUser){
+    parent:: __construct();
+    $this->userId = $idUser;
+    $this->userImagePath = $imgPath;
+    $this->secondLogin = 1;
+  }
+
+  public function isCompleteFormReady(){
+    return $this->isUserPhoneNumberReady() &&
+    $this->isUserSexReady() && $this->isUserDescriptionReady();
+  }
+
+  public function setCompleteInfo(){
+
+    if($this->isCompleteFormReady()){
+
+      //Ingresar usuario a la base de datos.
+      $sql = "UPDATE Users SET userSex = :userSex, userDescription = :userDescription, userPhoneNumber = :userPhoneNumber, userImagePath = :userImagePath, userFirstLogin = :userFirstLogin WHERE userId = $this->userId";
+
+      //Preparar el statement
+      $stmt = $this->connection->prepare($sql);
+
+      //Guardar los parametros en la base de datos
+
+      $stmt->bindParam('userSex', $this->userSex);
+      $stmt->bindParam('userDescription', $this->userDescription);
+      $stmt->bindParam('userPhoneNumber', $this->userPhoneNumber);
+      $stmt->bindParam('userImagePath', $this->userImagePath);
+      $stmt->bindParam('userFirstLogin', $this->secondLogin);
+
+      if( $stmt->execute() ){
+        header("Location: usuario.php?userId=$this->userId");
+        //$message = "Cuenta creada satisfactoriamente";
+      }else{
+        $errorMessage = "Ocurrio algun error al crear tu cuenta";
+      }
+    }
+
+  }
+
+
+
+
+}
+
+
 class UserInfoUpdate extends UserEngine{
 
   protected $userId;
 
-  public function __construct($dbConn, $id){
-    parent::__construct($dbConn);
+  public function __construct($id){
+    parent::__construct();
     $this->userId = $id;
   }
 
@@ -154,14 +238,14 @@ class UserInfoUpdate extends UserEngine{
 
       //Guardar los parametros en la base de datos
       $stmt->bindParam('userMail', $this->userMail);
-      $stmt->bindParam('userName', $this->userName);
-      $stmt->bindParam('userLastName', $this->userLastName);
+      $stmt->bindParam('userName', strtolower($this->userName));
+      $stmt->bindParam('userLastName', strtolower($this->userLastName));
       $stmt->bindParam('userMonth', $this->userMonth);
       $stmt->bindParam('userDay', $this->userDay);
       $stmt->bindParam('userYear', $this->userYear);
 
       if( $stmt->execute() ){
-        header("Location: usuario.php");
+        header("Location: usuario.php?userId=$this->userId");
         //$message = "Cuenta creada satisfactoriamente";
       }else{
         $errorMessage = "No se pudo actualizar la información.";
@@ -184,7 +268,7 @@ class UserSecurityUpdate extends UserEngine{
 
   public function checkPassword(){
 
-    $sql = "SELECT userPassword FROM Users WHERE userPassword = $this->userId";
+    $sql = "SELECT userPassword FROM Users WHERE userPassword = :userPassword";
     $records = $this->connection->prepare($sql);
     $records->bindParam(':userPassword', $this->userPassword);
     $records->execute();
@@ -201,11 +285,69 @@ class UserSecurityUpdate extends UserEngine{
 }
 
 class UserDataOutput extends UserEngine{
-  
-}
+
+  protected $userId;
+  protected $userProfile;
+
+  public function __construct($id){
+    parent::__construct();
+    $this->userId = $id;
+  }
+
+  public function getData(){
+    $records = $this->connection->prepare('SELECT userId, userMail, userName, userLastName,
+      userMonth, userDay, userYear, userImagePath FROM Users WHERE userId = :userId');
+      $records->bindParam(':userId', $this->userId);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
+      $this->userProfile = NULL;
+
+      if( count($results) > 0){
+        $this->userProfile = $results;
+      }else{
+        echo "no";
+      }
+    }
+
+    public function getUserName(){
+      return ucwords($this->userProfile['userName']).' '.ucwords($this->userProfile['userLastName']);
+    }
+
+    public function outputData(){
+
+      $image = $this->userProfile['userImagePath'];
+      $nameHolder = explode(' ', $this->userProfile['userName']);
+      $lastNameHolder = explode(' ',$this->userProfile['userLastName']);
+      $name = '';
+      $lastName = '';
+      for($i=0; $i < count($nameHolder); $i++){
+        $name .= ucfirst($nameHolder[$i]).' ';
+      }
+
+      for($i=0; $i< count($lastNameHolder); $i++){
+        $lastName .= ucfirst($lastNameHolder[$i]).' ';
+      }
+
+
+      ?>
+
+      <div class="user-img" style="background-image: url(<?=$image?>);"></div>
+      <div class="flex f-colum">
+        <h2 class="sec-title"><?=$name. ' ' .$lastName?></h2>
+        <p>Quito, Ecuador</p>
+        <p>Miembro desde Agosto 2016</p>
+      </div>
+      <!--Mostrar solo si existe una session-->
+      <?php
+      if($_SESSION['userId'] === $this->userId){
+        echo '<a id="user-edit" href="editarPerfil.php">Editar</a>';
+      }
+    }
+
+  }
 
 
 
 
 
-?>
+  ?>

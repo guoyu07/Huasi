@@ -1,8 +1,8 @@
 <?php
-session_start();
-$rq_userId = $_REQUEST['userId'];
 require_once "uiElements/Ui.php";
-require_once 'DbConnection.php';
+require_once "userEngine/userEngine.php";
+
+$rq_userId = $_REQUEST['userId'];
 
 //Si no se esta apuntando a ningun usuario
 //Redirecionar al home
@@ -10,38 +10,15 @@ if(empty($rq_userId) ){
   header("Location: /");
 }
 
-$records = $conn->prepare('SELECT userId, userMail, userName, userLastName, userMonth, userDay, userYear, userImagePath FROM Users WHERE userId = :userId');
-$records->bindParam(':userId', $rq_userId);
-$records->execute();
-$results = $records->fetch(PDO::FETCH_ASSOC);
-$userProfile = NULL;
+//Crear nueva clase para selecionar datos del usuario segun userId
+$userInfo = new UserDataOutput($rq_userId);
+$userInfo->getData();
 
-if( count($results) > 0){
-  $userProfile = $results;
-}else{
-  echo "no";
-}
-
+//Crear Nuevo Head de la pagina.
+newPageHead($userInfo->getUserName());
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Huasi | Style Guidelines</title>
-  <!--favicon-->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <!--Resetear css de los navegadores-->
-  <link rel="stylesheet" href="style/normalize.css">
-  <!--Fuente para el proyecto-->
-  <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-  <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
-  <!-- Estilos base-->
-  <link rel="stylesheet" href="style/huasi.css">
-</head>
+
 <body>
   <!--Menu de navegación-->
   <?php
@@ -55,19 +32,9 @@ if( count($results) > 0){
     <div class="flex f-row container">
       <div class="col-8">
         <div class="user-profile-info card-container">
-          <img src="<?=$userProfile['userImagePath']?>" alt="" class="img-responsive">
-          <div class="flex f-colum">
-            <h2 class="sec-title"><?=$userProfile['userName']. ' ' . $userProfile['userLastName']?></h2>
-            <p>Quito, Ecuador</p>
-            <p>Miembro desde Agosto 2016</p>
-          </div>
-          <!--Mostrar solo si existe una session-->
           <?php
-          if($_SESSION['userId'] === $rq_userId){
-          echo '<a id="user-edit" href="editarPerfil.php">Editar</a>';
-          }
+          $userInfo->outPutData();
            ?>
-
         </div>
         <div class="user-whishlist card-container">
           <h2 class="sec-title">WishList</h2>

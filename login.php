@@ -2,13 +2,12 @@
 session_start();
 require_once "uiElements/Ui.php";
 require_once "userEngine/userEngine.php";
-require_once 'DbConnection.php';
 
 if(isset($_SESSION['userId'])){
   header("Location: /");
 }
 
-$logEngine = new UserLogin($conn);
+$logEngine = new UserLogin();
 $logEngine->logUser();
 
 

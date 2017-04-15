@@ -1,8 +1,12 @@
 <?php
 require_once 'uiElements/Ui.php';
 require_once "userEngine/userEngine.php";
-require_once 'DbConnection.php';
+
 ejectToOrigin();
+
+global $user;
+
+newPageHead($user['userName'].' '. $user['userLastName']);
 
  ?>
 <!DOCTYPE html>
@@ -54,6 +58,8 @@ MainHeader();
    ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script src="js/usuario.js"></script>
+  <?php
+  PageScripts();
+   ?>
 </body>
 </html>
