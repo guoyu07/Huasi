@@ -30,7 +30,7 @@ newPageHead($user['userName'].' '. $user['userLastName']);
 <body>
   <!--Menu de navegación-->
 <?php
-MainHeader();
+MainHeader(true);
  ?>
 
   <!-- Wrapper-->

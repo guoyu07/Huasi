@@ -24,7 +24,7 @@ newPageHead($user['userName']);
 <body>
   <!--Menu de navegación-->
   <?php
-  MainHeader();
+  MainHeader(true);
   ?>
 
   <div class="wrapper-completeInfo">

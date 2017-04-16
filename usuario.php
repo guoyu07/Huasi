@@ -23,7 +23,7 @@ newPageHead($userInfo->getUserName());
   <!--Menu de navegación-->
   <?php
 
-  MainHeader();
+  MainHeader(true);
 
   ?>
 

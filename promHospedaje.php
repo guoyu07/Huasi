@@ -1,13 +1,13 @@
 <?php
 require_once 'uiElements/Ui.php';
 
-newPageHead('Promociona tu hospedaje');
+newPageHead("Promociona tu hospedaje");
  ?>
 
 <body>
   <!--Menu de navegación-->
   <?php
-  MainHeader();
+  MainHeader(true);
    ?>
   <!-- Wrapper-->
   <div class="wrapper-prom">

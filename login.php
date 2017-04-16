@@ -32,7 +32,7 @@ $logEngine->logUser();
   <body>
     <!--Menu de navegación-->
     <?php
-    MainHeader();
+    MainHeader(true);
      ?>
 
     <!-- Wrapper-->

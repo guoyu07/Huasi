@@ -23,7 +23,7 @@ require_once "uiElements/Ui.php";
     <!--Menu de navegación-->
 
     <?php
-      MainHeader();
+      MainHeader(true);
     ?>
 
     <div class="form-filtro">

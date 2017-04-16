@@ -41,7 +41,7 @@ newPageHead($user['userName'].' '. $user['userLastName']);
   <!--Menu de navegación-->
 
   <?php
-  MainHeader();
+  MainHeader(true);
   ?>
 
   <!-- Wrapper-->

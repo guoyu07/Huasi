@@ -6,7 +6,7 @@ newPageHead("Ayuda");
 <body>
   <!--Menu de navegación-->
   <?php
-  MainHeader();
+  MainHeader(true);
    ?>
 
   <!-- Wrapper-->

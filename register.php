@@ -34,7 +34,7 @@ $selectors = new BirthSelectorRegister();
 <body>
   <!--Menu de navegación-->
 <?php
-MainHeader();
+MainHeader(true);
  ?>
 
   <!-- Wrapper-->
