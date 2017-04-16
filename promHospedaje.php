@@ -34,7 +34,7 @@ newPageHead("Promociona tu hospedaje");
       </div>
     </div>
     <div class="container mute-coments">
-      <h3 class="mute-text">"La mejor forma de conseguir un espacio en la web"</h3>
+      <h3 class="mute-text text-center">"La mejor forma de conseguir un espacio en la web"</h3>
     </div>
   </div>
 
