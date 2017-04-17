@@ -371,7 +371,6 @@ class UserDataOutput extends UserEngine{
         $lastName .= ucfirst($lastNameHolder[$i]).' ';
       }
 
-
       ?>
 
       <div class="user-img" style="background-image: url(<?=$image?>);"></div>
