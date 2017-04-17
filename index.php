@@ -1,7 +1,7 @@
 <?php
 require_once "uiElements/Ui.php";
 
-newPageHead("Home");
+newPageHead("La mejor comunidad hotelera de Quito");
 
  ?>
 <body>
@@ -70,6 +70,8 @@ newPageHead("Home");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="js/jquery.js"></script>
-<script src="js/usuario.js"></script>
+<?php
+PageScripts();
+ ?>
 </body>
 </html>

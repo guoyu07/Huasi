@@ -3,12 +3,16 @@ require_once "uiElements/Ui.php";
 require_once "userEngine/userEngine.php";
 
 $rq_userId = $_REQUEST['userId'];
+$rq_updateInfo = $_REQUEST['updateInfo'];
+
+
 
 //Si no se esta apuntando a ningun usuario
 //Redirecionar al home
 if(empty($rq_userId) ){
   header("Location: /");
 }
+
 
 //Crear nueva clase para selecionar datos del usuario segun userId
 $userInfo = new UserDataOutput($rq_userId);
@@ -29,6 +33,10 @@ newPageHead($userInfo->getUserName());
 
   <!-- Wrapper-->
   <div class="wrapper-usuario">
+    <div class="container">
+      <?php
+       ?>
+    </div>
     <div class="flex f-row container">
       <div class="col-8">
         <div class="user-profile-info card-container">

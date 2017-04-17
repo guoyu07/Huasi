@@ -42,6 +42,16 @@ $logEngine->logUser();
           <form name="login" method="POST" action="login.php">
             <div class="form">
               <h2 class="subtitle">Bienvenido otra vez</h2>
+              <?php
+                if(!empty($logEngine->getErrorMessage())){
+                  $message = $logEngine->getErrorMessage();
+
+                  ?>
+
+                    <div class="error"><?=$message?></div>
+                  <?php
+                }
+               ?>
               <label for="userMail">Dirección de correo electrónico:</label>
               <input type="mail" name="userMail">
               <label for="userPassword">Constraseña:</label>

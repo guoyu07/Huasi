@@ -1,10 +1,12 @@
 <?php
 require_once "uiElements/Ui.php";
+require_once 'uiElements/countrySelector.php';
 require_once "userEngine/userEngine.php";
 require_once 'imgEngine/ImgEngine.php';
 
 global $user;
 
+ejectToOrigin();
 if($user['userFirstLogin'] > 0){
   header("Location: /");
 }
@@ -15,6 +17,8 @@ $imgPath = $saveUserImg->getImagePath();
 
 $completeForm = new userCompleteInfo($imgPath, $user['userId']);
 $completeForm->setCompleteInfo();
+
+$countrySelector = new CountrySelector();
 
 
 
@@ -30,7 +34,7 @@ newPageHead($user['userName']);
   <div class="wrapper-completeInfo">
     <div class="all-middle f-colum air-both container">
       <div class="verify col-12" id="">
-        <h2 class="subtitle">Bienvenido, José Guerrero</h2>
+        <h2 class="subtitle">Hola, <?=$user['userName'].' '. $user['userLastName']?> solo necesitamos saber un poco más de ti.</h2>
       </div>
       <div class=" card-container col-12">
         <p>Completa la siguiente información para continuar.</p>
@@ -40,7 +44,7 @@ newPageHead($user['userName']);
             <form action="completarInfoUser.php" method="POST" enctype="multipart/form-data" class="form" >
               <label>Selecciona una foto para tu perfil</label>
               <input type="file" name="userImagePath" id="imgInp">
-              <label>Soy</label>
+              <label>Como te identificas</label>
               <div class="user-sex">
                 <div class="select">
                   <select name="userSex">
@@ -51,8 +55,18 @@ newPageHead($user['userName']);
                   </select>
                 </div>
               </div>
+              <label>En que país vives</label>
+              <div class="user-country">
+                <div class="select">
+                  <?php
+                  $countrySelector->printCountries();
+                   ?>
+                </div>
+              </div>
+              <label>En que ciudad vives</label>
+              <input type="text" name="userCity">
               <label>Número de telefono</label>
-              <input type="number" name="userPhoneNumber" value="">
+              <input type="number" name="userPhoneNumber" placeholder="0987654321">
               <label>Cuentanos un poco de ti</label>
               <textarea name="userDescription" maxlength="240" placeholder="Dilo en 240 caracteres." rows="3"></textarea>
               <button type="submit" class="btn btn-submit" name="submit">Continuar</button>
