@@ -13,15 +13,6 @@ class HeaderBase{
   protected $menuOpciones = array();
   protected $menuOpcionesLinks = array();
 
-  //Constructor de la clase
-  function __construct($shadow=false){
-    if($shadow == true){
-      $this->headerStyle = 'drop-shadow';
-    }else{
-      $this->headerStyle = '';
-    }
-  }
-
   //Función para Definir las opciones del menu
   public function setOpciones($opcion, $link){
     $this->menuOpciones[] = $opcion;
@@ -32,10 +23,6 @@ class HeaderBase{
 
   //Clase para generar el estado normal del header
   class HeaderNormal extends HeaderBase{
-
-    function __construct($shadow){
-      parent::__construct($shadow);
-    }
 
     protected function setData(){
 
@@ -87,8 +74,7 @@ class HeaderBase{
     protected $idUser;
 
     //Requerir el id del usuario al crear la clase
-    function __construct($shadow, $name, $id){
-      parent::__construct($shadow);
+    function __construct($name, $id){
       $this->nameUser = $name;
       $this->idUser = $id;
     }

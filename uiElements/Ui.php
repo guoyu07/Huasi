@@ -37,7 +37,7 @@ function newPageHead($pageTitle){
 }
 
 //Funcion para generar el Header
-function MainHeader($shadow){
+function MainHeader(){
 
   global $user;
   //Defirnir e imprimir una nueva instancia de header
@@ -45,9 +45,9 @@ function MainHeader($shadow){
     $firstName = explode(' ', $user['userName']);
     $lastName = explode(' ', $user['userLastName']);
     $name = ucfirst(current($firstName)).' '.ucfirst(current($lastName));
-    $mainHeader = new HeaderUsuario($shadow, $name, $user['userId']);
+    $mainHeader = new HeaderUsuario($name, $user['userId']);
   }else{
-    $mainHeader = new HeaderNormal($shadow);
+    $mainHeader = new HeaderNormal();
 
   }
 
