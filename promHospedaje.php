@@ -7,7 +7,7 @@ newPageHead('Promociona tu hospedaje');
 <body>
   <!--Menu de navegación-->
   <?php
-  MainHeader(true);
+  MainHeader();
    ?>
   <!-- Wrapper-->
   <div class="wrapper-prom">
@@ -40,7 +40,7 @@ newPageHead('Promociona tu hospedaje');
 
   <!--Main Footer-->
   <?php
-  MainFooter(true);
+  MainFooter();
    ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

@@ -16,7 +16,7 @@ newPageHead("Iniciar sesión");
   <body>
     <!--Menu de navegación-->
     <?php
-    MainHeader(true);
+    MainHeader();
      ?>
 
     <!-- Wrapper-->
@@ -60,7 +60,7 @@ newPageHead("Iniciar sesión");
 
     <!--Main Footer-->
     <?php
-    MainFooter(true);
+    MainFooter();
      ?>
 
 

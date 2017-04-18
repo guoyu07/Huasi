@@ -1,4 +1,5 @@
 
+
 CREATE DATABASE Huasi;
 # Volcado de tabla Users
 # ------------------------------------------------------------
