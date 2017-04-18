@@ -7,7 +7,7 @@ global $user;
 newPageHead($user['userName'].' '. $user['userLastName']);
 
 $updatePassword = new UserSecurityUpdate($user['userId']);
-$updatePassword->checkPassword();
+//$updatePassword->checkPassword();
 $updatePassword->setNewPassword();
 
  ?>
@@ -37,12 +37,12 @@ MainHeader();
 
   <!-- Wrapper-->
   <div class="wrapper-usuario">
-    <div class="all-middle air-both">
-      <div class="card-container col-8">
+    <div class="container all-middle">
+      <div class="card-container col-6">
         <form class="form security-form" method="POST" action="editarSeguridad.php">
           <h2 class="sec-title">Cambia tu contraseña</h2>
           <?php
-          
+            $updatePassword->printReport();
            ?>
           <label>Contraseña actual</label>
           <input type="password" name="userPassword" value="">

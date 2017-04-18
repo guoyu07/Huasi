@@ -1,6 +1,7 @@
 <?php
 
-abstract class HospedajeBase{
+
+abstract class HospedajeBase {
 
   protected $idHospedaje;
   protected $nombreHospedaje = '';

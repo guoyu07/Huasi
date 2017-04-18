@@ -1,8 +1,6 @@
 <?php
 
-class CountrySelector {
-
-
+abstract class CountryEngine {
 
   public function __construct(){
     $this->countries = $countries = array("AF" => "Afghanistan",
@@ -251,6 +249,16 @@ class CountrySelector {
     "ZW" => "Zimbabwe");
   }
 
+
+
+}
+
+class CountrySelector extends CountryEngine{
+
+  public function __construct(){
+    parent::__construct();
+  }
+
   public function printCountries(){
     $html = '<select name="userCountry">';
     $html .= '<option selected disabled selected="selected">País</option>';
@@ -262,5 +270,36 @@ class CountrySelector {
   }
 
 }
+
+class UserCountry extends CountryEngine{
+
+  protected $userCountry;
+
+  public function __construct($country){
+    parent::__construct();
+    $this->userCountry = $country;
+  }
+
+  public function printCountries(){
+
+    $html = '<select name="userCountry">';
+    $html .= '<option selected disabled selected="selected">País</option>';
+    foreach($this->countries as $key => $value) {
+      //$key = country code
+      //$value = country name
+      if($this->userCountry === $key){
+        $html .= "<option selected='selected' value = $key title=$value >$value</option>";
+      }else{
+        $html.= "<option value=$key  title=$value > $value </option>";
+      }
+
+    }
+    $html.= '</select>';
+    echo $html;
+
+  }
+}
+
+
 
 ?>

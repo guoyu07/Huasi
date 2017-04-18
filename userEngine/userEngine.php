@@ -19,7 +19,9 @@ abstract class UserEngine extends DbConnection{
   protected $userSex;
   protected $userDescription;
   protected $userFirstLogin;
+  protected $verifyMessage;
   protected $errorMessage;
+
 
   //constructor
   public function __construct() {
@@ -39,6 +41,7 @@ abstract class UserEngine extends DbConnection{
     $this->userSex = $_POST['userSex'];
     $this->userDescription = $_POST['userDescription'];
     $this->errorMessage = '';
+    $this->verifyMessage = '';
   }
 
   //Mostrar el error
@@ -46,9 +49,39 @@ abstract class UserEngine extends DbConnection{
     return $this->errorMessage;
   }
 
-  public function transferStatus($bool){
-    return $bool;
+  public function getVerifyMessage(){
+    return $this->verifyMessage;
   }
+
+  public function printReport(){
+    if(!empty($this->getErrorMessage())){
+      echo "<div class='error'>$this->errorMessage</div>";
+    }else if(!empty($this->getVerifyMessage())){
+      echo "<div class='verify-message'>$this->verifyMessage</div>";
+    }
+  }
+
+  public function checkPassword(){
+
+    if($this->isSecurityUpdateFormReady()){
+
+      $sql = "SELECT userPassword FROM Users WHERE userId = $this->userId ";
+      $records = $this->connection->prepare($sql);
+      $records->bindParam('userPassword', $this->userPassword);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
+
+      if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) ){
+        return true;
+      }else{
+        $this->errorMessage = "No se pudo cambiar la contraseña, verifica que todos los datos sean correctos.";
+        return false;
+
+      }
+
+    }
+  }
+
 
   public function isNameReady(){
     return !empty($this->userName);
@@ -201,7 +234,7 @@ class userCompleteInfo extends UserEngine{
 
       //Guardar los parametros en la base de datos
 
-      $stmt->bindParam('userSex', $this->userSex);
+      $stmt->bindParam('userSex', strtolower($this->userSex));
       $stmt->bindParam('userDescription', $this->userDescription);
       $stmt->bindParam('userPhoneNumber', $this->userPhoneNumber);
       $stmt->bindParam('userCountry', $this->userCountry);
@@ -218,9 +251,6 @@ class userCompleteInfo extends UserEngine{
     }
 
   }
-
-
-
 
 }
 
@@ -243,18 +273,25 @@ class UserInfoUpdate extends UserEngine{
 
     if($this->isUpdateFormReady()){
       //Ingresar usuario a la base de datos.
-      $sql = "UPDATE Users SET userName = :userName, userLastName = :userLastName, userMail = :userMail, userMonth = :userMonth, userDay = :userDay, userYear = :userYear WHERE userId = $this->userId";
+      $sql = "UPDATE Users SET userName = :userName, userLastName = :userLastName,
+      userMail = :userMail, userSex = :userSex, userMonth = :userMonth, userDay = :userDay,
+       userYear = :userYear, userCountry = :userCountry, userCity = :userCity,
+        userPhoneNumber = :userPhoneNumber WHERE userId = $this->userId";
 
       //Preparar el statement
       $stmt = $this->connection->prepare($sql);
 
       //Guardar los parametros en la base de datos
-      $stmt->bindParam('userMail', $this->userMail);
+      $stmt->bindParam('userSex', strtolower($this->userSex));
       $stmt->bindParam('userName', strtolower($this->userName));
       $stmt->bindParam('userLastName', strtolower($this->userLastName));
+      $stmt->bindParam('userMail', $this->userMail);
       $stmt->bindParam('userMonth', $this->userMonth);
       $stmt->bindParam('userDay', $this->userDay);
       $stmt->bindParam('userYear', $this->userYear);
+      $stmt->bindParam('userCountry', $this->userCountry);
+      $stmt->bindParam('userCity', $this->userCity);
+      $stmt->bindParam('userPhoneNumber', $this->userPhoneNumber);
 
       if( $stmt->execute() ){
         header("Location: usuario.php?userId=$this->userId&updateInfo=true");
@@ -286,29 +323,15 @@ class UserSecurityUpdate extends UserEngine{
     return $this->isPasswordReady() && $this->isNewPasswordReady();
   }
 
-  public function checkPassword(){
 
-    if($this->isSecurityUpdateFormReady()){
-
-      $sql = "SELECT userPassword FROM Users WHERE userId = $this->userId ";
-      $records = $this->connection->prepare($sql);
-      $records->bindParam('userPassword', $this->userPassword);
-      $records->execute();
-      $results = $records->fetch(PDO::FETCH_ASSOC);
-
-      if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) ){
-        $this->transferStatus(true);
-      }else{
-        $this->transferStatus(false);
-      }
-
-    }
-  }
 
   public function setNewPassword(){
 
+
+
+    $this->checkPassword();
+
     if($this->checkPassword()){
-      echo "si";
       $sql = "UPDATE Users SET userPassword = :userNewPassword WHERE userId = $this->userId";
 
       //Preparar el statement
@@ -318,9 +341,9 @@ class UserSecurityUpdate extends UserEngine{
       $stmt->bindParam('userNewPassword', password_hash($this->userNewPassword, PASSWORD_BCRYPT ));
 
       if( $stmt->execute() ){
-        $this->errorMessage = "La contraseña se cambio satisfactoriamente.";
+        $this->verifyMessage = "La contraseña se cambio satisfactoriamente.";
       }else{
-        $this->errorMessage = "No se pudo cambiar la contraseña, verifica que todos los datos sean correctos.";
+        $this->errorMessage = $errorMessage;
       }
     }
 
@@ -397,7 +420,9 @@ class UserDataOutput extends UserEngine{
       $this->userId = $id;
     }
 
-    public function test(){}
+    public function deleteUser(){
+
+    }
 
     }
 

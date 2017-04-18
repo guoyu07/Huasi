@@ -4,7 +4,11 @@ require_once 'DbConnection.php';
 $conn = new DbConnection();
 //Chequear si existe un usuario en la session.
 if(isset($_SESSION['userId'])){
-  $records = $conn->connectToDataBase()->prepare('SELECT userId, userMail, userName, userLastName, userMonth, userDay, userYear, userCountry, userCity, userFirstLogin FROM Users WHERE userId = :userId');
+
+  $records = $conn->connectToDataBase()->prepare('SELECT userId, userMail,
+    userName, userLastName, userSex, userMonth, userDay, userYear, userImagePath,
+    userCountry, userCity,userPhoneNumber, userDescription, userFirstLogin FROM Users WHERE userId = :userId');
+
   $records->bindParam(':userId', $_SESSION['userId']);
   $records->execute();
   $results = $records->fetch(PDO::FETCH_ASSOC);

@@ -1,6 +1,7 @@
 <?php
 require_once "uiElements/Ui.php";
 require_once 'uiElements/countrySelector.php';
+require_once 'uiElements/sexSelector.php';
 require_once "userEngine/userEngine.php";
 require_once 'imgEngine/ImgEngine.php';
 
@@ -11,14 +12,19 @@ if($user['userFirstLogin'] > 0){
   header("Location: /");
 }
 
+//Clase para manejar la subida de imagenes
 $saveUserImg = new ImgEngine('userImagePath', 'submit');
 $saveUserImg->saveImage('user');
+//Retornar la ubicacion de la imagen para guardar en DB
 $imgPath = $saveUserImg->getImagePath();
 
+//Clase para manejar la subida informacion
 $completeForm = new userCompleteInfo($imgPath, $user['userId']);
 $completeForm->setCompleteInfo();
 
 $countrySelector = new CountrySelector();
+
+$sexSelector = new SexSelector();
 
 
 
@@ -46,21 +52,18 @@ newPageHead($user['userName']);
               <input type="file" name="userImagePath" id="imgInp">
               <label>Como te identificas</label>
               <div class="user-sex">
-                <div class="select">
-                  <select name="userSex">
-                    <option selected disabled selected="selected">Sexo</option>
-                    <option value="Hombre">Hombre</option>
-                    <option value="Mujer">Mujer</option>
-                    <option value="Otro">Otro</option>
-                  </select>
-                </div>
+                
+                <?php
+                $sexSelector->printSex();
+                ?>
+
               </div>
               <label>En que país vives</label>
               <div class="user-country">
                 <div class="select">
                   <?php
                   $countrySelector->printCountries();
-                   ?>
+                  ?>
                 </div>
               </div>
               <label>En que ciudad vives</label>
