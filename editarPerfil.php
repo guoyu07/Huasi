@@ -60,6 +60,10 @@ newPageHead($user['userName'].' '. $user['userLastName']);
     <div class="flex  f-row container">
       <div class="col-4 card-container ">
         <div class="user-img" style="background-image: url(<?=$user['userImagePath']?>);"></div>
+        <form class="form" action="editarPerfil.php" method="POST">
+          <input type="file" name="userImagePath">
+          <button type="submit" name="submit" class="btn btn-submit">Cambiar foto</button>
+        </form>
         <p><?=$user['userDescription']?></p>
       </div>
       <div class="card-container col-8">

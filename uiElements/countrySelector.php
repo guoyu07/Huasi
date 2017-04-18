@@ -1,8 +1,11 @@
 <?php
 
+//Clase para generar el selector de paises
 abstract class CountryEngine {
 
+  //Constructor de la clase
   public function __construct(){
+    //Lista de paises.
     $this->countries = $countries = array("AF" => "Afghanistan",
     "AX" => "Åland Islands",
     "AL" => "Albania",
@@ -253,12 +256,15 @@ abstract class CountryEngine {
 
 }
 
+//Sub-clase para selecionar paises
 class CountrySelector extends CountryEngine{
 
+  //Constructor de lac clase
   public function __construct(){
-    parent::__construct();
+    parent::__construct(); //Heredar del padre.
   }
 
+  //Funcion para imprimir el html.
   public function printCountries(){
     $html = '<select name="userCountry">';
     $html .= '<option selected disabled selected="selected">País</option>';
@@ -266,27 +272,31 @@ class CountrySelector extends CountryEngine{
       $html.= "<option value=$key  title=$value > $value </option>";
     }
     $html.= '</select>';
-    echo $html;
+    echo $html; //Imprimir.
   }
 
 }
 
+//Sub-clase para selecionar paises y mostrar cual es el pais que el
+//usuario actual tiene seleccionado
 class UserCountry extends CountryEngine{
 
+  //Paise del usuario
   protected $userCountry;
 
+  //Constructor de la clase.
   public function __construct($country){
-    parent::__construct();
-    $this->userCountry = $country;
+    parent::__construct(); //heredar del padre
+    $this->userCountry = $country; //Asignar el pais del usuario
   }
 
+  //Funcion para imrpimir el html.
   public function printCountries(){
 
     $html = '<select name="userCountry">';
     $html .= '<option selected disabled selected="selected">País</option>';
     foreach($this->countries as $key => $value) {
-      //$key = country code
-      //$value = country name
+      //Verificar cual es el pais del susario y selecionarlo.
       if($this->userCountry === $key){
         $html .= "<option selected='selected' value = $key title=$value >$value</option>";
       }else{
@@ -295,7 +305,7 @@ class UserCountry extends CountryEngine{
 
     }
     $html.= '</select>';
-    echo $html;
+    echo $html; //Imprimir.
 
   }
 }

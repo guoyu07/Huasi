@@ -1,7 +1,6 @@
 <?php
 
 //Clase para seleccionar la fecha de nacimiento.
-
 abstract class BirthSelectorBase{
 
   protected $years = array();

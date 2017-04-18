@@ -1,23 +1,24 @@
 <?php
 
-//Clase para subir y manejar imagenes dentro de la base de datos
-
+//Clase para subir imagenes al servidor
 class ImgEngine{
 
-  protected $file;
-  protected $fileName;
-  protected $fileTmpName;
-  protected $fileSize;
-  protected $fileError;
-  protected $fileType;
-  protected $fileExtension;
-  protected $fileActualExtenscion;
-  protected $filePath;
-  protected $allowedExt = array();
+  protected $file; //archivo a recivir.
+  protected $fileName; //nombre del archivo.
+  protected $fileTmpName; //nombre de la ubicacion temporal del archivo.
+  protected $fileSize; //Tamaño del archivo.
+  protected $fileError; //errores del archivo
+  protected $fileType;  //Tipo de archivo
+  protected $fileExtension; //Extensdion del archivo
+  protected $fileActualExtenscion; //extension uniforme del archivo
+  protected $filePath; //Ubiacion del archivo
+  protected $allowedExt = array(); //extensiones permitidas
 
 
 
-  //Constructor de la clase
+  //Constructor de la clase -- requiere el name de input como primer argumento
+  //y el name del boton que envia el formulario
+
   public function __construct($input, $trigger){
 
     if (isset($_POST[$trigger])) {
@@ -39,16 +40,22 @@ class ImgEngine{
 
   }
 
-
+  //Funcion para guardar la imagen -- requiere el nombre del directorio = $path
   public function saveImage($path){
 
+    //El codigo ejectua solo cuando se presione el boton del formulario.
     if (isset($_POST['submit'])) {
+      //Verificar si la extensión del archivo esta permitida
       if (in_array($this->fileActualExtension, $this->allowedExt)) {
+        //Verificar si no existen errores.
         if ($this->fileError === 0) {
+          //Verificar el tamaño del archv
           if ($this->fileSize < 1000000) {
-
+            //Generar un nombre para la imagen con un id unico en relacion al tiempo.
             $fileNameNew = $path.'_'.uniqid('', true).".".$this->fileActualExtension;
+            //asignar la extension donde se va a guardar la imagen
             $this->filePath = 'img/'.$path.'/'.$fileNameNew;
+            //Guardar la imagen.
             move_uploaded_file($this->fileTmpName, $this->filePath);
           } else {
             echo "Your file is too big!";
@@ -63,6 +70,8 @@ class ImgEngine{
 
   }
 
+  //funcion para retornar la ubicacion de la imagen y poder pasarla a la base
+  //de datos.
   public function getImagePath(){
     return $this->filePath;
   }

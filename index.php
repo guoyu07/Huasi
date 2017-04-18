@@ -8,7 +8,7 @@ newPageHead("La mejor comunidad hotelera de Quito");
 
   <!--Menu de navegación-->
 
-  <?php MainHeader(true); ?>
+  <?php MainHeader(); ?>
 
 
   <div class="jumbotron full-height all-middle f-colum" id="top-hero">

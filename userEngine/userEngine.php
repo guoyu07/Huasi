@@ -1,5 +1,13 @@
 <?php
 
+//Clases para manejar el sistema de usuarios:
+// - Registrar -
+// -Iniciar session
+// -Completar y editar informacion -
+// -editar contraseña -
+// -eliminar cuenta -
+
+//Clase abstracta base con la funcionalidad compartida
 abstract class UserEngine extends DbConnection{
 
   //Variables
@@ -25,7 +33,7 @@ abstract class UserEngine extends DbConnection{
 
   //constructor
   public function __construct() {
-    //Asignar la conexion
+    //Asignar la conexion herededad de DbConnection
     $this->connection = $this->connectToDataBase();
     //Asginar los parametros
     $this->userName = $_POST['userName'];
@@ -44,15 +52,17 @@ abstract class UserEngine extends DbConnection{
     $this->verifyMessage = '';
   }
 
-  //Mostrar el error
+  //Funcion para mostrar el mensaje de error.
   public function getErrorMessage(){
     return $this->errorMessage;
   }
 
+  //Funcion para mostrar el mensaje de verificacion.
   public function getVerifyMessage(){
     return $this->verifyMessage;
   }
 
+  //Funcion para imprimir mensajes.
   public function printReport(){
     if(!empty($this->getErrorMessage())){
       echo "<div class='error'>$this->errorMessage</div>";
@@ -61,6 +71,7 @@ abstract class UserEngine extends DbConnection{
     }
   }
 
+  //Funcion para verificar la constraseña
   public function checkPassword(){
 
     if($this->isSecurityUpdateFormReady()){
@@ -82,7 +93,7 @@ abstract class UserEngine extends DbConnection{
     }
   }
 
-
+  //Funciones para verificar si los valores estan llenos.
   public function isNameReady(){
     return !empty($this->userName);
   }
@@ -127,12 +138,15 @@ abstract class UserEngine extends DbConnection{
 }
 
 
+//Clase para registrar nuevos usuarios.
 class UserRegister extends UserEngine{
 
+  //Constructor
   public function __construct(){
-    parent::__construct();
+    parent::__construct(); //heredar del padre
   }
 
+  //Funcion para verificar si la forma esta llena
   public function isRegisterFormReady(){
 
     return
@@ -142,6 +156,7 @@ class UserRegister extends UserEngine{
 
   }
 
+  //Funcion para guardar los datos del usuario en la DB
   public function setNewUser(){
 
     if($this->isRegisterFormReady()){
