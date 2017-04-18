@@ -1,48 +1,41 @@
 <?php
 require_once "uiElements/Ui.php";
-require_once "userEngine/userEngine.php";
-
-$rq_userId = $_REQUEST['userId'];
-$rq_updateInfo = $_REQUEST['updateInfo'];
-
-
-
-//Si no se esta apuntando a ningun usuario
-//Redirecionar al home
-if(empty($rq_userId) ){
-  header("Location: /");
-}
-
-
-//Crear nueva clase para selecionar datos del usuario segun userId
-$userInfo = new UserDataOutput($rq_userId);
-$userInfo->getData();
-
-//Crear Nuevo Head de la pagina.
-newPageHead($userInfo->getUserName());
-
-?>
-
+ ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Huasi | Style Guidelines</title>
+  <!--favicon-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!--Resetear css de los navegadores-->
+  <link rel="stylesheet" href="style/normalize.css">
+  <!--Fuente para el proyecto-->
+  <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+  <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
+  <!-- Estilos base-->
+  <link rel="stylesheet" href="style/huasi.css">
+</head>
 <body>
   <!--Menu de navegación-->
-  <?php
-
-  MainHeader();
-
-  ?>
+<?php
+MainHeader();
+ ?>
 
   <!-- Wrapper-->
   <div class="wrapper-usuario">
-    <div class="container">
-      <?php
-       ?>
-    </div>
     <div class="flex f-row container">
       <div class="col-8">
         <div class="user-profile-info card-container">
-          <?php
-          $userInfo->outPutData();
-           ?>
+          <img src="img/user/user-2.jpg" alt="" class="img-responsive">
+          <div class="flex f-colum">
+            <h2 class="sec-title">Pablo Piedra</h2>
+            <p>Quito, Ecuador</p>
+            <p>Miembro desde Agosto 2016</p>
+          </div>
         </div>
         <div class="user-whishlist card-container">
           <h2 class="sec-title">WishList</h2>
@@ -81,8 +74,8 @@ newPageHead($userInfo->getUserName());
 
   <!--Main Footer-->
   <?php
-  MainFooter();
-  ?>
+    MainFooter();
+   ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="js/usuario.js"></script>

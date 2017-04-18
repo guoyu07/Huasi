@@ -21,7 +21,7 @@ require_once 'uiElements/Ui.php';
 <body>
   <!--Menu de navegación-->
 <?php
-MainHeader();
+MainHeader(true);
  ?>
 
   <!-- Wrapper-->
@@ -65,7 +65,7 @@ MainHeader();
 
   <!--Main Footer-->
   <?php
-  MainFooter();
+  MainFooter(true);
    ?>
 
 
