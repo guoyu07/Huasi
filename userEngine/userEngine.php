@@ -4,6 +4,7 @@ abstract class UserEngine extends DbConnection{
 
   //Variables
   protected $connection;
+  protected $userId;
   protected $userName;
   protected $userLastname;
   protected $userMail;
@@ -13,10 +14,14 @@ abstract class UserEngine extends DbConnection{
   protected $userYear;
   protected $userImagePath;
   protected $userPhoneNumber;
+  protected $userCountry;
+  protected $userCity;
   protected $userSex;
   protected $userDescription;
   protected $userFirstLogin;
-  public $errorMessage = "";
+  protected $verifyMessage;
+  protected $errorMessage;
+
 
   //constructor
   public function __construct() {
@@ -31,9 +36,52 @@ abstract class UserEngine extends DbConnection{
     $this->userMonth = $_POST['userMonth'];
     $this->userYear = $_POST['userYear'];
     $this->userPhoneNumber = $_POST['userPhoneNumber'];
+    $this->userCountry = $_POST['userCountry'];
+    $this->userCity = $_POST['userCity'];
     $this->userSex = $_POST['userSex'];
     $this->userDescription = $_POST['userDescription'];
+    $this->errorMessage = '';
+    $this->verifyMessage = '';
   }
+
+  //Mostrar el error
+  public function getErrorMessage(){
+    return $this->errorMessage;
+  }
+
+  public function getVerifyMessage(){
+    return $this->verifyMessage;
+  }
+
+  public function printReport(){
+    if(!empty($this->getErrorMessage())){
+      echo "<div class='error'>$this->errorMessage</div>";
+    }else if(!empty($this->getVerifyMessage())){
+      echo "<div class='verify-message'>$this->verifyMessage</div>";
+    }
+  }
+
+  public function checkPassword(){
+
+    if($this->isSecurityUpdateFormReady()){
+
+      $sql = "SELECT userPassword FROM Users WHERE userId = $this->userId ";
+      $records = $this->connection->prepare($sql);
+      $records->bindParam('userPassword', $this->userPassword);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
+
+      if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) ){
+        return true;
+      }else{
+        $this->errorMessage = "No se pudo cambiar la contraseña, verifica que todos los datos sean correctos.";
+        return false;
+
+      }
+
+    }
+  }
+
 
   public function isNameReady(){
     return !empty($this->userName);
@@ -117,7 +165,7 @@ class UserRegister extends UserEngine{
         header("Location: index.php");
         //$message = "Cuenta creada satisfactoriamente";
       }else{
-        $errorMessage = "Ocurrio algun error al crear tu cuenta";
+        $this->errorMessage = 'El correo electronico y la contraseña no coinciden. Intentalo otra vez';
       }
     }
   }
@@ -126,8 +174,6 @@ class UserRegister extends UserEngine{
 
 
 class UserLogin extends UserEngine{
-
-  protected $userId;
 
   public function __construct(){
     parent::__construct();
@@ -144,7 +190,6 @@ class UserLogin extends UserEngine{
       $records->bindParam(':userMail', $this->userMail);
       $records->execute();
       $results = $records->fetch(PDO::FETCH_ASSOC);
-      $message = '';
       if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) && $results['userFirstLogin'] === 0 ){
         $_SESSION['userId'] = $results['userId'];
         header("Location: /completarInfoUser.php");
@@ -153,7 +198,7 @@ class UserLogin extends UserEngine{
         $_SESSION['userId'] = $results['userId'];
         header("Location: /");
       }else{
-        $message = 'Lo sentimos, esas credenciales no coinciden';
+        $this->errorMessage = 'El correo electronico y la contraseña no coinciden. Intentalo otra vez';
       }
     }
   }
@@ -163,7 +208,6 @@ class UserLogin extends UserEngine{
 
 class userCompleteInfo extends UserEngine{
 
-  protected $userId;
   protected $secondLogin;
 
   public function __construct($imgPath, $idUser){
@@ -183,16 +227,18 @@ class userCompleteInfo extends UserEngine{
     if($this->isCompleteFormReady()){
 
       //Ingresar usuario a la base de datos.
-      $sql = "UPDATE Users SET userSex = :userSex, userDescription = :userDescription, userPhoneNumber = :userPhoneNumber, userImagePath = :userImagePath, userFirstLogin = :userFirstLogin WHERE userId = $this->userId";
+      $sql = "UPDATE Users SET userSex = :userSex, userCountry = :userCountry, userCity = :userCity, userDescription = :userDescription, userPhoneNumber = :userPhoneNumber, userImagePath = :userImagePath, userFirstLogin = :userFirstLogin WHERE userId = $this->userId";
 
       //Preparar el statement
       $stmt = $this->connection->prepare($sql);
 
       //Guardar los parametros en la base de datos
 
-      $stmt->bindParam('userSex', $this->userSex);
+      $stmt->bindParam('userSex', strtolower($this->userSex));
       $stmt->bindParam('userDescription', $this->userDescription);
       $stmt->bindParam('userPhoneNumber', $this->userPhoneNumber);
+      $stmt->bindParam('userCountry', $this->userCountry);
+      $stmt->bindParam('userCity', $this->userCity);
       $stmt->bindParam('userImagePath', $this->userImagePath);
       $stmt->bindParam('userFirstLogin', $this->secondLogin);
 
@@ -206,15 +252,11 @@ class userCompleteInfo extends UserEngine{
 
   }
 
-
-
-
 }
 
 
 class UserInfoUpdate extends UserEngine{
 
-  protected $userId;
 
   public function __construct($id){
     parent::__construct();
@@ -231,21 +273,28 @@ class UserInfoUpdate extends UserEngine{
 
     if($this->isUpdateFormReady()){
       //Ingresar usuario a la base de datos.
-      $sql = "UPDATE Users SET userName = :userName, userLastName = :userLastName, userMail = :userMail, userMonth = :userMonth, userDay = :userDay, userYear = :userYear WHERE userId = $this->userId";
+      $sql = "UPDATE Users SET userName = :userName, userLastName = :userLastName,
+      userMail = :userMail, userSex = :userSex, userMonth = :userMonth, userDay = :userDay,
+       userYear = :userYear, userCountry = :userCountry, userCity = :userCity,
+        userPhoneNumber = :userPhoneNumber WHERE userId = $this->userId";
 
       //Preparar el statement
       $stmt = $this->connection->prepare($sql);
 
       //Guardar los parametros en la base de datos
-      $stmt->bindParam('userMail', $this->userMail);
+      $stmt->bindParam('userSex', strtolower($this->userSex));
       $stmt->bindParam('userName', strtolower($this->userName));
       $stmt->bindParam('userLastName', strtolower($this->userLastName));
+      $stmt->bindParam('userMail', $this->userMail);
       $stmt->bindParam('userMonth', $this->userMonth);
       $stmt->bindParam('userDay', $this->userDay);
       $stmt->bindParam('userYear', $this->userYear);
+      $stmt->bindParam('userCountry', $this->userCountry);
+      $stmt->bindParam('userCity', $this->userCity);
+      $stmt->bindParam('userPhoneNumber', $this->userPhoneNumber);
 
       if( $stmt->execute() ){
-        header("Location: usuario.php?userId=$this->userId");
+        header("Location: usuario.php?userId=$this->userId&updateInfo=true");
         //$message = "Cuenta creada satisfactoriamente";
       }else{
         $errorMessage = "No se pudo actualizar la información.";
@@ -259,34 +308,51 @@ class UserInfoUpdate extends UserEngine{
 class UserSecurityUpdate extends UserEngine{
 
   protected $userNewPassword;
-  protected $userId;
 
-  public function __construct($dbConn, $id){
-    parent::__construct($dbConn);
+  public function __construct($id){
+    parent::__construct();
     $this->userId = $id;
+    $this->userNewPassword = $_POST['userNewPassword'];
   }
 
-  public function checkPassword(){
+  public function isNewPasswordReady(){
+    return !empty($this->userNewPassword);
+  }
 
-    $sql = "SELECT userPassword FROM Users WHERE userPassword = :userPassword";
-    $records = $this->connection->prepare($sql);
-    $records->bindParam(':userPassword', $this->userPassword);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
-    $message = '';
-    if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) ){
-      $_SESSION['userId'] = $results['userId'];
-      header("Location: /");
-    }else{
-      $message = 'Lo sentimos, esas credenciales no coinciden';
+  public function isSecurityUpdateFormReady(){
+    return $this->isPasswordReady() && $this->isNewPasswordReady();
+  }
+
+
+
+  public function setNewPassword(){
+
+
+
+    $this->checkPassword();
+
+    if($this->checkPassword()){
+      $sql = "UPDATE Users SET userPassword = :userNewPassword WHERE userId = $this->userId";
+
+      //Preparar el statement
+      $stmt = $this->connection->prepare($sql);
+
+      //Guardar los parametros en la base de datos
+      $stmt->bindParam('userNewPassword', password_hash($this->userNewPassword, PASSWORD_BCRYPT ));
+
+      if( $stmt->execute() ){
+        $this->verifyMessage = "La contraseña se cambio satisfactoriamente.";
+      }else{
+        $this->errorMessage = $errorMessage;
+      }
     }
+
   }
 
 }
 
 class UserDataOutput extends UserEngine{
 
-  protected $userId;
   protected $userProfile;
 
   public function __construct($id){
@@ -296,7 +362,7 @@ class UserDataOutput extends UserEngine{
 
   public function getData(){
     $records = $this->connection->prepare('SELECT userId, userMail, userName, userLastName,
-      userMonth, userDay, userYear, userImagePath FROM Users WHERE userId = :userId');
+      userMonth, userDay, userYear, userImagePath, userDescription, userCity, userCountry FROM Users WHERE userId = :userId');
       $records->bindParam(':userId', $this->userId);
       $records->execute();
       $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -328,13 +394,12 @@ class UserDataOutput extends UserEngine{
         $lastName .= ucfirst($lastNameHolder[$i]).' ';
       }
 
-
       ?>
 
       <div class="user-img" style="background-image: url(<?=$image?>);"></div>
       <div class="flex f-colum">
         <h2 class="sec-title"><?=$name. ' ' .$lastName?></h2>
-        <p>Quito, Ecuador</p>
+        <p><?=$this->userProfile['userCity']?>, <?=$this->userProfile['userCountry']?></p>
         <p>Miembro desde Agosto 2016</p>
       </div>
       <!--Mostrar solo si existe una session-->
@@ -348,6 +413,21 @@ class UserDataOutput extends UserEngine{
 
 
 
+  class DeleteUser extends UserEngine{
+
+    public function __construct($id){
+      parent:: __construct();
+      $this->userId = $id;
+    }
+
+    public function deleteUser(){
+
+    }
+
+    }
 
 
-  ?>
+
+
+
+    ?>

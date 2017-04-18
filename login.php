@@ -10,25 +10,9 @@ if(isset($_SESSION['userId'])){
 $logEngine = new UserLogin();
 $logEngine->logUser();
 
+newPageHead("Iniciar sesión");
+?>
 
- ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Huasi | Style Guidelines</title>
-    <!--favicon-->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!--Resetear css de los navegadores-->
-    <link rel="stylesheet" href="style/normalize.css">
-    <!--Fuente para el proyecto-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic' rel='stylesheet' type='text/css'>
-    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
-    <!-- Estilos base-->
-    <link rel="stylesheet" href="style/huasi.css">
-  </head>
   <body>
     <!--Menu de navegación-->
     <?php
@@ -42,6 +26,16 @@ $logEngine->logUser();
           <form name="login" method="POST" action="login.php">
             <div class="form">
               <h2 class="subtitle">Bienvenido otra vez</h2>
+              <?php
+                if(!empty($logEngine->getErrorMessage())){
+                  $message = $logEngine->getErrorMessage();
+
+                  ?>
+
+                    <div class="error"><?=$message?></div>
+                  <?php
+                }
+               ?>
               <label for="userMail">Dirección de correo electrónico:</label>
               <input type="mail" name="userMail">
               <label for="userPassword">Constraseña:</label>

@@ -231,6 +231,7 @@ efecto de scrool**/
 .wrapper-busqueda,
 .wrapper-host,
 .wrapper-usuario,
+.wrapper-usuarioedit,
 .wrapper-prom,
 .wrapper-ayuda,
 .wrapper-index,
@@ -241,6 +242,7 @@ efecto de scrool**/
 
 .wrapper,
 .wrapper-usuario,
+.wrapper-usuarioedit,
 .wrapper-logsig,
 .wrapper-prom,
 .wrapper-ayuda,
@@ -261,6 +263,7 @@ efecto de scrool**/
 
 .wrapper-host,
 .wrapper-usuario,
+.wrapper-usuarioedit,
 .wrapper-busqueda,
 .wrapper-index,
 .wrapper-res,
@@ -501,7 +504,7 @@ input:focus {
   border: 0;
   cursor: pointer;
   background-color: transparent;
-  border-radius: 5px;
+  border-radius: 4px;
   transition: 400ms;
 }
 
@@ -540,6 +543,16 @@ background-color: #F4897E;
   border-radius: 5px;
   color: #fff;
   position: relative;
+}
+
+
+.verify-message{
+  background-color:  #39aa94;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  color: #fff;
+  position: relative;
 
 }
 
@@ -550,6 +563,16 @@ background-color: #F4897E;
 .wrapper-completeInfo .verify{
   text-align: left;
 }
+
+.error{
+  background-color: #FFDFE2;
+  font-weight: 300;
+  color: #FF2B63;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+}
+
 
 /***********************
 -------Slide-Show-------
@@ -805,7 +828,7 @@ color: #00b698;
 }
 
 .form button{
-  padding: 1em 0.5em;
+  padding: 9px 27px;
   margin-top: 1em;
   width: 100%;
 }
@@ -1039,7 +1062,8 @@ color: #00b698;
   margin: auto;
 }
 
-.wrapper-usuario .container{
+.wrapper-usuario .container,
+.wrapper-usuarioedit .container{
   margin-top: 3em;
 }
 
@@ -1047,6 +1071,19 @@ color: #00b698;
   margin-left: 1em;
   height: 400px;
 }
+
+.wrapper-usuarioedit .col-4{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 0;
+  margin-right: 1em;
+  height: 550px;
+}
+
+
+
 
 #user-menu{
   text-align: left;
@@ -1108,6 +1145,26 @@ color: #00b698;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.wrapper-usuarioedit .user-img{
+  margin-top: 3em;
+  width: 240px;
+  height: 240px;
+  border-radius: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper-usuarioedit p{
+  margin-top: 2em;
+  max-width: 70%;
+  text-align: center;
+}
+
+.wrapper-usuarioedit .profile-form input:last-of-type{
+  margin-bottom: 2em;
 }
 
 .wrapper-completeInfo .user-img{
@@ -1415,13 +1472,8 @@ color: #00b698;
   text-transform: capitalize;
 }
 
-.profile-form .btn,
-.security-form .btn{
-  width: 20%;
-}
-
 .security-form input{
-  width: 80%;
+  width: 100%;
 }
 
 .select{
@@ -1455,15 +1507,20 @@ select{
   width: 15%;
 }
 
+.user-country{
+  width: 50%;
+}
+
 .user-sex .select,
-.user-sex select{
+.user-sex select,
+.user-country .select,
+.user-country select{
   flex: 1;
 }
 
 .user-age{
   display: flex;
   flex-direction: row;
-  margin-bottom: 1.5em;
 }
 
 .user-age .select,

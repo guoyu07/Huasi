@@ -1,12 +1,14 @@
 <?php
 require_once 'uiElements/Ui.php';
 require_once "userEngine/userEngine.php";
-
 ejectToOrigin();
 
 global $user;
-
 newPageHead($user['userName'].' '. $user['userLastName']);
+
+$updatePassword = new UserSecurityUpdate($user['userId']);
+//$updatePassword->checkPassword();
+$updatePassword->setNewPassword();
 
  ?>
 <!DOCTYPE html>
@@ -35,17 +37,20 @@ MainHeader(true);
 
   <!-- Wrapper-->
   <div class="wrapper-usuario">
-    <div class="all-middle air-both">
-      <div class="card-container col-8">
+    <div class="container all-middle">
+      <div class="card-container col-6">
         <form class="form security-form" method="POST" action="editarSeguridad.php">
           <h2 class="sec-title">Cambia tu contraseña</h2>
+          <?php
+            $updatePassword->printReport();
+           ?>
           <label>Contraseña actual</label>
           <input type="password" name="userPassword" value="">
           <label>Nueva contraseña</label>
           <input type="password" name="userNewPassword" value="">
           <label>Confirmar contraseña</label>
           <input type="password" name="" value="">
-          <button type="submit" name="button" class="btn btn-submit-important">Guardar</button>
+          <button type="submit" name="button" class="btn btn-submit">Guardar</button>
         </form>
       </div>
     </div>

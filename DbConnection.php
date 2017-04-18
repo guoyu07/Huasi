@@ -1,6 +1,5 @@
 <?php
 
-
 class DbConnection{
 
   //Datos para conectar a la base de datos.

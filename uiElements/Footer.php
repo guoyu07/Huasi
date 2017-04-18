@@ -38,7 +38,7 @@ class Footer{
       <div class="foot-section">
         <div>
           <img src="img/logo.svg" alt="logo">
-          <h2 class="subtitle">Huasi</h2>
+          <h2 class="subtitle">Huasi </h2>
         </div>
         <div>
           <a href="#"><p>Terminos y Privacidad</p></a>
