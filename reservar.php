@@ -21,7 +21,7 @@ require_once 'uiElements/Ui.php';
 <body>
   <!--Menu de navegación-->
 <?php
-MainHeader(true);
+MainHeader();
  ?>
 
   <!-- Wrapper-->
