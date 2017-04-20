@@ -62,9 +62,13 @@ newPageHead($user['userName'].' '. $user['userLastName']);
         <div class="user-img" style="background-image: url(<?=$user['userImagePath']?>);"></div>
         <form class="form" action="editarPerfil.php" method="POST">
           <input type="file" name="userImagePath">
-          <button type="submit" name="submit" class="btn btn-submit">Cambiar foto</button>
+          <button type="submit" name="submit" class="btn btn-submit">Guardar foto</button>
         </form>
-        <p><?=$user['userDescription']?></p>
+        <form class="form" action="editarPerfil.php" method="POST">
+          <label for="userDescription">Bio:</label>
+          <textarea name="userDescription" rows="8" maxlength="240"><?=$user['userDescription']?></textarea>
+          <button type="submit" name="submit" class="btn btn-submit">Guardar bio</button>
+        </form>
       </div>
       <div class="card-container col-8">
         <form class="form profile-form" method="POST" action="editarPerfil.php">
