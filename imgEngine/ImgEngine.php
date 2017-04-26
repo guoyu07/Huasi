@@ -21,7 +21,7 @@ class ImgEngine{
 
   public function __construct($input, $trigger){
 
-    if (isset($_POST[$trigger])) {
+    if (isset($_POST['submit'])) {
 
       $this->file = $_FILES[$input]; //asignar el archivo.
       $this->fileName = $this->file['name']; //asignar el nombre del archivo.
@@ -77,9 +77,5 @@ class ImgEngine{
   }
 
 }
-
-
-
-
 
 ?>

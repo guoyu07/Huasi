@@ -1540,3 +1540,16 @@ select{
 .user-age .select:not(:first-of-type){
   margin-left: 1em;
 }
+
+/*Delete User*/
+
+#deleteUser{
+  justify-content: flex-end;
+  margin-left: 1em;
+  font-weight: 300;
+
+}
+
+#deleteUser a{
+  color: #FF2B63;
+}

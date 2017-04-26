@@ -10,13 +10,22 @@ require_once 'imgEngine/ImgEngine.php';
 ejectToOrigin();
 
 global $user;
+//Selector de fecha de nacimiento
 $selectors = new BirthSelectorChange($user['userMonth'], $user['userDay'], $user['userYear']);
+//Selector de paises.
 $countrySelector = new UserCountry($user['userCountry']);
+//Selector der sexo.
+$sexSelector = new UserSexSelector($user['userSex']);
 
+//Actualizar info de usuarios.
 $updateEngine = new UserInfoUpdate($user['userId']);
 $updateEngine->updateUserInfo();
 
-$sexSelector = new UserSexSelector($user['userSex']);
+//Subir Foto
+$updateUserImage = new ImgEngine('userImagePath', 'submitImg');
+$updateUserImage->saveImage('user');
+$imgPath = $updateUserImage->getImagePath();
+
 
 
 function modifyUserData(){
@@ -60,9 +69,9 @@ newPageHead($user['userName'].' '. $user['userLastName']);
     <div class="flex  f-row container">
       <div class="col-4 card-container ">
         <div class="user-img" style="background-image: url(<?=$user['userImagePath']?>);"></div>
-        <form class="form" action="editarPerfil.php" method="POST">
+        <form class="form" action="editarPerfil.php" method="POST" enctype="multipart/form-data">
           <input type="file" name="userImagePath">
-          <button type="submit" name="submit" class="btn btn-submit">Guardar foto</button>
+          <button type="submit" name="submitImg" class="btn btn-submit">Guardar foto</button>
         </form>
         <form class="form" action="editarPerfil.php" method="POST">
           <label for="userDescription">Bio:</label>
@@ -92,6 +101,9 @@ newPageHead($user['userName'].' '. $user['userLastName']);
         </form>
       </div>
     </div>
+    <div class="container flex f-row" id="deleteUser">
+      <div class="card-container col-8"><a href="userEngine/deleteUser.php?userId=<?=$user['userId']?>">Eliminar cuenta</a></div>
+    </div>
   </div>
 
   <!--Main Footer-->
@@ -101,6 +113,7 @@ newPageHead($user['userName'].' '. $user['userLastName']);
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="js/previewImage.js"></script>
   <?php
   PageScripts();
   ?>

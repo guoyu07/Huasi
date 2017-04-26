@@ -8,6 +8,7 @@
 // -eliminar cuenta -
 
 //Clase abstracta base con la funcionalidad compartida
+
 abstract class UserEngine extends DbConnection{
 
   //Variables
@@ -128,6 +129,18 @@ abstract class UserEngine extends DbConnection{
 
   public function isUserDescriptionReady(){
     return !empty($this->userDescription);
+  }
+
+  public function isUserCountryReady(){
+    return !empty($this->userCountry);
+  }
+
+  public function isUserCityReady(){
+    return !empty($this->userCity);
+  }
+
+  public function isUserPhoneReady(){
+    return !empty($this->userPhoneNumber);
   }
 
   public function isUserFirstLogin(){
@@ -281,7 +294,9 @@ class UserInfoUpdate extends UserEngine{
   public function isUpdateFormReady(){
     return
     $this->isNameReady() && $this->isLastNameReady() &&
-    $this->isMailReady() && $this->isDateReay();
+    $this->isMailReady() && $this->isDateReay() &&
+    $this->isUserSexReady() && $this->isUserCountryReady() &&
+    $this->isUserCityReady() && $this->isUserPhoneReady();
   }
 
   public function updateUserInfo(){
@@ -290,8 +305,8 @@ class UserInfoUpdate extends UserEngine{
       //Ingresar usuario a la base de datos.
       $sql = "UPDATE Users SET userName = :userName, userLastName = :userLastName,
       userMail = :userMail, userSex = :userSex, userMonth = :userMonth, userDay = :userDay,
-       userYear = :userYear, userCountry = :userCountry, userCity = :userCity,
-        userPhoneNumber = :userPhoneNumber WHERE userId = $this->userId";
+      userYear = :userYear, userCountry = :userCountry, userCity = :userCity,
+      userPhoneNumber = :userPhoneNumber WHERE userId = $this->userId";
 
       //Preparar el statement
       $stmt = $this->connection->prepare($sql);
@@ -436,13 +451,14 @@ class UserDataOutput extends UserEngine{
     }
 
     public function deleteUser(){
-
+      $sql = "DELETE FROM Users WHERE userId= $this->userId";
+      $this->connection->exec($sql);
     }
 
-    }
+  }
 
 
 
 
 
-    ?>
+  ?>

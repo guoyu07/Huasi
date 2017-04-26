@@ -72,6 +72,13 @@ function PageScripts(){
   }
 }
 
+function LandingScripts(){
+  global $user;
+  if(empty($user)){
+    echo '<script src="js/jquery.js"></script>';
+  }
+}
+
 function ejectToOrigin(){
   global $user;
   if(empty($user)){
