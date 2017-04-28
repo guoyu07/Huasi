@@ -109,6 +109,20 @@ class HospedajeSearch extends HospedajeConImagen{
 
 }
 
+class HostCorp extends HospedajeConImagen{
+
+  protected $className = 'corp-host';
+
+  function __construct($mHospedajeId){
+    parent::__construct($mHospedajeId); // Llamar al constructor de la clase heredada
+  }
+
+  public function printComponent(){
+    parent::printComponent($this->className); //llamar a la funcion de la clase heredada.
+  }
+
+}
+
 
 
 

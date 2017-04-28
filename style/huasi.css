@@ -235,12 +235,14 @@ efecto de scrool**/
 .wrapper-prom,
 .wrapper-ayuda,
 .wrapper-index,
+.wrapper-corp,
 .wrapper-completeInfo{
   min-height: 100vh;
   padding-bottom: 4em;
 }
 
 .wrapper,
+.wrapper-corp,
 .wrapper-usuario,
 .wrapper-usuarioedit,
 .wrapper-logsig,
@@ -262,6 +264,7 @@ efecto de scrool**/
 }
 
 .wrapper-host,
+.wrapper-corp,
 .wrapper-usuario,
 .wrapper-usuarioedit,
 .wrapper-busqueda,
@@ -810,7 +813,8 @@ color: #00b698;
   text-transform: capitalize;
 }
 
-.login-section{
+.login-section,
+.register-section{
   height: calc(100vh - 60px);
 }
 
@@ -1655,4 +1659,65 @@ select{
 
 #deleteUser a{
   color: #FF2B63;
+}
+
+/************************
+*******Wrapper-corp******
+************************/
+
+.wrapper-corp .container{
+  margin-top: 2em;
+}
+
+.wrapper-corp .corp-logo{
+  width: 200px;
+  height: 200px;
+  background-image: url('../img/hotel_logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 1em;
+}
+
+.m-border{
+  width: 60%;
+  border: 1px solid #39aa94;
+  margin: 1em 0;
+}
+
+.wrapper-corp .flex{
+  justify-content: flex-end;
+  position: relative;
+}
+
+.wrapper-corp .corp-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
+  height: 400px;
+
+  left: 0;
+}
+
+.wrapper-corp .col-9{
+
+}
+
+.corp-host div:first-of-type{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100px;
+  transition: 400ms;
+}
+
+#form-corp .subtitle{
+  margin-bottom: 0;
+}
+#form-corp p{
+  border-bottom: 1px solid #39aa94;
+  padding-bottom: 1em;
+  margin-bottom: 1.5em;
 }

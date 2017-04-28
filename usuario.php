@@ -34,8 +34,6 @@ newPageHead($userInfo->getUserName());
   <!-- Wrapper-->
   <div class="wrapper-usuario">
     <div class="container">
-      <?php
-       ?>
     </div>
     <div class="flex f-row container">
       <div class="col-8">

@@ -21,7 +21,9 @@ newPageHead("Promociona tu hospedaje");
             <a href="login.php?authType=Corp">
               <button type="button" name="button" class="btn btn-submit">Iniciar sesión</button>
             </a>
+            <a href="registerCorp.php">
             <button type="button" name="button" class="btn btn-secondary">Registrate</button>
+            </a>
           </div>
         </div>
       </div>
