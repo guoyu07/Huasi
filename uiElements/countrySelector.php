@@ -252,7 +252,22 @@ abstract class CountryEngine {
     "ZW" => "Zimbabwe");
   }
 
+}
 
+class DiscoverCountry extends CountryEngine{
+
+  public function __construct(){
+    parent::__construct();
+  }
+
+  public function discoverCountry($countryCode){
+    foreach($this->countries as $key => $value) {
+      //Verificar cual es el pais del susario y selecionarlo.
+      if($countryCode === $key){
+        return $value;
+      }
+    }
+  }
 
 }
 

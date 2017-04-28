@@ -86,6 +86,10 @@ function ejectToOrigin(){
   }
 }
 
+function login($type){
+  
+}
+
 
 
 

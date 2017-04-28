@@ -18,9 +18,9 @@ newPageHead("Regístrate");
 
 <body>
   <!--Menu de navegación-->
-<?php
-MainHeader(true);
- ?>
+  <?php
+  MainHeader(true);
+  ?>
 
   <!-- Wrapper-->
   <div class="wrapper-logsig">
@@ -29,32 +29,40 @@ MainHeader(true);
         <form name="register" method="POST" action="register.php">
           <div class="form">
             <h2 class="subtitle">Unete a Huasi</h2>
-            <label for="user-mail">Dirección de correo electrónico</label>
-            <input type="mail" name="userMail" placeholder="huasi@huasi.com">
-            <label for="user-name">Nombres</label>
-            <input type="text" name="userName" placeholder="Mark">
-            <label for="user-lastName">Apellidos</label>
-            <input type="text" name="userLastName" placeholder="Huasi">
-            <label>Edad</label>
-            <div class="user-age">
-              <?php
-              $selectors->printMonths();
-              $selectors->printDays();
-              $selectors->printYears();
-               ?>
+            <div class="register-holder">
+              <div class="credentials">
+                <label for="user-name">Nombres</label>
+                <input type="text" name="userName" placeholder="Mark">
+                <label for="user-lastName">Apellidos</label>
+                <input type="text" name="userLastName" placeholder="Huasi">
+                <label>Edad</label>
+                <div class="user-age">
+                  <?php
+                  $selectors->printMonths();
+                  $selectors->printDays();
+                  $selectors->printYears();
+                  ?>
+                </div>
+              </div>
+              <div class="credentials">
+                <label for="user-mail">Dirección de correo electrónico</label>
+                <input type="mail" name="userMail" placeholder="name@example.com">
+                <label for="user-password">Constraseña</label>
+                <input type="password" name="userPassword" placeholder="mínimo 6 caracteres">
+                <label for="user-password">Verificar Contraseña</label>
+                <input type="password">
+              </div>              
             </div>
-            <label for="user-password">Constraseña</label>
-            <input type="password" name="userPassword" placeholder="mínimo 6 caracteres">
-            <label for="user-password">Verificar Contraseña</label>
-            <input type="password">
-            <div>
-              <input type="checkbox">
-              <span>Acepto los <a href="#">Terminos</a> y las <a href="#">Condiciones</a></span>
+            <div class="register-actions">
+              <div>
+                <input type="checkbox">
+                <span>Acepto los <a href="#">Terminos</a> y las <a href="#">Condiciones</a></span>
+              </div>
+              <button type="submit" class="btn btn-submit"id="register-button">Resgistrate</button>
+              <a href="login.php">
+                <button type="button" class="btn btn-secondary"id="register-button">Ya tienes una cuenta</button>
+              </a>
             </div>
-            <button type="submit" class="btn btn-submit"id="register-button">Resgistrate</button>
-            <a href="login.php">
-              <button type="button" class="btn btn-secondary"id="register-button">Ya tienes una cuenta</button>
-            </a>
           </div>
         </form>
 
@@ -65,7 +73,7 @@ MainHeader(true);
   <!--Main Footer-->
   <?php
   MainFooter();
-   ?>
+  ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 </body>

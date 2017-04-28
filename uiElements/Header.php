@@ -27,7 +27,7 @@ class HeaderBase{
     protected function setData(){
 
       $opciones = array('Promociona tu hospedaje','Ayuda','Regístrate','Iniciar Sesión');
-      $links = array('promHospedaje.php', 'ayuda.php', 'register.php', 'login.php');
+      $links = array('promHospedaje.php', 'ayuda.php', 'register.php', 'login.php?authType=user');
 
       for($i=0; $i < count($opciones); $i++){
         $this->setOpciones($opciones[$i], $links[$i]);
