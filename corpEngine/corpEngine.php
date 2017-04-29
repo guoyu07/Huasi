@@ -120,12 +120,15 @@ class CorpLogin extends CorpEngine{
       $results = $records->fetch(PDO::FETCH_ASSOC);
 
       if(count($results) > 0 && password_verify($this->corpPassword, $results['corpPassword']) && $results['corpFirstLogin'] === 0 ){
-        $_SESSION['corp'] = $results['corp'];
-        header("Location: index.php");
+        
+        $corpId = $results['corpId'];
+        $_SESSION['corpId'] = $corpId;
+
+        header("Location: corp.php?corpId=$corpId");
 
       }else if(count($results) > 0 && password_verify($this->corpPassword, $results['corpPassword']) && $results['corpFirstLogin']> 0){
         $_SESSION['corpId'] = $results['corpId'];
-        header("Location: index.php");
+        header('Location: corp.php?corpId=$results["corpId"]');
 
       }else{
         $this->errorMessage = 'El correo electronico y la contraseña no coinciden. Intentalo otra vez';

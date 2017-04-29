@@ -4,7 +4,9 @@ require_once "uiElements/Ui.php";
 require_once 'corpEngine/corpEngine.php';
 
 if(isset($_SESSION['userId'])){
-
+  $warn = true;
+}else{
+  $warn = false;
 }
 
 $logEngine = new CorpLogin();
@@ -23,6 +25,12 @@ newPageHead("Iniciar sesión");
   <!-- Wrapper-->
   <div class="wrapper-logsig">
     <div class="all-middle f-colum">
+      <?php
+
+      if($warn){
+        corpAuthWarn();
+      }else{
+        ?>
       <div class="jumbotron login-section" id="corp-auth">
         <form name="login" method="POST" action="loginCorp.php">
           <div class="form">
@@ -47,6 +55,9 @@ newPageHead("Iniciar sesión");
           <p>Inicia sesion como empresa</p>
         </a>-->
       </div>
+      <?php
+      }
+       ?>
     </form>
   </div>
 </div>

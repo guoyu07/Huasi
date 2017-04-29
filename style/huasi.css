@@ -520,6 +520,11 @@ input:focus {
   background-color:  #fff;
 }
 
+.btn-submit-error{
+  background-color: #E0202F;
+  color: #fff;
+}
+
 .btn-submit-important{
   color: #fff;
   background-color: #f26f62;
@@ -527,6 +532,10 @@ input:focus {
 
 .btn-submit:hover{
   background-color: #41C1A8;
+}
+
+.btn-submit-error:hover{
+  background-color: #E03A47;
 }
 
 .btn-submit-important:hover{
@@ -864,6 +873,8 @@ font-weight: 300;
 font-size: 0.8em;
 }
 
+
+
 .login-section .form #register-button{
   margin-bottom: 1.4em;
 }
@@ -926,7 +937,7 @@ font-size: 0.8em;
   margin-top: 1.2em;
 }
 
-.register-section .form input:last-of-type{
+.register-section .form input:last-of-type:not(.register-actions input){
   margin-bottom: 1.2em;
 }
 
@@ -1724,4 +1735,41 @@ select{
 
 #corp-auth{
   background-image: url('../img/hotel.jpeg');
+}
+
+#corp-auth .register-section form{
+  padding: 2.8em;
+}
+
+#corp-warn{
+  background-image: url('../img/hotel.jpeg');
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+  box-shadow: inset 0 0 0 1000px rgba(255,148,148,.7);
+
+  background-color:
+}
+
+#corp-warn h2{
+  margin: 1em 0 0.6em 0;
+  color: #454545;
+}
+
+#corp-warn p{
+  text-align: center;
+  max-width: 70%;
+  color: #454545;
+}
+
+#corp-warn .btn{
+  padding: 12px 27px;
+  margin-top: 0.6em;
+}
+
+#corp-warn .card-container{
+  padding: 2.8em;
+}
+
+.important-icon{
+  font-size: 4em;
+  color: #E0202F;
 }
