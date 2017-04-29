@@ -1,10 +1,15 @@
 <?php
 session_start();
-require_once "uiElements/Ui.php";
+require_once 'uiElements/Ui.php';
+require_once 'corpEngine/corpEngine.php';
 
 if(isset($_SESSION['userId'])){
-  header("Location: /");
+
 }
+
+$registerEngine = new CorpRegister();
+$registerEngine->setNewCorp();
+
 
 
 newPageHead("Regístrate");
@@ -19,7 +24,7 @@ newPageHead("Regístrate");
   <!-- Wrapper-->
   <div class="wrapper-logsig">
     <div class="all-middle f-colum">
-      <div class="jumbotron register-section">
+      <div class="jumbotron register-section" id="corp-auth">
         <form name="register" method="POST" action="registerCorp.php">
           <div class="form" id="form-corp">
             <h2 class="subtitle">Unete a Huasi</h2>

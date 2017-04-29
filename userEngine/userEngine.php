@@ -165,7 +165,7 @@ class UserRegister extends UserEngine{
   }
 
   //Funcion para verificar si la forma esta llena
-  public function isRegisterFormReady(){
+  private function isRegisterFormReady(){
 
     return
     $this->isNameReady() && $this->isLastNameReady() &&
@@ -201,7 +201,7 @@ class UserRegister extends UserEngine{
           header("Location: index.php");
           //$message = "Cuenta creada satisfactoriamente";
         }else{
-          $this->errorMessage = 'El correo electronico y la contraseña no coinciden. Intentalo otra vez';
+          $this->errorMessage = 'Ocurrio un error al crear tu cuenta intentalo otra vez';
         }
       }
     }
@@ -215,7 +215,7 @@ class UserRegister extends UserEngine{
       parent::__construct();
     }
 
-    public function isLoginFormReady(){
+    private function isLoginFormReady(){
       return $this->isMailReady() && $this->isPasswordReady();
     }
 
@@ -226,6 +226,7 @@ class UserRegister extends UserEngine{
         $records->bindParam(':userMail', $this->userMail);
         $records->execute();
         $results = $records->fetch(PDO::FETCH_ASSOC);
+
         if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) && $results['userFirstLogin'] === 0 ){
           $_SESSION['userId'] = $results['userId'];
           header("Location: /completarInfoUser.php");
@@ -233,6 +234,7 @@ class UserRegister extends UserEngine{
         }else if(count($results) > 0 && password_verify($this->userPassword, $results['userPassword']) && $results['userFirstLogin']> 0){
           $_SESSION['userId'] = $results['userId'];
           header("Location: /");
+
         }else{
           $this->errorMessage = 'El correo electronico y la contraseña no coinciden. Intentalo otra vez';
         }

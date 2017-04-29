@@ -18,21 +18,19 @@ class Footer{
         <div class="col-2">
           <h2 class="subtitle">Huasi</h2>
           <a href=""><p>Acerca de</p></a>
-          <a href=""><p>Ayuda</p></a>
+          <a href="ayuda.php"><p>Ayuda</p></a>
           <a href=""><p>Privacidad</p></a>
         </div>
         <div class="col-2">
           <h2 class="subtitle">Hoteles</h2>
-          <a href=""><p>Programas</p></a>
-          <a href=""><p>Promoción</p></a>
-          <a href=""><p>Manejo de Hospedajes</p></a>
-          <a href=""><p>Quejas</p></a>
+          <a href=""><p>Acerca de</p></a>
+          <a href="registerCorp.php"><p>Registrate</p></a>
+          <a href="loginCorp.php"><p>Iniciar Sesión</p></a>
         </div>
         <div class="col-2">
           <h2 class="subtitle">Usuarios</h2>
-          <a href=""><p>Registrate</p></a>
-          <a href=""><p>Iniciar Sesión</p></a>
-          <a href=""><p>Convierte en Host</p></a>
+          <a href="register.php"><p>Registrate</p></a>
+          <a href="login.php"><p>Iniciar Sesión</p></a>
         </div>
       </div>
       <div class="foot-section">
