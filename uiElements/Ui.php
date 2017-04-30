@@ -72,8 +72,8 @@ function MainFooter(){
 
 function PageScripts(){
 
-  global $user;
-  if(!empty($user)){
+  global $user, $corp;
+  if(!empty($user) || !empty($corp)){
     echo '<script src="js/usuario.js"></script>';
   }
 }

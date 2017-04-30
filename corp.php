@@ -3,8 +3,6 @@ require_once "uiElements/Ui.php";
 
 $rq_corpId = $_REQUEST['corpId'];
 
-
-
 //Si no se esta apuntando a ningun usuario
 //Redirecionar al home
 /*if(empty($rq_userId) ){

@@ -144,9 +144,9 @@ class HeaderBase{
     }
 
     protected function setData(){
-      $opciones = array('Promociona tu hospedaje','Ayuda',"$this->nameCorp");
+      $opciones = array('Ayuda',"$this->nameCorp");
       //cancion.php?albmID=$albmID
-      $links = array('promHospedaje.php', 'ayuda.php', "corp.php?corpId=$this->idCorp");
+      $links = array('ayuda.php', "corp.php?corpId=$this->idCorp");
 
       for($i=0; $i < count($opciones); $i++){
         $this->setOpciones($opciones[$i], $links[$i]);
