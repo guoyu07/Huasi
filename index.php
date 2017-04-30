@@ -1,6 +1,11 @@
 <?php
 require_once "uiElements/Ui.php";
 
+if(isset($_SESSION['corpId'])){
+  $corpId = $_SESSION['corpId'];
+  header("location: corp.php?corpId=$corpId");
+}
+
 newPageHead("La mejor comunidad hotelera de Quito");
 
  ?>

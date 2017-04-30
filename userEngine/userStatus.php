@@ -15,7 +15,7 @@ if(isset($_SESSION['userId'])){
 
   $user = NULL;
 
-  if( count($results) > 0){;
+  if( count($results) > 0){
     $user = $results;
     $user['userName'] = ucwords($user['userName']);
     $user['userLastName'] = ucwords(($user['userLastName']));

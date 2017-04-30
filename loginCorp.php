@@ -3,6 +3,11 @@ session_start();
 require_once "uiElements/Ui.php";
 require_once 'corpEngine/corpEngine.php';
 
+if(isset($_SESSION['corpId'])){
+  $corpId = $_SESSION['corpId'];
+  header("location: corp.php?corpId=$corpId");
+}
+
 if(isset($_SESSION['userId'])){
   $warn = true;
 }else{

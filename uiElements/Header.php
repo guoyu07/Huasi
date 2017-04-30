@@ -115,7 +115,71 @@ class HeaderBase{
               $html.= '<div class="user-caption drop-shadow" id="user-menu">';
               $html.= '<a href="editarPerfil.php"><div>Editar Perfil</div></a>';
               $html.= '<a href="editarSeguridad.php"><div>Seguridad</div></a>';
-              $html.= '<a href="userEngine/logout.php"><div>Salir</div></a>';
+              $html.= '<a href="logout/logout.php"><div>Salir</div></a>';
+              $html.= '</div>';
+
+              echo $html;
+            }
+
+          }
+
+          ?>
+
+        </div>
+      </div>
+      <?php
+
+    }
+
+  }
+
+  class HeaderCorp extends HeaderBase{
+
+    protected $nameCorp;
+    protected $idCorp;
+
+    function __construct($name, $id){
+      $this->nameCorp = $name;
+      $this->idCorp = $id;
+    }
+
+    protected function setData(){
+      $opciones = array('Promociona tu hospedaje','Ayuda',"$this->nameCorp");
+      //cancion.php?albmID=$albmID
+      $links = array('promHospedaje.php', 'ayuda.php', "corp.php?corpId=$this->idCorp");
+
+      for($i=0; $i < count($opciones); $i++){
+        $this->setOpciones($opciones[$i], $links[$i]);
+      }
+    }
+
+    //funcion para imprimir el header
+    public function printComponent(){
+
+      $this->setData();
+      ?>
+      <div class="main-header <?=$this->headerStyle?>">
+        <div class="header-logo">
+          <a href="index.php">
+            <?php echo file_get_contents($this->logoPath);?>
+            <h2><?=$this->titulo?></h2>
+          </a>
+        </div>
+        <div class="nav main-nav">
+          <?php
+
+          for($i=0; $i < count($this->menuOpciones); $i++){
+
+            $opcion = $this->menuOpciones[$i];
+            $link = $this->menuOpcionesLinks[$i];
+            if($i < count($this->menuOpciones)-1){
+              echo "<a href=$link><div>$opcion</div></a>\n";
+            }else{
+              $html = "<a href=$link id='menu-triger'><div>$opcion</div></a>\n";
+              $html.= '<div class="user-caption drop-shadow" id="user-menu">';
+              $html.= '<a href="editarPerfil.php"><div>Editar Perfil</div></a>';
+              $html.= '<a href="editarSeguridad.php"><div>Seguridad</div></a>';
+              $html.= '<a href="logout/logout.php"><div>Salir</div></a>';
               $html.= '</div>';
 
               echo $html;

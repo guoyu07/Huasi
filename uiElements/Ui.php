@@ -7,7 +7,8 @@ require_once 'Footer.php'; //Requerir la clase footer;
 require_once 'coprAuthWarn.php';
 require_once 'HospedajeCard.php'; //Requerir la clase para generar los container de los hospedajes
 require_once 'BirthSelector.php'; //Requerir la clase para generar el selector de fechas de nacimiento
-require_once 'userEngine/userStatus.php'; //Requerir el script para ver si existe o no una session.
+require_once 'userEngine/userStatus.php'; //Requerir el script para ver si existe o no una session de usuario.
+require_once 'corpEngine/corpStatus.php'; //Requerir el script para ver si exsite o no una session de empresa.
 
 
 //Funcion para generar el <head> de las paginas.
@@ -41,13 +42,16 @@ function newPageHead($pageTitle){
 //Funcion para generar el Header
 function MainHeader(){
 
-  global $user;
+  global $user, $corp;
   //Defirnir e imprimir una nueva instancia de header
   if(!empty($user)){
     $firstName = explode(' ', $user['userName']);
     $lastName = explode(' ', $user['userLastName']);
     $name = ucfirst(current($firstName)).' '.ucfirst(current($lastName));
     $mainHeader = new HeaderUsuario($name, $user['userId']);
+  }else if(!empty($corp)){
+    $name = $corp['corpName'];
+    $mainHeader = new HeaderCorp($name, $corp['corpId']);
   }else{
     $mainHeader = new HeaderNormal();
 
