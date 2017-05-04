@@ -1,12 +1,5 @@
 <?php
 require_once "uiElements/Ui.php";
-require_once 'corpEngine/hostEngine.php';
-$rq_hostId = $_REQUEST['hostId'];
-
-
-$hostData = new HostaDataOutput($rq_hostId);
-$hostData->getData();
-
  ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +32,7 @@ $hostData->getData();
       <a href="#ubicacion"><div>Ubicacion</div></a>
     </div>
     <div class="col-3 all-middle">
-      <?php $hostData->outPutHostPrice() ?>
+      <h2><span class="big">$109.99</span> por Noche</h2>
       <div class="caption-reserve">
         <form class="form form-reserva" action="reservar.php" method="post">
           <div class="all-middle f-colum">
@@ -72,13 +65,15 @@ $hostData->getData();
         <div class="host-info col-8">
           <div id="host-name"class="card-container">
             <div class="host-title col-8">
-              <?php $hostData->outPutHostName() ?>
+              <h2 class="sec-title">Hospedaje de Ejemplo</h2>
             </div>
-            <?php $hostData->outPutHostImages() ?>
+            <img src="img/rooms/room1.jpeg" alt="host" class="img-responsive">
           </div>
           <div id="descripcion" class="card-container">
             <h2 class="sec-title">Información</h2>
-              <?php $hostData->outPutHostDescription() ?>
+              <p class="margin-bottom">
+          Y, viéndole don Quijote de aquella manera, con muestras de tanta tristeza, le dijo: Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti no te cabe parte dellas.Y, viéndole don Quijote de aquella manera, con muestras de tanta tristeza, le dijo: Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti no
+              </p>
               <div class="perks">
                 <h2 class="subtitle">Incluye</h2>
                 <ul>
@@ -149,7 +144,7 @@ $hostData->getData();
           </div>
           <div id="ubicacion" class="card-container">
             <h2 class="sec-title">Ubicación</h2>
-            <?php $hostData->outPutHostAddress() ?>
+            <p>Av.Regresando al futuro 0e-212 y Rocafeller St</p>
           </div>
         </div>
 
