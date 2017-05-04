@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="56px" viewBox="0 0 58 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill-rule="nonzero">
+            <path d="M48,18.929 L48,40.07 C48,42.793 45.793,45 43.071,45 L22,45 L12,56 L12,45 L4.929,45 C2.207,45 0,42.793 0,40.071 L0,18.93 C0,16.207 2.207,14 4.929,14 L43.07,14 C45.793,14 48,16.207 48,18.929 Z" id="Shape" fill="#39AA94"></path>
+            <path d="M53.071,0 L14.929,0 C12.207,0 10,2.207 10,4.93 L10,14 L43.071,14 C45.793,14 48,16.207 48,18.93 L48,31 L53.071,31 C55.793,31 58,28.793 58,26.07 L58,4.93 C58,2.207 55.793,0 53.071,0 Z" id="Shape" fill="#28A48C"></path>
+            <path d="M25,25 L11,25 C10.447,25 10,24.552 10,24 C10,23.448 10.447,23 11,23 L25,23 C25.553,23 26,23.448 26,24 C26,24.552 25.553,25 25,25 Z" id="Shape" fill="#FFFFFF"></path>
+            <path d="M38,31 L11,31 C10.447,31 10,30.552 10,30 C10,29.448 10.447,29 11,29 L38,29 C38.553,29 39,29.448 39,30 C39,30.552 38.553,31 38,31 Z" id="Shape" fill="#FFFFFF"></path>
+            <path d="M38,37 L11,37 C10.447,37 10,36.552 10,36 C10,35.448 10.447,35 11,35 L38,35 C38.553,35 39,35.448 39,36 C39,36.552 38.553,37 38,37 Z" id="Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>
