@@ -69,7 +69,7 @@ abstract class HospedajeConImagen extends HospedajeBase{
     $mClassName = $this->className;
     //<a href='cancion.php?albmID=$albmID&artID=$artID'>";
     ?>
-    <a href="hospedaje.php?hostID=<?=$this->idHospedaje?>" class="col-3 card-container">
+    <a href="hospedaje.php?hostId=<?=$this->idHospedaje?>" class="col-3 card-container">
       <div class=<?=$mClassName?>>
         <div style='background-image:url(<?= $this->imagenPath?>)'></div>
         <p>$<?=$this->precioHospedaje?></p>
@@ -118,8 +118,40 @@ class HostCorp extends HospedajeConImagen{
   }
 
   public function printComponent(){
-    parent::printComponent($this->className); //llamar a la funcion de la clase heredada.
+
+    $className = $this->className;
+    $mClassName = $this->className;
+    ?>
+    <a href="hospedaje.php?hostId=<?=$this->idHospedaje?>" class="col-3 card-container">
+      <div class=<?=$mClassName?>>
+        <div style='background-image:url(<?= $this->imagenPath?>)' class="host-img">
+          <button type="button" name="button" class="btn btn-submit">Editar</button>
+          <button type="button" name="button" class="btn btn-submit-important">Eliminar</button>
+        </div>
+        <p>$<?=$this->precioHospedaje?></p>
+        <p><?=$this->nombreHospedaje?></p>
+      </div>
+    </a>
+    <?php
   }
+
+  public function printComponentView(){
+
+    $className = $this->className;
+    $mClassName = $this->className;
+    ?>
+    <a href="hospedaje.php?hostId=<?=$this->idHospedaje?>" class="col-3 card-container">
+      <div class=<?=$mClassName?>>
+        <div style='background-image:url(<?= $this->imagenPath?>)'>
+        </div>
+        <p>$<?=$this->precioHospedaje?></p>
+        <p><?=$this->nombreHospedaje?></p>
+      </div>
+    </a>
+    <?php
+  }
+
+
 
 }
 
