@@ -30,10 +30,6 @@ a{
   color: #2e3033;
 }
 
-.active{
-  color: #39AA94;
-}
-
 
 .ui-datepicker{
   background-color: #fff;
@@ -513,7 +509,6 @@ input:focus {
   background-color: transparent;
   border-radius: 4px;
   transition: 400ms;
-  padding: 12px 27px;
 }
 
 .btn-submit{
@@ -1124,10 +1119,6 @@ font-size: 0.8em;
   z-index: 100000;
 }
 
-.nav a{
-  cursor: pointer;
-}
-
 .host-reserve .nav a:hover div{
   color: #39aa94;
 }
@@ -1685,9 +1676,8 @@ select{
 *******Wrapper-corp******
 ************************/
 
-.wrapper-corp{
-  position: relative;
-  padding-top: calc(60px + 51px);
+.wrapper-corp .container{
+  margin-top: 2em;
 }
 
 .wrapper-corp .corp-logo{
@@ -1696,7 +1686,7 @@ select{
   background-image: url('../img/hotel_logo.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   margin-bottom: 1em;
 }
 
@@ -1723,28 +1713,7 @@ select{
 }
 
 .wrapper-corp .col-9{
-  width: calc(75% - 1em);
-}
 
-.wrapper-corp .menu-item,
-.wrapper-corp .corp-menu{
-  margin-top: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  z-index: 1000000000000000;
-}
-
-.wrapper-corp .menu-item{
-  position: fixed;
-  width: calc(25% - 20px);
-  left: 2em;
-}
-
-.wrapper-corp .corp-menu{
-  padding-left: calc(33% - 4em);
-  position: fixed;
-  margin-top: 60px;
-  top: 0;
 }
 
 .corp-host div:first-of-type{
@@ -1753,17 +1722,6 @@ select{
   background-size: cover;
   height: 200px;
   transition: 400ms;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1em;
-}
-
-.corp-host div:first-of-type button{
-  display: none;
-  width: 100%;
-  margin-bottom: 1em;
 }
 
 #form-corp .subtitle{
@@ -1819,96 +1777,4 @@ select{
 #register-confirmation{
   background-image: url('../img/panecillo.jpg');
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4)
-}
-
-.wrapper-completeInfo .corp-img{
-  border-radius: 0;
-  height: 200px;
-  width: 200px;
-  border:  1px solid #dbe0e0;
-  background-image: url('../img/svg/icons/camera.svg');
-  background-size: 30%;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-right: 1em;
-
-}
-
-#add-host{
-  height: 292px;
-  /*background-color: #39aa94;*/
-  border: 1px solid #39aa94;
-  background-color: #39aa94;
-
-}
-
-#add-host:hover .corp-host{
-  height: 98%;
-}
-
-#add-host .corp-host{
-  text-align: center;
-  height: 100%;transition: 400ms;
-}
-
-.corp-host #add-icon{
-  border: 2px solid #fff;
-  color: #fff;
-  height: 40px;
-  width: 40px;
-  border-radius: 100%;
-  margin-bottom: 1.5em;
-}
-
-#corp-sec-title{
-  color: #39AA94 ;
-}
-
-#add-icon h1{
-  font-size: 2em;
-  font-weight: 300;
-}
-
-#add-host h2{
-  font-weight: 300;
-  color: #fff;
-}
-
-#hosts-empty{
-  padding: 2em;
-  margin: 0 auto;
-}
-
-#hosts-empty img{
-  width: 50px;
-  margin-bottom: 1em;
-}
-
-#update-show{
-  padding: 12px 27px;
-  background-color: #39AA94 ;
-  border-radius: 5px;
-  width: 100%;
-  color: #fff;
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#update-show p{
-  color: #fff;
-  margin: 0;
-}
-
-#update-show #close{
-  cursor: pointer;
-}
-
-#update-show:hover{
-  color: #fff;
-}
-
-#corpWebView .host-show{
-  padding-top: 0
-
 }
