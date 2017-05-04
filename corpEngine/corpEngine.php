@@ -1,5 +1,6 @@
 <?php
 //Requerir el scrip de la base de datos.
+require_once 'uiElements/HospedajeCard.php'; //Requerir la clase para generar los container de los hospedajes
 require_once "DbConnection.php";
 
 //Clase para manejar todas las interacciones de las empresar con el server.
@@ -13,6 +14,7 @@ abstract class CorpEngine extends DbConnection{
   protected $corpAddress;
   protected $corpLogo;
   protected $corpRepre;
+  protected $corpDescription;
   protected $corpFirstLogin;
   protected $connection;
 
@@ -26,6 +28,7 @@ abstract class CorpEngine extends DbConnection{
     $this->corpPhone = $_POST['corpPhone'];
     $this->corpAddress = $_POST['corpAddress'];
     $this->corpRepre = $_POST['corpRepre'];
+    $this->corpDescription =$_POST['corpDescription'];
 
   }
 
@@ -120,15 +123,16 @@ class CorpLogin extends CorpEngine{
       $results = $records->fetch(PDO::FETCH_ASSOC);
 
       if(count($results) > 0 && password_verify($this->corpPassword, $results['corpPassword']) && $results['corpFirstLogin'] === 0 ){
-        
+
         $corpId = $results['corpId'];
         $_SESSION['corpId'] = $corpId;
 
-        header("Location: corp.php?corpId=$corpId");
+        header("Location: completarCorpInfo.php?=coprId=$corpId");
 
       }else if(count($results) > 0 && password_verify($this->corpPassword, $results['corpPassword']) && $results['corpFirstLogin']> 0){
-        $_SESSION['corpId'] = $results['corpId'];
-        header('Location: corp.php?corpId=$results["corpId"]');
+        $corpId = $results['corpId'];
+        $_SESSION['corpId'] = $corpId;
+        header("Location: corp.php?corpId=$corpId");
 
       }else{
         $this->errorMessage = 'El correo electronico y la contraseña no coinciden. Intentalo otra vez';
@@ -142,11 +146,98 @@ class CorpLogin extends CorpEngine{
 }
 
 //Clase para completar el proceso de registro.
-/*class CorpCompleteInfo extends CorpEngine{
+class CorpCompleteInfo extends CorpEngine{
 
-public function __construct(){
-parent::__construc();
+  protected $secondLogin;
+
+  public function __construct($imgPath, $idCorp){
+    parent:: __construct();
+    $this->corpId = $idCorp;
+    $this->corpLogo = $imgPath;
+    $this->secondLogin = 1;
+  }
+
+  public function isCompleteFormReady(){
+    return $this->isCorpPhoneReady();
+  }
+
+  public function setCompleteInfo(){
+
+    if($this->isCompleteFormReady()){
+
+      //Ingresar usuario a la base de datos.
+      $sql = "UPDATE Corps SET corpLogo = :corpLogo, corpPhone = :corpPhone, corpAddress = :corpAddress, corpDescription = :corpDescription, corpFirstLogin = :corpFirstLogin WHERE corpId = $this->corpId";
+
+      //Preparar el statement
+      $stmt = $this->connection->prepare($sql);
+
+      //Guardar los parametros en la base de datos
+      $stmt->bindParam('corpLogo', $this->corpLogo);
+      $stmt->bindParam('corpPhone', $this->corpPhone);
+      $stmt->bindParam('corpAddress', $this->corpAddress);
+      $stmt->bindParam('corpDescription', $this->corpDescription);
+      $stmt->bindParam('corpFirstLogin', $this->secondLogin);
+
+
+      if( $stmt->execute() ){
+        header("Location: corp.php?corpId=$this->corpId");
+        //$message = "Cuenta creada satisfactoriamente";
+      }else{
+        $errorMessage = "Ocurrio algun error al crear tu cuenta";
+      }
+    }
+
+  }
+
+
 }
+
+
+//Clase para mostrar perfiles de las empresas
+class CorpDataOutput extends CorpEngine{
+
+  public function __construct($idCorp){
+    parent:: __construct();
+    $this->corpId = $idCorp;
+
+  }
+
+  public function getData(){
+    $sql = "SELECT corpName, corpLogo FROM Corps WHERE corpId = :corpId";
+    $records = $this->connection->prepare($sql);
+    $records->bindParam(':corpId', $this->corpId);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+    $this->corpProfile = NULL;
+
+    if( count($results) > 0){
+      $this->corpProfile = $results;
+      $this->corpProfile['corpName'] = ucwords($this->corpProfile['corpName']);
+    }else{
+      echo "no";
+    }
+  }
+
+  public function getName(){
+    return $this->corpProfile['corpName'];
+  }
+
+  public function outPutBasicData(){
+    ?>
+    <div class="corp-logo" style="background-image: url(<?=$this->corpProfile['corpLogo']?>);"></div>
+    <div class="m-border"></div>
+    <h2 class="sec-title"><?=$this->corpProfile['corpName']?></h2>
+    <?php
+  }
+
+  public function outPutNav(){
+    ?>
+    <a id="Hosts" data-value="Hosts,<?=$this->corpId?>"><div>Hospedajes</div></a>
+    <a id="Coments" data-value="Coments,<?=$this->corpId?>"><div>Comentarios y evaluaciones</div></a>
+    <a id="Corps" data-value="Corps,<?=$this->corpId?>"><div>Informacion</div></a>
+    
+    <?php
+  }
 
 }
 
@@ -154,11 +245,18 @@ parent::__construc();
 class CorpEditInfo extends CorpEngine{
 
 public function __construct(){
-parent::__construc();
+  parent::__construc();
 }
 
-}*/
+}
 
+class CorpEditSecurity extends CorpEngine{
+
+  public function __construct(){
+    parent::__construct();
+  }
+
+}
 
 
 ?>
