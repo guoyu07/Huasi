@@ -2,6 +2,7 @@
 require_once "uiElements/Ui.php";
 require_once 'imgEngine/ImgEngine.php';
 require_once 'corpEngine/hostEngine.php';
+require_once 'corpEngine/corpStatus.php';
 
 $rq_corpId = $_REQUEST['corpId'];
 if(!isset($_SESSION['corpId'])){
@@ -16,8 +17,8 @@ $saveCorpImg->saveImage('corp');
 $imgPath = $saveCorpImg->getImagePath();*/
 //Clase para manejar la subida informacion
 
-$loadHost = new UploadHost('img/rooms/room1.jpeg');
-$loadHost->loadNewHost($_REQUEST['corpId']);
+$loadHost = new UploadHost($_SESSION['corpId'], 'img/rooms/room1.jpeg');
+$loadHost->loadNewHost();
 
 
 newPageHead($corp['corpName'].' Añadir hospedaje');
@@ -55,9 +56,6 @@ newPageHead($corp['corpName'].' Añadir hospedaje');
               <input type="file" name="corpLogo" id="imgInp">-->
               <label>Descripción</label>
               <textarea name="hostDescription" maxlength="240" placeholder="Dilo en 240 caracteres." rows="3"></textarea>
-              <?php
-              echo $_REQUEST['corpId'];
-               ?>
               <button type="submit" class="btn btn-submit" name="submit1" value="<?=$rq_corpId?>">Continuar</button>
             </form>
           </div>

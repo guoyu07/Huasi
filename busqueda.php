@@ -23,7 +23,7 @@ newPageHead("Buscar");
   <!-- Wrapper-->
   <div class="wrapper-busqueda">
     <h2 class="caption-text">200 resultados</h2>
-    <div class="host-show container">
+    <div class="search-show container">
       <div class="slide-show">
         <?php
         for($i=1; $i<=100; $i++){

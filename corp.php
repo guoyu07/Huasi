@@ -22,6 +22,7 @@ newPageHead($corpData->getName());
   ?>
 
   <!-- Wrapper-->
+
   <div class="wrapper-corp">
     <div class="flex f-colum">
       <div class="card-container col-12 corp-menu">
@@ -45,7 +46,10 @@ newPageHead($corpData->getName());
 
     </div>
   </div>
-
+  <div id="caption-holder">
+    <span id='close'>X</span>"
+    <div id="caption-data"></div>
+  </div>
   <!--Main Footer-->
   <?php
   MainFooter();

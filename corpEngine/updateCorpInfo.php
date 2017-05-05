@@ -1,12 +1,15 @@
 <?php
+
+require_once "../DbConnection.php";
+
 //Mostrar todos los errores de php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+require_once "hostEngine.php";
 //Requerir la conecion
 
-require_once "../DbConnection.php";
+
 $corpId = $_POST['corpId'];
 
 

@@ -410,10 +410,11 @@ class UserRegister extends UserEngine{
         $results = $records->fetch(PDO::FETCH_ASSOC);
         $this->userProfile = NULL;
 
-        if( count($results) > 0){
+        if( count($results) > 0 && isset($results) && !empty($results)){
           $this->userProfile = $results;
+          return true;
         }else{
-          echo "no";
+          return false;
         }
       }
 

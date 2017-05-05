@@ -16,6 +16,7 @@ abstract class HostEngine extends DbConnection{
   protected $hostZone;
   protected $hostPrice;
   public   $corpId;
+  protected $bo;
 
   //Constructor general.
   public function __construct(){
@@ -50,13 +51,12 @@ class UploadHost extends HostEngine{
   }
 
   //Funcion para guardar al nuevo host en la db
-  public function loadNewHost($idCorp){
+  public function loadNewHost(){
+    //echo $idCorp;
+    if($this->isCreateFormReady()){
+      $sql = "INSERT INTO Hosts (corpId, hostName, hostType, hostNum, hostAddress, hostZone, hostPrice, hostImagePath, hostDescription) VALUES($this->corpId , :hostName, :hostType, :hostNum, :hostAddress, :hostZone, :hostPrice, :hostImagePath,:hostDescription)";
 
-    //if($this->isCreateFormReady()){
-
-      $sql = "INSERT INTO Hosts (corpId, hostName, hostType, hostNum, hostAddress, hostZone, hostPrice, hostImagePath, hostDescription) VALUES(:corpId, :hostName, :hostType, :hostNum, :hostAddress, :hostZone, :hostPrice, :hostImagePath, :hostDescription)";
       $stmt = $this->connection->prepare($sql);
-      $stmt->bindParam('corpId', $idCorp);
       $stmt->bindParam('hostName', $this->hostName);
       $stmt->bindParam('hostType', $this->hostType);
       $stmt->bindParam('hostNum', $this->hostNum);
@@ -70,10 +70,9 @@ class UploadHost extends HostEngine{
         header("Location: corp.php?corpId=$this->corpId");
         //$message = "Cuenta creada satisfactoriamente";
       }else{
-        echo "no";
         $this->errorMessage = 'Ocurrio un error al crear tu cuenta intentalo otra vez';
       }
-    //}
+    }
 
   }
 
@@ -97,12 +96,21 @@ class HostaDataOutput extends HostEngine{
     $results = $records->fetch(PDO::FETCH_ASSOC);
     $this->hostProfile = NULL;
 
-    if( count($results) > 0){
+    if( count($results) > 0 && isset($results) && !empty($results)){
       $this->hostProfile = $results;
+      $this->bo = true;
     }else{
-      echo "no";
+      $this->bo = false;
     }
 
+  }
+
+  public function exist(){
+    return $this->bo;
+  }
+
+  public function getHostname(){
+    return $this->hostProfile['hostName'];
   }
 
   public function outPutHostName(){
@@ -122,7 +130,6 @@ class HostaDataOutput extends HostEngine{
   }
 
   public function outPutHostDescription(){
-    echo $this->hostProfile['hostDescription'];
     ?>
     <p class="margin-bottom"><?=$this->hostProfile['hostDescription']?></p>
     <?php

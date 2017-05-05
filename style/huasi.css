@@ -597,7 +597,8 @@ background-color: #F4897E;
 
 .vp-show,
 .deal-show,
-.host-show{
+.host-show,
+.search-show{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -642,10 +643,12 @@ background-color: #F4897E;
 }
 
 .host div:first-of-type{
-  height: 300px;
+  height: 200px;
 }
 
-.host-show .slide-show a:not(:nth-child(4n+1)){
+.host-show .slide-show a:not(:nth-child(4n+1)),
+.search-show .slide-show a:not(:nth-child(4n+1)),
+.host-show .slide-show .host-a:not(:nth-child(4n+1)){
   margin-left: 1.33em;
 }
 
@@ -665,12 +668,14 @@ background-color: #F4897E;
 }
 
 .vp-show .card-container,
-.host-show .card-container{
+.host-show .card-container,
+.search-show .card-container{
   padding: 0;
 }
 
 .vp-show .card-container p,
-.host-show .card-container p{
+.host-show .card-container p,
+.search-show .card-container p{
   padding: 0 1em;
 }
 
@@ -715,7 +720,8 @@ color: #00b698;
 
 
 .deal-show .slide-show,
-.host-show .slide-show{
+.host-show .slide-show,
+.search-show .slide-show{
   flex-wrap: wrap;
   justify-content: flex-start;
 }
@@ -725,10 +731,15 @@ color: #00b698;
 }
 
 .deal-show .slide-show a,
-.host-show .slide-show a{
+.host-show .slide-show .host-a,
+.search-show .slide-show a{
   margin-bottom: 1em;
   flex-basis: calc(25% - 1em);
   transition: 400ms;
+}
+
+#deleteHost{
+  position: absolute;
 }
 
 .deal-host{
@@ -1747,14 +1758,14 @@ select{
   top: 0;
 }
 
-.corp-host div:first-of-type{
+.corp-host div:first-of-type:not(#edit):not(#view):not(#add-icon){
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 200px;
   transition: 400ms;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 0 1em;
@@ -1835,9 +1846,9 @@ select{
 }
 
 #add-host{
-  height: 292px;
-  /*background-color: #39aa94;*/
-  border: 1px solid #39aa94;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: 314px;
   background-color: #39aa94;
 
 }
@@ -1911,4 +1922,120 @@ select{
 #corpWebView .host-show{
   padding-top: 0
 
+}
+
+.host-option{
+  display: none;
+}
+
+.host-a{
+  height: 314px;
+}
+
+.host-a  #edit,
+.host-a  #view,
+.host-a  #trash{
+  width: 40px;
+  height:40px;
+  background-color: #39AA94 ;
+  border-radius: 100%;
+  margin: 0 0.5em;
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+.host-a  #edit:hover,
+.host-a  #view:hover,
+.host-a  #trash:hover{
+  box-shadow: inset 0px 0px 300px 200px rgba(255,255,255,0.19);
+}
+
+#view{
+  background-image: url('../img/svg/icons/view.svg');
+}
+
+#edit{
+  background-image: url('../img/svg/icons/edit.svg');
+}
+
+#trash{
+  background-color: #f26f62  !important;
+  background-image: url('../img/svg/icons/trash.svg');
+}
+
+#caption-holder{
+  display: none;
+  position: absolute;
+  background-color: rgba(0,0,0,.6);
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 900000000000000000000000000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#caption-holder h2{
+  color: #fff;
+}
+
+#caption-holder span{
+  position: fixed;
+  top: 4em;
+  right: 4em;
+  color: #fff;
+  border: 1px solid;
+  padding: 1em;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+#caption-holder span:hover{
+  color: #f26f62;
+}
+
+#caption-holder #caption-data{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4em 0;
+  width: 100%;
+}
+
+#caption-holder #caption-data .card-container .subtitle{
+  text-align: center;
+  color: #fff;
+  margin: 0.5em;
+}
+
+#authError{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+#authError p{
+  text-align: center;
+  margin: 0;
+  color:  #F4897E;
+}
+
+.lost-dir{
+  background-color: #39AA94 ;
+  color: #fff;
+}
+
+.lost-dir h1{
+  font-size: 6em;
+  margin-bottom: 16px;
+}
+
+.lost-dir .sec-title{
+  font-weight: 300;
 }

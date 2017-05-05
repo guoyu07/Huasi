@@ -47,7 +47,7 @@ if(isset($table) && isset($corpId) && !empty($table) && !empty($corpId) ){
           if(isset($_SESSION['corpId']) && $_SESSION['corpId'] === $corpId){
 
             ?>
-            <a href="addHost.php?corpId=<?=$corpId?>" class="col-3 card-container" id="add-host">
+            <a href="addHost.php?corpId=<?=$corpId?>" class="col-3 card-container host-a" id="add-host">
               <div class="corp-host all-middle f-colum">
                 <div class="all-middle" id="add-icon">
                   <h1>+</h1>

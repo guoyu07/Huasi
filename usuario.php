@@ -5,32 +5,16 @@ require_once "userEngine/userEngine.php";
 $rq_userId = $_REQUEST['userId'];
 $rq_updateInfo = $_REQUEST['updateInfo'];
 
-
-
-//Si no se esta apuntando a ningun usuario
-//Redirecionar al home
-if(empty($rq_userId) ){
-  header("Location: /");
-}
-
-
 //Crear nueva clase para selecionar datos del usuario segun userId
 $userInfo = new UserDataOutput($rq_userId);
-$userInfo->getData();
-
-//Crear Nuevo Head de la pagina.
-newPageHead($userInfo->getUserName());
-
-?>
-
-<body>
+if($userInfo->getData() && !empty($rq_userId)){
+  newPageHead($userInfo->getUserName());
+  ?>
+  <body>
   <!--Menu de navegación-->
   <?php
-
   MainHeader(true);
-
   ?>
-
   <!-- Wrapper-->
   <div class="wrapper-usuario">
     <div class="container">
@@ -76,6 +60,28 @@ newPageHead($userInfo->getUserName());
       </div>
     </div>
   </div>
+  <?php
+}else{
+  newPageHead('404');
+  ?>
+  <body>
+  <!--Menu de navegación-->
+  <?php
+  MainHeader(true);
+  ?>
+  <div class="wrapper all-middle f-colum lost-dir">
+    <h1>404!</h1>
+    <h2 class="sec-title">Ups!</h2>
+    <h2 class="sec-title">El usuario que estas buscando no existe</h2>
+    <!--<a href="/">
+      <button type="button" name="button" class="btn btn-submit-white">Buscar Hospedajes</button>
+    </a>-->
+  </div>
+
+  <?php
+}
+
+?>
 
   <!--Main Footer-->
   <?php
