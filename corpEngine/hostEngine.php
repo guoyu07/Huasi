@@ -16,7 +16,6 @@ abstract class HostEngine extends DbConnection{
   protected $hostZone;
   protected $hostPrice;
   public   $corpId;
-  protected $bo;
 
   //Constructor general.
   public function __construct(){
@@ -89,7 +88,7 @@ class HostaDataOutput extends HostEngine{
 
   public function getData(){
 
-    $sql = "SELECT hostName, hostImagePath, hostDescription, hostAddress, hostPrice FROM Hosts WHERE hostId = :hostId";
+    $sql = "SELECT hostId, hostName, hostImagePath, hostDescription, hostAddress, hostPrice FROM Hosts WHERE hostId = :hostId";
     $records = $this->connection->prepare($sql);
     $records->bindParam(':hostId', $this->hostId);
     $records->execute();
@@ -98,19 +97,19 @@ class HostaDataOutput extends HostEngine{
 
     if( count($results) > 0 && isset($results) && !empty($results)){
       $this->hostProfile = $results;
-      $this->bo = true;
+      return true;
     }else{
-      $this->bo = false;
+      return false;
     }
 
   }
 
-  public function exist(){
-    return $this->bo;
-  }
-
   public function getHostname(){
     return $this->hostProfile['hostName'];
+  }
+
+  public function outPutHostId(){
+    return $this->hostProfile['hostId'];
   }
 
   public function outPutHostName(){

@@ -98,6 +98,10 @@ function corpAuthWarn(){
   corpAuthHtmlWarn($nameUser);
 }
 
+function isUserLog(){
+  return isset($_SESSION['userId']) && !empty($_SESSION['userId']);
+}
+
 
 
 

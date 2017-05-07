@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   function manageHolder(){
 
-    captionHolder.show();
+    captionHolder.css('display', 'flex');
     var button = $('#close');
     button.click(function(event) {
       console.log('hola');

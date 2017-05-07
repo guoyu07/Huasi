@@ -357,6 +357,14 @@ efecto de scrool**/
 
 /*** Textos**/
 
+.hero-title,
+.hero-subtitle,
+.title,
+.subtitle,
+.sec-title{
+  transition: 400ms;
+}
+
 .hero-title{
   color: #f7f7f7;
   font-size: 2.5em;
@@ -523,6 +531,11 @@ input:focus {
 
 .btn-submit-white{
   background-color:  #fff;
+}
+
+.btn-submit-love{
+  color: #E0202F;
+  border: 2px solid #E0202F;
 }
 
 .btn-submit-error{
@@ -1028,6 +1041,21 @@ font-size: 0.8em;
   padding-top: 3em;
 }
 
+.host-info .card-container{
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+#evaluaciones form{
+  padding: 0;
+}
+
+#evaluaciones textarea{
+  resize: none;
+  border: 1px solid  #dce0e0;
+  border-radius: 5px;
+}
+
 .card-container{
   margin-top: 1em;
   background-color: #fff;
@@ -1078,7 +1106,11 @@ font-size: 0.8em;
   width: 100%;
   background-color: #fff;
   margin-top: 1em;
-  padding: 1.6em 1em;
+  padding: 1.6em 0;
+}
+
+.host-coment p{
+
 }
 
 .host-coment:not(:last-of-type){
@@ -1095,6 +1127,14 @@ font-size: 0.8em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.coment-user .subtitle a{
+  transition: 400ms;
+}
+
+.coment-user .subtitle a:hover{
+  color: #39aa94;
 }
 
 .coment-user p{
@@ -1189,6 +1229,10 @@ font-size: 0.8em;
 .caption-reserve .btn-secondary{
   /*border-color: #465775;
   color: #465775;*/
+}
+
+#delete-wish{
+  display: none;
 }
 
 
@@ -1364,21 +1408,28 @@ font-size: 0.8em;
   flex-wrap: wrap;
 }
 
+
 .user-whishlist .wishlist h2{
   color: #fff;
   margin-bottom: 0;
 }
 
-.user-whishlist .wishlist a:not(:nth-child(2n+1)){
+.user-whishlist .wishlist .wish-a:not(:nth-child(2n+1)){
   margin-left: 1em;
 }
 
-.user-whishlist .wishlist a{
+.user-whishlist .wishlist .wish-a{
   flex-basis: calc(50% - 0.5em);
-  margin-bottom: 1em;
+  position: relative;
+  margin-top: 1em;
+  transition: 400ms;
 }
 
-.user-whishlist .wishlist a div:first-of-type{
+.wish-a a{
+  cursor: pointer;
+}
+
+.user-whishlist .wishlist .wish-a div:first-of-type{
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
   background-position: center;
   background-repeat: no-repeat;
@@ -1393,13 +1444,14 @@ font-size: 0.8em;
   transition: 400ms;
 }
 
-.user-whishlist .wishlist a:hover{
-  box-shadow: 0px 4px 18px 6px rgba(0,0,0,0.05);
+
+.user-whishlist .wishlist a:hover .sec-title{
+  font-size: 1.41em;
+  line-height: normal;
+  color: #39aa94;;
 }
 
-.user-whishlist .wishlist a:hover div:first-of-type{
-  border: 1px solid;
-}
+
 
 
 
@@ -1885,12 +1937,14 @@ select{
   color: #fff;
 }
 
-#hosts-empty{
+#hosts-empty,
+#coments-empty{
   padding: 2em;
   margin: 0 auto;
 }
 
-#hosts-empty img{
+#hosts-empty img,
+#coments-empty img{
   width: 50px;
   margin-bottom: 1em;
 }
@@ -1975,7 +2029,7 @@ select{
   top: 0;
   left: 0;
   z-index: 900000000000000000000000000000;
-  display: flex;
+
   justify-content: center;
   align-items: center;
 }
@@ -2038,4 +2092,20 @@ select{
 
 .lost-dir .sec-title{
   font-weight: 300;
+}
+
+#user-delete-wish{
+position: absolute;
+right: 1em;
+top: 1em;
+color: #Fff;
+border: 1px solid;
+padding: 2.5px 5px;
+transition: 400ms;
+display: none;
+cursor: pointer;
+}
+
+#user-delete-wish:hover{
+  color: #F4897E;
 }

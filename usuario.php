@@ -21,33 +21,14 @@ if($userInfo->getData() && !empty($rq_userId)){
     </div>
     <div class="flex f-row container">
       <div class="col-8">
-        <div class="user-profile-info card-container">
           <?php
           $userInfo->outPutData();
            ?>
-        </div>
         <div class="user-whishlist card-container">
           <h2 class="sec-title">WishList</h2>
           <div class=" b-border margin-bottom"></div>
-          <div class="wishlist">
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-1">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-2">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
-            <a href="hospedaje.php" class="col-6">
-              <div id="vp-3">
-                <h2 class="sec-title">Habitación Ejemplo</h2>
-                <h2 class="subtitle">$70</h2>
-              </div>
-            </a>
+          <div class="wishlist" id="wish-holder">
+
           </div>
         </div>
       </div>
@@ -86,9 +67,14 @@ if($userInfo->getData() && !empty($rq_userId)){
   <!--Main Footer-->
   <?php
   MainFooter();
+  if($userInfo->getData() && !empty($rq_userId)){
   ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <?php
+  }
+   ?>
   <script src="js/usuario.js"></script>
+  <script src="js/usuarioAjax.js"></script>
 </body>
 </html>

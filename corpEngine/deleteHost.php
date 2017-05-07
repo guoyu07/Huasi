@@ -99,7 +99,7 @@ function hostDelete(){
 if($funName === 'load'){
   loadData();
 }else if($funName === 'delete'){
-  hostDelete(1);
+  hostDelete();
 }
 
 

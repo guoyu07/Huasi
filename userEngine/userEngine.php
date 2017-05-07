@@ -464,7 +464,7 @@ class UserRegister extends UserEngine{
           }
 
           ?>
-
+          <div class="user-profile-info card-container" id="<?=$this->userProfile['userId']?>">
           <div class="user-img" style="background-image: url(<?=$image?>);"></div>
           <div class="flex f-colum">
             <h2 class="sec-title"><?=$name. ' ' .$lastName?></h2>
@@ -476,6 +476,9 @@ class UserRegister extends UserEngine{
           if($_SESSION['userId'] === $this->userId){
             echo '<a id="user-edit" href="editarPerfil.php">Editar</a>';
           }
+          ?>
+        </div>
+          <?php
         }
 
       }

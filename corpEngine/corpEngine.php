@@ -210,11 +210,12 @@ class CorpDataOutput extends CorpEngine{
     $results = $records->fetch(PDO::FETCH_ASSOC);
     $this->corpProfile = NULL;
 
-    if( count($results) > 0){
+    if( count($results) > 0 && isset($results) && !empty($results)){
       $this->corpProfile = $results;
       $this->corpProfile['corpName'] = ucwords($this->corpProfile['corpName']);
+      return true;
     }else{
-      echo "no";
+      return false;
     }
   }
 
@@ -235,7 +236,7 @@ class CorpDataOutput extends CorpEngine{
     <a id="Hosts" data-value="Hosts,<?=$this->corpId?>"><div>Hospedajes</div></a>
     <a id="Coments" data-value="Coments,<?=$this->corpId?>"><div>Comentarios y evaluaciones</div></a>
     <a id="Corps" data-value="Corps,<?=$this->corpId?>"><div>Informacion</div></a>
-    
+
     <?php
   }
 

@@ -4,9 +4,8 @@ require_once 'corpEngine/hostEngine.php';
 $rq_hostId = $_REQUEST['hostId'];
 
 $hostData = new HostaDataOutput($rq_hostId);
-$hostData->getData();
 
-if($hostData->exist()){
+if($hostData->getData() && !empty($rq_hostId)){
   newPageHead($hostData->getHostname());
   ?>
 
@@ -29,7 +28,7 @@ if($hostData->exist()){
           <div class="all-middle f-colum">
             <div class="flex f-row">
               <div class="flex f-colum">
-                <label for="llegada">LLegada</label>
+                <label for="llegada">Llegada</label>
                 <input type="text" name="llegada" placeholder="dd/mm/aa">
               </div>
               <div class="flex f-colum">
@@ -43,7 +42,8 @@ if($hostData->exist()){
             </div>
           </div>
           <button type="submit" class="btn btn-submit">Reservar</button>
-          <button type="button" class="btn btn-secondary">Añadir a WishList</button>
+          <button type="button" class="btn btn-secondary" id="wish-list">Añadir a WishList</button>
+          <button type="button" class="btn btn-submit-love" id="delete-wish">Esta en tú WishList &hearts;</button>
         </form>
       </div>
     </div>
@@ -81,54 +81,19 @@ if($hostData->exist()){
           <div class=" b-border margin-bottom"></div>
           <div id="evaluaciones" class="card-container">
 
-            <div class="flex">
-              <h2 class="sec-title">10 Evaluaciones</h2>
-              <span><img src="img/svg/icons/star.svg" alt=""></span>
-              <span><img src="img/svg/icons/star.svg" alt=""></span>
-              <span><img src="img/svg/icons/star.svg" alt=""></span>
-              <span><img src="img/svg/icons/star.svg" alt=""></span>
-              <span><img src="img/svg/icons/star.svg" alt=""></span>
+            <div id="coments-holder">
+
             </div>
+            <?php
+              $id = $hostData->outPutHostId();
+             ?>
             <div class="host-coment">
-              <div class="flex f-row">
-                <img src="img/user/user-1.jpg" alt="">
-                <div class="coment-user">
-                  <h2 class="subtitle"><a href="usuario.php">Pedro Picapiedra</a></h2>
-                  <p>Marzo de 2017</p>
-                </div>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget.</p>
+              <form class="form" id="coment-send">
+                <textarea name="comentText" rows="8" cols="80" placeholder="Escribe tu Comentario"></textarea>
+                <button type="submit" name="button" class="btn btn-submit" id="<?=$id?>">Comentar</button>
+              </form>
             </div>
-            <div class="host-coment">
-              <div class="flex f-row">
-                <img src="img/user/user-4.jpg" alt="">
-                <div class="coment-user">
-                  <h2 class="subtitle">Bati Chica</h2>
-                  <p>Marzo de 2017</p>
-                </div>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget.</p>
-            </div>
-            <div class="host-coment">
-              <div class="flex f-row">
-                <img src="img/user/user-5.jpg" alt="">
-                <div class="coment-user">
-                  <h2 class="subtitle">Super Woman</h2>
-                  <p>Marzo de 2017</p>
-                </div>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget.</p>
-            </div>
-            <div class="host-coment">
-              <div class="flex f-row">
-                <img src="img/user/user-2.jpg" alt="">
-                <div class="coment-user">
-                  <h2 class="subtitle">Pablo Marmol</h2>
-                  <p>Marzo de 2017</p>
-                </div>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac velit fermentum, euismod purus at, gravida metus. Aenean et sollicitudin neque. Fusce leo mi, dignissim eget.</p>
-            </div>
+
           </div>
           <div id="ubicacion" class="card-container">
             <h2 class="sec-title">Ubicación</h2>
@@ -176,6 +141,10 @@ if($hostData->exist()){
       </div>
     </div>
   </div>
+  <div id="caption-holder">
+      <span id='close'>X</span>
+      <div id="caption-data"></div>
+    </div>
 
   <?php
 }else{
@@ -192,9 +161,6 @@ if($hostData->exist()){
     <h1>404!</h1>
     <h2 class="sec-title">Ups!</h2>
     <h2 class="sec-title">El hospedaje que estas buscando no existe</h2>
-    <!--<a href="/">
-    <button type="button" name="button" class="btn btn-submit-white">Buscar Hospedajes</button>
-  </a>-->
 </div>
 
 <?php
@@ -244,14 +210,15 @@ if($hostData->exist()){
   </div>
 </div>
 <?php
-if($hostData->exist()){
+if($hostData->getData() && !empty($rq_hostId)){
   ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="js/reserva.js"></script>
   <?php
-}
+  }
 PageScripts();
 ?>
+<script src="js/hostAjax.js"></script>
 </body>
 </html>
