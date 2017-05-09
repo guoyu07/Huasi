@@ -166,8 +166,17 @@ function setWish(){
 
   }else{
     ?>
-    <div class="card-container">
-      <h2 class="subtitle black">hola Tienes que iniciar sesion para poder añadir un hospedaje a tu WishList</h2>
+    <div class="card-container all-middle f-colum" id="host-auth">
+      <h2 class="subtitle black">Hola</h2>
+      <h2 class="subtitle black">Tienes que inciar sesión para poder añadir un hospedaje a tu WishList</h2>
+      <div>
+      <a href="login.php">
+        <button type="button" name="button" class="btn btn-submit-important">Iniciar Sesion</button>
+      </a>
+      <a href="register.php">
+        <button type="button" name="button" class="btn btn-submit">Registrate</button>
+      </a>
+      </div>
     </div>
 
     <?php
@@ -211,7 +220,12 @@ function getUserWishList(){
   if($wishEngine->getUserWishList()){
 
   }else{
-    echo "empty";
+    ?>
+    <div class="all-middle f-colum col-12" id="wish-empty">
+      <img src="img/svg/icons/heart.svg" alt="">
+      <h3 class="subtitle black">Aun no tienes ningun Hospedaje en tu Wishlist</h3>
+    </div>
+    <?
   }
 
 }

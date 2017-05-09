@@ -112,7 +112,6 @@ class comentEngine extends DbConnection{
   public function printComents(){
 
     foreach($this->comentsCollection as $row){
-      $this->comentCounter ++;
       $this->selectUserInfo($row['userId']);
       $name = $this->userInfo['userName'].' '.$this->userInfo['userLastName'];
       $newComent = new ComentsBase();
@@ -125,18 +124,15 @@ class comentEngine extends DbConnection{
 
   }
 
-  public function getComnetNumber(){
+  public function getComentNumber(){
 
-    ?>
-    <div class="flex">
-      <h2 class="sec-title"><?=$this->comentCounter?> Comentarios</h2>
-      <!--<span><img src="img/svg/icons/star.svg" alt=""></span>
-      <span><img src="img/svg/icons/star.svg" alt=""></span>
-      <span><img src="img/svg/icons/star.svg" alt=""></span>
-      <span><img src="img/svg/icons/star.svg" alt=""></span>
-      <span><img src="img/svg/icons/star.svg" alt=""></span>-->
-    </div>
-    <?php
+    if($this->selectComents()){
+      $this->comentCounter = 0;
+      foreach($this->comentsCollection as $row){
+        $this->comentCounter ++;
+      }
+      echo $this->comentCounter;
+    }
 
   }
 
@@ -158,13 +154,20 @@ function makeComent(){
 
 }
 
+function getComentNum(){
+  global $hostId;
+  $comentEngine = new ComentEngine($hostId);
+  $comentEngine->getComentNumber();
+}
+
+
+
 if($funName === 'makeComent'){
   makeComent();
 }else if($funName === 'displayComents'){
   $comentEngine = new ComentEngine($hostId);
   if($comentEngine->selectComents()){
     //Mostrar los comentarios
-    $comentEngine ->getComnetNumber();
     $comentEngine->printComents();
   }else{
     //Mostrar mensaje de info
@@ -175,6 +178,8 @@ if($funName === 'makeComent'){
     $html .= '</div>';
     echo $html;
   }
+}else if($funName === 'getComentNum'){
+  getComentNum();
 }
 
 

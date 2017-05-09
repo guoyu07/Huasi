@@ -2,12 +2,14 @@ $(document).ready(function() {
 
   var wishListHolder = $('#wish-holder');
 
+  //Guardar el id del usuario actual
   function getUserId(){
     var profile = $('.user-profile-info');
     var hostId = profile.attr('id');
     return hostId;
   }
 
+  //Guardar el id del host para poder eliminarlo
   function getHostId(ref){
     var hostId = $(ref).attr('id');
     return hostId;
@@ -15,6 +17,7 @@ $(document).ready(function() {
 
   }
 
+  //Eliminar el Wish
   function deleteWish(ref){
     var $button = $(ref).children('#user-delete-wish');
     var hostId = getHostId(ref);
@@ -29,6 +32,7 @@ $(document).ready(function() {
         success: function(data){
           if(data == 'eliminado'){
             $(ref).remove();
+            getUserWish();
             console.log('eliminado');
           }else if(data == 'error'){
             console.log('error');
@@ -44,7 +48,8 @@ $(document).ready(function() {
     });
   }
 
-  $( window ).load(function() {
+  //Imprimir los wish del usuario
+  function getUserWish(){
     var userId = getUserId();
     $.ajax({
       type: "POST", //Tipo de envio
@@ -52,6 +57,7 @@ $(document).ready(function() {
       data: {userId: userId}, //Enviar informacion de la forma
       //funcion para mostrar los datos recividos por el server
       success: function(data){
+
         wishListHolder.html(data);
         var $wishEvent = $('#wish-holder > .wish-a');
         $wishEvent.mouseenter(function(event) {
@@ -61,6 +67,7 @@ $(document).ready(function() {
         $wishEvent.mouseleave(function(event) {
           $(this).children('#user-delete-wish').hide();
         });
+
       },
       //Mostrar errores
       error: function(){
@@ -68,6 +75,33 @@ $(document).ready(function() {
         console.log('Algo fue mal');
       }
     });
+  }
+
+  //Funcion para mostrar las reservas del usuario
+  function getUserReserv(){
+
+    var userId = getUserId();
+    $.ajax({
+      type: "POST", //Tipo de envio
+      url: '../corpEngine/reserveEngine.php?fun=getUserReserv',
+      data: {userId: userId}, //Enviar informacion de la forma
+      //funcion para mostrar los datos recividos por el server
+      success: function(data){
+        console.log(data);
+      },
+      //Mostrar errores
+      error: function(){
+        alert("Algo fue mal");
+        console.log('Algo fue mal');
+      }
+    });
+
+  }
+
+  //Funciones a ejecutar cuando la pagina cargue.
+  $( window ).load(function() {
+    getUserWish();
+    getUserReserv();
   });
 
 });

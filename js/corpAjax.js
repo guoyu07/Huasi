@@ -14,8 +14,9 @@ $(document).ready(function() {
 
 
   function manageHolder(){
-
+    //$('body').css('overflow', 'hidden');
     captionHolder.css('display', 'flex');
+    captionHolder.css('overflow-y', 'scroll');
     var button = $('#close');
     button.click(function(event) {
       console.log('hola');
@@ -183,6 +184,12 @@ $(document).ready(function() {
       });
       manageHolder();
     });
+  }
+
+  function showWishNumber(ref){
+
+
+
   }
 
   $(document).scroll(function() {

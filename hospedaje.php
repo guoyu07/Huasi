@@ -1,3 +1,4 @@
+
 <?php
 require_once "uiElements/Ui.php";
 require_once 'corpEngine/hostEngine.php';
@@ -24,7 +25,7 @@ if($hostData->getData() && !empty($rq_hostId)){
     <div class="col-3 all-middle">
       <?php $hostData->outPutHostPrice() ?>
       <div class="caption-reserve">
-        <form class="form form-reserva" action="reservar.php" method="post">
+        <form class="form form-reserva" id="make-reserve">
           <div class="all-middle f-colum">
             <div class="flex f-row">
               <div class="flex f-colum">
@@ -80,7 +81,9 @@ if($hostData->getData() && !empty($rq_hostId)){
           </div>
           <div class=" b-border margin-bottom"></div>
           <div id="evaluaciones" class="card-container">
-
+            <div class="flex">
+              <h2 class="sec-title"><span id="comentNumber"></span> Comentarios</h2>
+            </div>
             <div id="coments-holder">
 
             </div>
@@ -105,35 +108,15 @@ if($hostData->getData() && !empty($rq_hostId)){
           <div class="all-middle f-colum card-container col-12">
             <h2 class="sec-title">Hospedajes Similares</h2>
             <div class="slide-show">
-
-              <a href="hospedaje.php" class="col-3">
-                <div class="host">
-                  <div id="vp-2"></div>
-                  <p>Ejemplo Habitación</p>
-                  <p>$70</p>
-                </div>
-              </a>
-              <a href="hospedaje.php" class="col-3">
-                <div class="host">
-                  <div id="vp-3"></div>
-                  <p>Ejemplo Habitación</p>
-                  <p>$70</p>
-                </div>
-              </a>
-              <a href="hospedaje.php" class="col-3">
-                <div class="host">
-                  <div id="vp-4"></div>
-                  <p>Ejemplo Habitación</p>
-                  <p>$70</p>
-                </div>
-              </a>
-              <a href="hospedaje.php" class="col-3">
-                <div class="host">
-                  <div id="vp-1"></div>
-                  <p>Ejemplo Habitación</p>
-                  <p>$70</p>
-                </div>
-              </a>
+              <?php
+              for($i=1; $i<=4; $i++){
+                $host = new HospedajeSearch($i);
+                $host->setNombre('Hospedaje '.$i);
+                $host->setPrecio(200*$i-$i);
+                $host->setImagePath('img/rooms/room2.jpeg');
+                $host->printComponent();
+              }
+               ?>
             </div>
           </div>
 

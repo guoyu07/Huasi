@@ -28,9 +28,24 @@ if($userInfo->getData() && !empty($rq_userId)){
           <h2 class="sec-title">WishList</h2>
           <div class=" b-border margin-bottom"></div>
           <div class="wishlist" id="wish-holder">
-
+            <!--Holder para los Wish del user-->
           </div>
         </div>
+
+        <?php
+        if($rq_userId === $_SESSION['userId']){
+          ?>
+          <div class="reservas-user card-container">
+            <h2 class="sec-title">Reservas</h2>
+            <div class=" b-border margin-bottom"></div>
+            <div id="reservas-holder">
+              <!--Holder para las reservas del usuario-->
+            </div>
+          </div>
+          <?php
+        }
+         ?>
+
       </div>
       <div class="col-4 card-container flex f-colum">
         <div class="verify">Información Verificada</div>

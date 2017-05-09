@@ -8,6 +8,8 @@
 
 *{
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 /*Definir el alto de la pagina a 100% por default*/
@@ -656,7 +658,7 @@ background-color: #F4897E;
 }
 
 .host div:first-of-type{
-  height: 200px;
+  height: 300px;
 }
 
 .host-show .slide-show a:not(:nth-child(4n+1)),
@@ -693,7 +695,8 @@ background-color: #F4897E;
 }
 
 .vp-show .card-container,
-.host-show .card-container{
+.host-show .card-container
+.search-show .card-container{
   box-shadow: 6px 6px 23px -5px rgba(0,0,0,0.5);
   transition: 400ms;
 }
@@ -703,7 +706,8 @@ background-color: #F4897E;
   box-shadow: 6px 6px 23px -5px rgba(0,0,0,0.7);
 }
 
-.vp-show .slide-show a:hover {
+.vp-show .slide-show a:hover,
+.search-show .slide-show a:hover {
   margin-top: 0.5em;
 }
 
@@ -1394,11 +1398,13 @@ font-size: 0.8em;
   right: 2em;
 }
 
-.user-whishlist{
+.user-whishlist,
+.reservas-user{
   padding: 2em;
 }
 
-.user-whishlist .sec-title{
+.user-whishlist .sec-title,
+.reservas-user .sec-title{
   margin-bottom: 1em;
 }
 
@@ -1984,6 +1990,7 @@ select{
 
 .host-a{
   height: 314px;
+  position: relative;
 }
 
 .host-a  #edit,
@@ -2034,7 +2041,7 @@ select{
   align-items: center;
 }
 
-#caption-holder h2{
+#caption-holder h2:not(.black){
   color: #fff;
 }
 
@@ -2061,7 +2068,7 @@ select{
   width: 100%;
 }
 
-#caption-holder #caption-data .card-container .subtitle{
+#caption-holder #caption-data .card-container .subtitle:not(.black){
   text-align: center;
   color: #fff;
   margin: 0.5em;
@@ -2078,6 +2085,10 @@ select{
   text-align: center;
   margin: 0;
   color:  #F4897E;
+}
+
+#evaluaciones #comentNumber{
+  margin: 0;
 }
 
 .lost-dir{
@@ -2099,7 +2110,6 @@ position: absolute;
 right: 1em;
 top: 1em;
 color: #Fff;
-border: 1px solid;
 padding: 2.5px 5px;
 transition: 400ms;
 display: none;
@@ -2108,4 +2118,48 @@ cursor: pointer;
 
 #user-delete-wish:hover{
   color: #F4897E;
+}
+
+#wish-empty img{
+  height: 30px;
+  width: 30px;
+  margin-bottom: 1em;
+}
+
+
+
+.hearts{
+  height: 40px;
+  width: 40px;
+  background-image: url('../img/svg/icons/heart.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: -0.5em;
+  right: -0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+
+#host-auth{
+  padding: 3em;
+  text-align: center;
+}
+
+#host-auth h2:first-of-type{
+  color: #39AA94 ;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+#host-auth h2:last-of-type{
+  max-width: 70%;
+}
+
+#host-auth div{
+  margin-top: 1em;
 }
