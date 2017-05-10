@@ -88,7 +88,7 @@ class HostaDataOutput extends HostEngine{
 
   public function getData(){
 
-    $sql = "SELECT hostId, hostName, hostImagePath, hostDescription, hostAddress, hostPrice FROM Hosts WHERE hostId = :hostId";
+    $sql = "SELECT hostId, hostName, hostImagePath, hostDescription, hostAddress, hostPrice, hostNum FROM Hosts WHERE hostId = :hostId";
     $records = $this->connection->prepare($sql);
     $records->bindParam(':hostId', $this->hostId);
     $records->execute();
@@ -118,6 +118,10 @@ class HostaDataOutput extends HostEngine{
       <h2 class="sec-title"><?=$this->hostProfile['hostName']?></h2>
     <?php
 
+  }
+
+  public function getHostNum(){
+    return $this->hostProfile['hostNum'];
   }
 
   public function outPutHostPrice(){

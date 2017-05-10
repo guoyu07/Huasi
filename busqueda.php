@@ -59,16 +59,8 @@ for($i = 1; $i < 7 ; $i++){
   <div class="wrapper-busqueda">
     <!--<h2 class="caption-text">200 resultados</h2>-->
     <div class="search-show container">
-      <div class="slide-show">
-        <?php
-        for($i=1; $i<=100; $i++){
-          $host = new HospedajeSearch($i);
-          $host->setNombre('Hospedaje '.$i);
-          $host->setPrecio(200*$i-$i);
-          $host->setImagePath('img/rooms/room2.jpeg');
-          $host->printComponent();
-        }
-        ?>
+      <div class="slide-show" id="search-out">
+
       </div>
     </div>
   </div>

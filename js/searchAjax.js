@@ -1,18 +1,17 @@
 $(document).ready(function() {
 
 var $searchForm = $('#search-data');
+var $outPut = $('#search-out');
 console.log($searchForm);
 
-$searchForm.submit(function(event) {
-  event.preventDefault();
+function search(){
   $.ajax({
     type: "POST", //Tipo de envio
     url: '../searchEngine/searchEngine.php?fun=updateSearch', //path del documento php
-    data: $(this).serialize(), //Enviar informacion de la forma
+    data: $searchForm.serialize(), //Enviar informacion de la forma
     //funcion para mostrar los datos recividos por el server
     success: function(data){
-      console.log('conectando');
-      console.log(data);
+      $outPut.html(data);
     },
     //Mostrar errores
     error: function(){
@@ -20,6 +19,16 @@ $searchForm.submit(function(event) {
       console.log('Algo fue mal');
     }
   });
+}
+
+
+$( window ).load(function() {
+  search()
+});
+
+$searchForm.submit(function(event) {
+  event.preventDefault();
+  search()
 });
 
 

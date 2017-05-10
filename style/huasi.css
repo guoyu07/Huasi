@@ -425,6 +425,7 @@ p{
 
 .text-left{
   text-align: left;
+  margin-top: 1em;
 }
 
 .text-center{
@@ -2234,4 +2235,13 @@ cursor: pointer;
   height: 100%;
   width: 100%;
   margin-left: 1em;
+}
+
+#search-empty{
+  padding: 2em;
+}
+
+#search-empty img{
+  height: 30px;
+  margin-bottom: 1em;
 }

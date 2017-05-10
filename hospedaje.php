@@ -27,19 +27,19 @@ if($hostData->getData() && !empty($rq_hostId)){
       <div class="caption-reserve">
         <form class="form form-reserva" id="make-reserve">
           <div class="all-middle f-colum">
-            <div class="flex f-row">
+            <div class="flex f-colum">
               <div class="flex f-colum">
                 <label for="llegada">Llegada</label>
-                <input type="text" name="llegada" placeholder="dd/mm/aa">
+                <input type="date" name="coming"value="<?=date("Y-m-d")?>">
               </div>
               <div class="flex f-colum">
                 <label for="salida">Salida</label>
-                <input type="text" name="salida" placeholder="dd/mm/aa">
+                <input type="date" name="leaving"value=<?php tomorrowDate(); ?>>
               </div>
             </div>
             <div class="text-left">
               <label for="huespedes">Huespedes</label>
-              <input type="text" name="huespedes" placeholder="1 huesped">
+              <input type="text" name="hostNum" value="<?=$hostData->getHostNum()?>" readonly>
             </div>
           </div>
           <button type="submit" class="btn btn-submit">Reservar</button>
