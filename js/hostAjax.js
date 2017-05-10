@@ -197,8 +197,15 @@ $(document).ready(function() {
       data: $(this).serialize() + "&hostId="+ hostId +"", //Enviar informacion de la forma
       //funcion para mostrar los datos recividos por el server
       success: function(data){
+        if(data == 'reserve'){
+          $('#reserve-btn').text('Reservado');
+        }else if(data !='reserve' || data != 'error'){
+          manageHolder();
+          $('#caption-data').html(data);
+        }
 
-        console.log('exito');
+        console.log(data);
+
 
       },
       //Mostrar errores

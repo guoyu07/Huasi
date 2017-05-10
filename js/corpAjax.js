@@ -261,7 +261,7 @@ $(document).ready(function() {
             data: {corpId: corpId}, //Enviar informacion de la forma
             //funcion para mostrar los datos recividos por el server
             success: function(data){
-              console.log(data);
+              //console.log(data);
               $('#corpWebView').html(data)
             },
             //Mostrar errores
@@ -324,6 +324,35 @@ $(document).ready(function() {
 
             });
           }
+        }
+
+        if(res[0] == 'Reservs'){
+          corpId = getCorpId();
+          console.log('estas en reservas');
+          $.ajax({
+
+            type: 'POST', //Tipo de envio
+            url: '../corpEngine/reserveEngine.php?fun=makeReserve', //path del documento php
+            //data: $(this).serialize() , //Enviar informacion de la forma
+            data: {corpId: corpId}, //Enviar informacion de la forma
+
+            //Si la operacion fue exitosa=
+            success: function(data){
+
+              $('#update-show').css('display', 'flex'); //Mostrar barra de mensaje
+              $('#update-show p:first-of-type').text(data) //Mostrar mensaje
+              //Eliminar barra de mensaje al hacer click en (X).
+              $('#close').click(function(event) {
+                $(this).parent().fadeOut(800);
+              });
+
+            },
+            error: function(){
+              alert("Algo fue mal");
+              console.log('Algo fue mal');
+            }
+
+          })
         }
       },
       error: function(){

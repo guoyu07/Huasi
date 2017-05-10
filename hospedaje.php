@@ -42,7 +42,7 @@ if($hostData->getData() && !empty($rq_hostId)){
               <input type="text" name="hostNum" value="<?=$hostData->getHostNum()?>" readonly>
             </div>
           </div>
-          <button type="submit" class="btn btn-submit">Reservar</button>
+          <button type="submit" class="btn btn-submit" id="reserve-btn">Reservar</button>
           <button type="button" class="btn btn-secondary" id="wish-list">Añadir a WishList</button>
           <button type="button" class="btn btn-submit-love" id="delete-wish">Esta en tú WishList &hearts;</button>
         </form>

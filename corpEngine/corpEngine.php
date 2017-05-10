@@ -1,7 +1,9 @@
 <?php
 //Requerir el scrip de la base de datos.
+session_start();
 require_once 'uiElements/HospedajeCard.php'; //Requerir la clase para generar los container de los hospedajes
 require_once "DbConnection.php";
+
 
 //Clase para manejar todas las interacciones de las empresar con el server.
 abstract class CorpEngine extends DbConnection{
@@ -235,7 +237,14 @@ class CorpDataOutput extends CorpEngine{
     ?>
     <a id="Hosts" data-value="Hosts,<?=$this->corpId?>"><div>Hospedajes</div></a>
     <a id="Coments" data-value="Coments,<?=$this->corpId?>"><div>Comentarios y evaluaciones</div></a>
+    <?php
+    if($this->corpId === $_SESSION['corpId']){
+      echo "<a id='Reservs' data-value='Reservs,<?=$this->corpId?>'><div>Reservas</div></a>";
+    }
+     ?>
+
     <a id="Corps" data-value="Corps,<?=$this->corpId?>"><div>Informacion</div></a>
+
 
     <?php
   }
