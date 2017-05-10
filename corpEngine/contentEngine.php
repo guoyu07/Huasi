@@ -87,23 +87,6 @@ if(isset($table) && isset($corpId) && !empty($table) && !empty($corpId) ){
 
     getHosts();
 
-  }else if($table === 'Coments'){
-
-    $html = '<div class = "all-middle f-colum" id="hosts-empty">';
-    $html .= "<img src = 'img/svg/icons/coments.svg'/>";
-    if(isset($_SESSION['corpId']) && $_SESSION['corpId'] === $corpId){
-      $html .= '<h2 class = "subtitle">No tienes comentarios ni evaluaciones</h2>';
-      $html.= '<p>La retroaliemtación de tus usuarios es la mejor forma de mejorar</p>';
-      /*$html .= "<a href='addHost.php?corpId=$corpId'>";
-      $html .= '<button type="button" name="button" class="btn btn-submit">Añade un hospedaje</button>';
-      $html .= '</a>';*/
-    }else{
-      $html .= '<h2 class = "subtitle">Este Hotel aun no tiene comentarios ni evaluaciones</h2>';
-      $html.= '<p>Buscas una buena experiencia, mira lo que dicen otros usuarios</p>';
-    }
-    $html .= '</div>';
-    echo $html;
-
   }else if ($table === 'Corps') {
 
     $sql = "SELECT corpId, corpMail, corpPhone, corpAddress, corpRepre, corpDescription FROM Corps WHERE corpId = :corpId";

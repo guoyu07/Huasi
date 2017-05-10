@@ -1106,7 +1106,8 @@ font-size: 0.8em;
   height: 20px;
 }
 
-.host-coment{
+.host-coment,
+.corp-coment{
   width: 100%;
   background-color: #fff;
   margin-top: 1em;
@@ -1117,8 +1118,23 @@ font-size: 0.8em;
 
 }
 
-.host-coment:not(:last-of-type){
+.host-coment:not(:last-of-type),
+.corp-coment:not(:last-of-type){
   border-bottom: 1px solid #dbe0e0;
+}
+
+.corp-coment h2:last-of-type a{
+  font-size: 0.8em;
+}
+
+.corp-coment .coment-user p{
+  font-size: 0.8em;
+  margin: 0;
+  color: #737373;
+}
+
+.corp-coment p{
+  margin-left: 1em;
 }
 
 .host-coment img{
@@ -2162,4 +2178,8 @@ cursor: pointer;
 
 #host-auth div{
   margin-top: 1em;
+}
+
+.corp-coment .flex{
+  justify-content: flex-start;
 }

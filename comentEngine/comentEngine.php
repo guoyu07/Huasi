@@ -9,13 +9,14 @@ require_once 'comentBase.php';
 
 //Requerir datos
 $funName = $_GET['fun'];
-$hostId = $_POST['hostId'];
+
 
 //Clase para manejar comentarios
 class comentEngine extends DbConnection{
 
   protected $hostId;
   protected $userId;
+  protected $corpId;
   protected $comentText;
   protected $userInfo;
   protected $comentInfo;
@@ -24,7 +25,7 @@ class comentEngine extends DbConnection{
   protected $connection;
 
 
-  public function __construct($idHost, $coment = NULL){
+  public function __construct($idHost = NULL, $coment = NULL){
 
     $this->connection = $this->connectToDataBase();
     $this->hostId = $idHost;
@@ -32,10 +33,13 @@ class comentEngine extends DbConnection{
 
   }
 
+
+  //Guardar el id del usuario que se encuentra logeado
   public function getCurrentUserId(){
     $this->userId = $_SESSION['userId'];
   }
 
+  //Guardar comentario
   public function saveComent(){
 
     $this->getCurrentUserId();
@@ -56,6 +60,7 @@ class comentEngine extends DbConnection{
 
   }
 
+  //Seleccionar informacion del usuario
   public function selectUserInfo($idUser){
 
     $sql = "SELECT userName, userLastName, userImagePath FROM Users WHERE userId = :userId";
@@ -76,6 +81,7 @@ class comentEngine extends DbConnection{
 
   }
 
+  //Mostrar el comentario que se hizo
   public function showComent(){
 
     $this->getCurrentUserId();
@@ -89,9 +95,10 @@ class comentEngine extends DbConnection{
 
   }
 
+  //Seleccionar los comentarios del host actual
   public function selectComents(){
 
-    $sql = "SELECT userId, comentText FROM Coments WHERE hostId = :hostId ORDER BY comentDate ASC ";
+    $sql = "SELECT userId, comentText, comentDate FROM Coments WHERE hostId = :hostId ORDER BY comentDate ASC ";
     $records = $this->connection->prepare($sql);
     $records->bindParam(':hostId', $this->hostId);
     $records->execute();
@@ -101,7 +108,6 @@ class comentEngine extends DbConnection{
     if( count($results) > 0 && isset($results) && !empty($results)){
 
       $this->comentsCollection = $results;
-      $this->comentCounter = count($this->comentsCollection);
       return true;
     }else{
       return false;
@@ -109,6 +115,7 @@ class comentEngine extends DbConnection{
 
   }
 
+  //Imprimir los comentarios del host
   public function printComents(){
 
     foreach($this->comentsCollection as $row){
@@ -117,9 +124,52 @@ class comentEngine extends DbConnection{
       $newComent = new ComentsBase();
       $newComent->setName($name);
       $newComent->setImage($this->userInfo['userImagePath']);
+      $newComent->setDate($row['comentDate']);
       $newComent->setAnchor($row['userId']);
       $newComent->setText($row['comentText']);
       $newComent->printComent();
+    }
+
+  }
+
+  public function getCorpId($idCorp){
+    $this->corpId = $idCorp;
+  }
+
+  //Seleccionar los comentarios de cada empresa
+  public function selectCorpComents($idCorp){
+
+    //Asginar el id al corp
+    $this->getCorpId($idCorp);
+
+    $sql = "SELECT hostName, hostId, comentText, comentDate, userId FROM Hosts INNER JOIN Coments USING(hostId) WHERE corpId = :corpId";
+    $records = $this->connection->prepare($sql);
+    $records->bindParam(':corpId', $this->corpId);
+    $records->execute();
+    $results = $records->fetchAll();
+    $this->comentsCollection = NULL;
+
+    if( count($results) > 0 && isset($results) && !empty($results)){
+
+      $this->comentsCollection = $results;
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function printC(){
+    foreach ($this->comentsCollection as $row) {
+      $this->selectUserInfo($row['userId']);
+      $name = $this->userInfo['userName'] . ' '. $this->userInfo['userLastName'];
+      $newComent = new ComentsBase();
+      $newComent->setName($name);
+      $newComent->setHostName($row['hostName']);
+      $newComent->setAnchor($row['userId']);
+      $newComent->setDate($row['comentDate']);
+      $newComent->setHostAnchor($row['hostId']);
+      $newComent->setText($row['comentText']);
+      $newComent->printCorpComent();
     }
 
   }
@@ -139,9 +189,11 @@ class comentEngine extends DbConnection{
 
 }
 
+
+//Funciones dependiendo del request.
 function makeComent(){
   $comentText = $_POST['comentText'];
-  global  $hostId;
+  $hostId = $_POST['hostId'];
   //verifcar que los datos esten listos.
   if(isset($comentText) && !empty($comentText) && isset($hostId) && !empty($hostId)){
     $comentEngine = new ComentEngine($hostId, $comentText);
@@ -154,17 +206,8 @@ function makeComent(){
 
 }
 
-function getComentNum(){
-  global $hostId;
-  $comentEngine = new ComentEngine($hostId);
-  $comentEngine->getComentNumber();
-}
-
-
-
-if($funName === 'makeComent'){
-  makeComent();
-}else if($funName === 'displayComents'){
+function displayComents(){
+  $hostId = $_POST['hostId'];
   $comentEngine = new ComentEngine($hostId);
   if($comentEngine->selectComents()){
     //Mostrar los comentarios
@@ -178,8 +221,33 @@ if($funName === 'makeComent'){
     $html .= '</div>';
     echo $html;
   }
+}
+
+function getCorpComents(){
+  $corpId = $_POST['corpId'];
+  $comentEngine = new ComentEngine();
+  if($comentEngine->selectCorpComents($corpId)){
+    $comentEngine->printC();
+  }else{
+
+  }
+}
+
+function getComentNum(){
+  $hostId = $_POST['hostId'];
+  $comentEngine = new ComentEngine($hostId);
+  $comentEngine->getComentNumber();
+}
+
+
+if($funName === 'makeComent'){
+  makeComent();
+}else if($funName === 'displayComents'){
+  displayComents();
 }else if($funName === 'getComentNum'){
   getComentNum();
+}else if($funName === 'getCorpComents'){
+  getCorpComents();
 }
 
 

@@ -203,7 +203,7 @@ class CorpDataOutput extends CorpEngine{
   }
 
   public function getData(){
-    $sql = "SELECT corpName, corpLogo FROM Corps WHERE corpId = :corpId";
+    $sql = "SELECT corpId, corpName, corpLogo FROM Corps WHERE corpId = :corpId";
     $records = $this->connection->prepare($sql);
     $records->bindParam(':corpId', $this->corpId);
     $records->execute();
@@ -225,7 +225,7 @@ class CorpDataOutput extends CorpEngine{
 
   public function outPutBasicData(){
     ?>
-    <div class="corp-logo" style="background-image: url(<?=$this->corpProfile['corpLogo']?>);"></div>
+    <div class="corp-logo" style="background-image: url(<?=$this->corpProfile['corpLogo']?>);" id="<?=$this->corpProfile['corpId']?>"></div>
     <div class="m-border"></div>
     <h2 class="sec-title"><?=$this->corpProfile['corpName']?></h2>
     <?php

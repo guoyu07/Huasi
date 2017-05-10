@@ -12,7 +12,6 @@ $(document).ready(function() {
   captionHolder.hide();
 
 
-
   function manageHolder(){
     //$('body').css('overflow', 'hidden');
     captionHolder.css('display', 'flex');
@@ -23,6 +22,12 @@ $(document).ready(function() {
       captionHolder.hide();
     });
 
+  }
+
+  //sacar el ide del corp
+  function getCorpId(){
+    var corpId = $('.corp-logo').attr('id');
+    return corpId;
   }
 
 
@@ -76,13 +81,13 @@ $(document).ready(function() {
                     $('#host' + hostId + '').remove();
                     $('#caption-data > .card-container').css('background-color', '#39AA94');
                     $('#caption-data > .card-container').html(data);
-                  //Mostar mensaje de error si esta vacio el campo.
+                    //Mostar mensaje de error si esta vacio el campo.
                   }else if(data == 'empty'){
                     authError.show();
                     authError.css('display', 'flex');
                     authError.html('<p>Tienes que ingresar tu contraseña</p>');
                     console.log('empty');
-                  //Mostrar mensaje de error si la contraseña no es correcta
+                    //Mostrar mensaje de error si la contraseña no es correcta
                   }else if(data == 'false'){
                     authError.show();
                     authError.css('display', 'flex');
@@ -186,17 +191,6 @@ $(document).ready(function() {
     });
   }
 
-  function showWishNumber(ref){
-
-
-
-  }
-
-  $(document).scroll(function() {
-    console.log($('html').offset().top);
-  });
-
-
 
   //Mostrar los hospedajes por default al cargar la pagina
   //Funciones que ocurren al cargar la pagina
@@ -258,6 +252,25 @@ $(document).ready(function() {
 
         //Cargar el contenigo a la pagina web.
         $('#corpWebView').html(data)
+
+        if(res[0] == 'Coments'){
+          corpId = getCorpId();
+          $.ajax({
+            type: "POST", //Tipo de envio
+            url: '../comentEngine/comentEngine.php?fun=getCorpComents', //path del documento php
+            data: {corpId: corpId}, //Enviar informacion de la forma
+            //funcion para mostrar los datos recividos por el server
+            success: function(data){
+              console.log(data);
+              $('#corpWebView').html(data)
+            },
+            //Mostrar errores
+            error: function(){
+              alert("Algo fue mal");
+              console.log('Algo fue mal');
+            }
+          });
+        }
 
         //Si estamos en la seccion de hosts activar animacion de botones.
         if(res[0]== 'Hosts'){
