@@ -11,13 +11,14 @@ if(!isset($_SESSION['corpId'])){
 //ejectToOrigin();
 
 //Clase para manejar la subida de imagenes
-/*$saveCorpImg = new ImgEngine('corpLogo', 'submit');
-$saveCorpImg->saveImage('corp');
+$saveCorpImg = new ImgEngine('hostLogo', 'submit');
+$saveCorpImg->saveImage('rooms');
 //Retornar la ubicacion de la imagen para guardar en DB
-$imgPath = $saveCorpImg->getImagePath();*/
+$imgPath = $saveCorpImg->getImagePath();
 //Clase para manejar la subida informacion
 
-$loadHost = new UploadHost($_SESSION['corpId'], 'img/rooms/room1.jpeg');
+
+$loadHost = new UploadHost($_SESSION['corpId'], $imgPath);
 $loadHost->loadNewHost();
 
 
@@ -40,23 +41,41 @@ newPageHead($corp['corpName'].' Añadir hospedaje');
           <div class="corp-img" id="prev-image"></div>
           <div class="col-9">
             <form action="addHost.php" method="POST" enctype="multipart/form-data" class="form">
+              <label>Selecciona una foto para usarala como logo</label>
+              <input type="file" name="hostLogo" id="imgInp">
               <label>Nombre del hospedaje</label>
               <input type="text" name="hostName" value="">
               <label>Tipo de Hospedaje</label>
-              <input type="text" name="hostType" value="">
+              <!--<input type="text" name="hostType" value="">-->
+              <div class="select col-2">
+                <select name="hostType">
+                  <option selected disabled>Tipo</option>
+                  <option value="hotel">Hotel</option>
+                  <option value="hostal">Hostal</option>
+                  <option value="habitacion">Habitación</option>
+                </select>
+              </div>
               <label>Capacidad</label>
-              <input type="num" name="hostNum" value="">
+              <div class="select col-2">
+                <select name="hostNum">
+                  <option selected disabled>Número</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+              </div>
               <label>Dirección</label>
               <input type="text" name="hostAddress" value="">
               <label>Zona</label>
               <input type="text" name="hostZone" value="">
               <label>Precio por noche</label>
               <input type="num" name="hostPrice" placeholder="$99.99">
-              <!--<label>Selecciona una foto para usarala como logo</label>
-              <input type="file" name="corpLogo" id="imgInp">-->
               <label>Descripción</label>
               <textarea name="hostDescription" maxlength="240" placeholder="Dilo en 240 caracteres." rows="3"></textarea>
-              <button type="submit" class="btn btn-submit" name="submit1" value="<?=$rq_corpId?>">Continuar</button>
+              <button type="submit" class="btn btn-submit" name="submit" value="<?=$rq_corpId?>">Continuar</button>
             </form>
           </div>
 

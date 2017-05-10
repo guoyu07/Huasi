@@ -22,7 +22,7 @@ class ImgEngine{
   public function __construct($input, $trigger){
 
     if (isset($_POST['submit'])) {
-
+      //echo 'construyendo';
       $this->file = $_FILES[$input]; //asignar el archivo.
       $this->fileName = $this->file['name']; //asignar el nombre del archivo.
       $this->fileTmpName = $this->file['tmp_name']; //asignar la ubicacion temporal del archivo.
@@ -57,6 +57,7 @@ class ImgEngine{
             $this->filePath = 'img/'.$path.'/'.$fileNameNew;
             //Guardar la imagen.
             move_uploaded_file($this->fileTmpName, $this->filePath);
+            //echo 'guardada';
           } else {
             echo "Your file is too big!";
           }

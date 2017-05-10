@@ -101,9 +101,10 @@ newPageHead($user['userName'].' '. $user['userLastName']);
         </form>
       </div>
     </div>
-    <div class="container flex f-row" id="deleteUser">
-      <div class="card-container col-8"><a href="userEngine/deleteUser.php?userId=<?=$user['userId']?>">Eliminar cuenta</a></div>
-    </div>
+    
+  </div>
+  <div id="user-update-mesg">
+
   </div>
 
   <!--Main Footer-->

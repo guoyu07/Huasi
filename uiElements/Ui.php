@@ -102,6 +102,12 @@ function isUserLog(){
   return isset($_SESSION['userId']) && !empty($_SESSION['userId']);
 }
 
+function tomorrowDate(){
+  $tomorrow = new DateTime(date("Y-m-d"));
+  $tomorrow->modify('+1 day');
+  echo $tomorrow->format('Y-m-d');
+}
+
 
 
 

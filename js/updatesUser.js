@@ -6,6 +6,13 @@ $(document).ready(function() {
   //Seleccionar la forma para actualizar la descripcion.
   var $descriptionUpdate = $('#update-user-description');
 
+  //holder para mostrar mensaje
+  var $mesHolder = $('#user-update-mesg');
+
+  $(window).scroll(function(){
+    $mesHolder.slideUp(400);
+  });
+
   $imageUpdate.submit(function(event) {
     event.preventDefault();
     $.ajax({
@@ -19,8 +26,11 @@ $(document).ready(function() {
         console.log('server: ok');
         $('#img-show').css('background-image', 'url("'+data+'")' );
         $('#img-uploader').val('');
-        //$('.user-img').css('background-image', data);
         console.log(data);
+        if(data !== 'error'){
+          $mesHolder.text('Descripción actualizada.');
+          $mesHolder.slideDown(400);
+        }
       },
       //Mostrar errores
       error: function(){
@@ -40,6 +50,10 @@ $(document).ready(function() {
       success: function(data){
         console.log('server: ok');
         console.log(data);
+        if(data == 'update'){
+          $mesHolder.text('Descripción actualizada.');
+          $mesHolder.slideDown(400);
+        }
       },
       //Mostrar errores
       error: function(){

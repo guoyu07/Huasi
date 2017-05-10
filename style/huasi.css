@@ -466,7 +466,7 @@ p{
 .form-filtro{
   position: fixed;
   top: 60px;
-  border-bottom: 1px solid #C7C7CD;
+  /*border-bottom: 1px solid #C7C7CD;*/
   width: 100%;
   background-color: #fff;
 }
@@ -609,6 +609,7 @@ background-color: #F4897E;
 /***********************
 -------Slide-Show-------
 ***********************/
+
 
 .vp-show,
 .deal-show,
@@ -2182,4 +2183,55 @@ cursor: pointer;
 
 .corp-coment .flex{
   justify-content: flex-start;
+}
+
+
+#user-update-mesg{
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 0.4em 2em;
+  color: #fff;
+  background-color: #39AA94 ;
+}
+
+
+
+.search-form,
+.landing-form{
+  flex-direction: row;
+  padding: 1em 2em;
+}
+
+.landing-form{
+  margin-top: 1.2em;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.search-form button,
+.landing-form button{
+  width: 20%;
+  margin: 0;
+  margin-left: 1em;
+}
+
+
+.search-form input:last-of-type,
+.landing-form input:last-of-type{
+  margin-left: 1em;
+}
+
+.search-form .select,
+.landing-form .select{
+  padding: 0;
+}
+
+.search-form select,
+.landing-form select{
+  height: 100%;
+  width: 100%;
+  margin-left: 1em;
 }

@@ -75,6 +75,8 @@ function updateImage(){
     $imgPath = $saveUserImg->getImagePath();
     if($UpdateInfo->updateImage($imgPath)){
       echo $imgPath;
+    }else{
+      echo 'error';
     }
 
 

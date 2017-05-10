@@ -57,6 +57,8 @@ function loadData(){
   <?php
 }
 
+
+
 function hostDelete(){
 
   global $hostId;
@@ -80,6 +82,12 @@ function hostDelete(){
          ?>
          <h1 class="subtitle">Hospedaje <?=$results['hostName']?> Eliminado </h1>
          <?php
+
+         $sql = "DELETE FROM Coments WHERE hostId = $hostId";
+         $conn->connectToDataBase()->exec($sql);
+
+         $sql = "DELETE FROM WishList WHERE hostId = $hostId";
+         $conn->connectToDataBase()->exec($sql);
 
           $sql = "DELETE FROM Hosts WHERE hostId = $hostId";
           $conn->connectToDataBase()->exec($sql);

@@ -8,6 +8,8 @@ if(isset($_SESSION['corpId'])){
 
 newPageHead("La mejor comunidad hotelera de Quito");
 
+
+
  ?>
 <body>
 
@@ -21,11 +23,22 @@ newPageHead("La mejor comunidad hotelera de Quito");
     <h4 class="hero-subtitle">Visítalo y conocerás por qué</h4>
 
     <!--Forma para buscar-->
-    <form action="busqueda.php" method="POST">
-      <div class="form-busqueda">
-        <input type="text" class="datePicker"placeholder="Llegada" readonly="readonly">
-        <input type="text" class="datePicker"placeholder="Salida" readonly="readonly">
-        <input type="text" placeholder="Huéspedes" readonly="readonly">
+    <form  class="form  landing-form col-8"action="busqueda.php" method="POST">
+      <div class="all-middle f-row col-12">
+        <input type="date" name="coming"value="<?=date("Y-m-d")?>">
+        <input type="date" name="leaving"value=<?php tomorrowDate(); ?>>
+        <div class="select col-3">
+          <select name="hostNum">
+            <option selected disabled>Huespedes</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+
+          </select>
+        </div>
         <button type="submit" name="button" class="btn btn-submit">Buscar</button>
       </div>
     </form>
