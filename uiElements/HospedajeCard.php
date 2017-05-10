@@ -135,9 +135,9 @@ abstract class HospedajeBase {
           <p>$<?=$this->precioHospedaje?></p>
           <p><?=$this->nombreHospedaje?></p>
         </div>
-        <div class="hearts">
+        <!--<div class="hearts">
           10
-        </div>
+        </div>-->
       </div>
     <!--</a>-->
       <?php
@@ -155,9 +155,9 @@ abstract class HospedajeBase {
           <p>$<?=$this->precioHospedaje?></p>
           <p><?=$this->nombreHospedaje?></p>
         </div>
-        <div class="hearts">
+        <!--<div class="hearts">
           10
-        </div>
+        </div>-->
       </a>
       <?php
     }

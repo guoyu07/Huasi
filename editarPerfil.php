@@ -68,12 +68,12 @@ newPageHead($user['userName'].' '. $user['userLastName']);
   <div class="wrapper-usuarioedit">
     <div class="flex  f-row container">
       <div class="col-4 card-container ">
-        <div class="user-img" style="background-image: url(<?=$user['userImagePath']?>);"></div>
-        <form class="form" action="editarPerfil.php" method="POST" enctype="multipart/form-data">
-          <input type="file" name="userImagePath">
+        <div class="user-img" style="background-image: url(<?=$user['userImagePath']?>);" id="img-show"></div>
+        <form class="form" id="update-user-image">
+          <input type="file" name="userImagePath" id="img-uploader">
           <button type="submit" name="submitImg" class="btn btn-submit">Guardar foto</button>
         </form>
-        <form class="form" action="editarPerfil.php" method="POST">
+        <form class="form" id="update-user-description">
           <label for="userDescription">Bio:</label>
           <textarea name="userDescription" rows="8" maxlength="240"><?=$user['userDescription']?></textarea>
           <button type="submit" name="submit" class="btn btn-submit">Guardar bio</button>
@@ -113,7 +113,7 @@ newPageHead($user['userName'].' '. $user['userLastName']);
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script src="js/previewImage.js"></script>
+  <script src="js/updatesUser.js"></script>
   <?php
   PageScripts();
   ?>
