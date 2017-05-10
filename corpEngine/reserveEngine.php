@@ -11,7 +11,7 @@ $funName = $_GET['fun'];
 
 if($funName === 'getUserReserv'){
   echo "reservas";
-}
+//}else if($funName === )
 
 
 
