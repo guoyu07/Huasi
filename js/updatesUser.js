@@ -28,7 +28,7 @@ $(document).ready(function() {
         $('#img-uploader').val('');
         console.log(data);
         if(data !== 'error'){
-          $mesHolder.text('Descripción actualizada.');
+          $mesHolder.text('Imagen actualizada.');
           $mesHolder.slideDown(400);
         }
       },

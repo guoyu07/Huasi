@@ -1426,23 +1426,28 @@ font-size: 0.8em;
   margin-bottom: 1em;
 }
 
-.user-whishlist .wishlist{
+.user-whishlist .wishlist,
+#reservas-holder{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 
-.user-whishlist .wishlist h2{
+.user-whishlist .wishlist h2,
+#reservas-holder h2,
+#reservas-holder p{
   color: #fff;
   margin-bottom: 0;
 }
 
-.user-whishlist .wishlist .wish-a:not(:nth-child(2n+1)){
+.user-whishlist .wishlist .wish-a:not(:nth-child(2n+1)),
+#reservas-holder div:not(:nth-child(2n+1)){
   margin-left: 1em;
 }
 
-.user-whishlist .wishlist .wish-a{
+.user-whishlist .wishlist .wish-a,
+#reservas-holder div{
   flex-basis: calc(50% - 0.5em);
   position: relative;
   margin-top: 1em;
@@ -1453,7 +1458,8 @@ font-size: 0.8em;
   cursor: pointer;
 }
 
-.user-whishlist .wishlist .wish-a div:first-of-type{
+.user-whishlist .wishlist .wish-a div:first-of-type,
+#reservas-holder div:not(.flex){
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5);
   background-position: center;
   background-repeat: no-repeat;

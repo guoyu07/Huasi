@@ -36,6 +36,7 @@ class ReserveEngine extends DbConnection{
   public function makeReserve(){
     $this->setData();
     $this->setUserId();
+
     $sql = "INSERT INTO Reserve (userId, hostId, reserveComing, reserveLeaving, reserveMake) VALUES (:userId, :hostId, :reserveComing, :reserveLeaving, NOW())";
     $stmt = $this->connection->prepare($sql);
 
@@ -51,6 +52,44 @@ class ReserveEngine extends DbConnection{
     }else{
       return false;
     }
+  }
+
+  public function getUserReserves(){
+
+    $this->setUserId();
+    $sql = "SELECT * FROM Hosts INNER JOIN Reserve USING(hostId) Where userId = :userId";
+    $records = $this->connection->prepare($sql);
+    $records->bindParam(':userId', $this->userId);
+    $records->execute();
+    $results = $records->fetchAll();
+
+    if( count($results) > 0 && isset($results) && !empty($results)){
+      $this->reserveCollection = $results;
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
+  public function printReserves(){
+
+    if(isset($this->reserveCollection) && !empty($this->reserveCollection)){
+
+      foreach($this->reserveCollection as $row){
+        ?>
+        <div style="background-image:url(<?=$row['hostImagePath']?>)">
+          <a href="hospedaje.php?hostId=<?=$row['hostId']?>">
+            <h2 class="sec-title"><?=$row['hostName']?></h2>
+            <h2 class="subtitle">$<?=$row['hostPrice']?></h2>
+            <p > De <?=$row['reserveComing'].' a '.$row['reserveLeaving']?></p>
+          </a>
+        </div>
+        <?php
+      }
+
+    }
+
   }
 
 
@@ -69,12 +108,12 @@ function makeReserve(){
       <h2 class="subtitle black">Hola</h2>
       <h2 class="subtitle black">Tienes que inciar sesión para poder hacer una reserva</h2>
       <div>
-      <a href="login.php">
-        <button type="button" name="button" class="btn btn-submit-important">Iniciar Sesion</button>
-      </a>
-      <a href="register.php">
-        <button type="button" name="button" class="btn btn-submit">Registrate</button>
-      </a>
+        <a href="login.php">
+          <button type="button" name="button" class="btn btn-submit-important">Iniciar Sesion</button>
+        </a>
+        <a href="register.php">
+          <button type="button" name="button" class="btn btn-submit">Registrate</button>
+        </a>
       </div>
     </div>
 
@@ -83,14 +122,30 @@ function makeReserve(){
 
 }
 
+function getUserReserv(){
+
+  global $reserveEngine;
+  if(isset($_SESSION['userId']) && !empty($_SESSION['userId'])){
+
+    if($reserveEngine->getUserReserves()){
+      $reserveEngine->printReserves();
+    }else{
+      echo 'empty';
+    }
+
+
+  }
+
+}
+
 $funName = $_GET['fun'];
 
 if($funName === 'getUserReserv'){
-  echo "reservas";
+  getUserReserv();
 }else if($funName === 'makeReserve'){
   makeReserve();
 }
 
 
 
- ?>
+?>

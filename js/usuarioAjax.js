@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   var wishListHolder = $('#wish-holder');
+  var reservHolder = $('#reservas-holder');
 
   //Guardar el id del usuario actual
   function getUserId(){
@@ -87,6 +88,9 @@ $(document).ready(function() {
       data: {userId: userId}, //Enviar informacion de la forma
       //funcion para mostrar los datos recividos por el server
       success: function(data){
+        if(data != 'error' && data != 'empty'){
+          reservHolder.html(data);
+        }
         console.log(data);
       },
       //Mostrar errores
@@ -97,6 +101,7 @@ $(document).ready(function() {
     });
 
   }
+
 
   //Funciones a ejecutar cuando la pagina cargue.
   $( window ).load(function() {

@@ -104,6 +104,7 @@ if($hostData->getData() && !empty($rq_hostId)){
           </div>
         </div>
 
+        <!--Related-->
         <div class="related-hosts all-middle f-colum">
           <div class="all-middle f-colum card-container col-12">
             <h2 class="sec-title">Hospedajes Similares</h2>

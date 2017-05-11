@@ -132,7 +132,7 @@ class WishEngine extends DbConnection{
         <div style="background-image:url(<?=$results['hostImagePath']?>)">
           <a href="hospedaje.php?hostId=<?=$hostId?>">
             <h2 class="sec-title"><?=$results['hostName']?></h2>
-            <h2 class="subtitle"><?=$results['hostPrice']?></h2>
+            <h2 class="subtitle">$<?=$results['hostPrice']?></h2>
           </a>
 
         </div>
