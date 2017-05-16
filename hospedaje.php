@@ -63,7 +63,7 @@ if($hostData->getData() && !empty($rq_hostId)){
           <div id="descripcion" class="card-container">
             <h2 class="sec-title">Información</h2>
             <?php $hostData->outPutHostDescription() ?>
-            <div class="perks">
+            <!--<div class="perks">
               <h2 class="subtitle">Incluye</h2>
               <ul>
                 <li>Ejemplo</li>
@@ -77,7 +77,7 @@ if($hostData->getData() && !empty($rq_hostId)){
                 <li>Ejemplo</li>
                 <li>Ejemplo</li>
               </ul>
-            </div>
+            </div>-->
           </div>
           <div class=" b-border margin-bottom"></div>
           <div id="evaluaciones" class="card-container">

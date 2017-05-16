@@ -773,9 +773,8 @@ color: #00b698;
 }
 
 
-.deal-host svg{
-  height: 40px;
-  max-width: 60px;
+.deal-host img{
+  height: 80px;
 }
 
 .deal-host svg path{

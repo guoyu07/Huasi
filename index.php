@@ -50,28 +50,19 @@ newPageHead("La mejor comunidad hotelera de Quito");
 
       <div class="vp-show container">
         <h2 class="sec-title">Recomendaciones</h2>
-        <div class="slide-show">
+        <div class="slide-show" id="curated-holder">
 
-          <?php
-          for($i=1; $i<=4; $i++){
-            $host = new HospedajeVip(1000+$i);
-            $host->setNombre("Hospedaje ".$i);
-            $host->setPrecio(200*$i-$i);
-            $host->setImagePath("img/rooms/room".$i.".jpeg");
-            $host->printComponent();
-          }
-          ?>
         </div>
       </div>
       <div class="deal-show container">
-        <h2 class="sec-title second">Habitaciones de Oferta</h2>
-        <div class="slide-show f-row">
+        <h2 class="sec-title second">Recientes</h2>
+        <div class="slide-show f-row" id="recent-holder">
           <?php
           for($i=1; $i<=9; $i++){
             $hostDeal = new HospedajeDeal($i);
             $hostDeal->setNombre("Hospedaje ".$i);
             $hostDeal->setPrecio(200*$i);
-            $hostDeal->setImagePath("img/svg/icons/doubleBed.svg");
+            $hostDeal->setImagePath("img/rooms/room1.jpeg");
             $hostDeal->printComponent();
           }
            ?>
@@ -87,6 +78,7 @@ newPageHead("La mejor comunidad hotelera de Quito");
  ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="js/homeAjax.js"></script>
 <?php
 LandingScripts();
 PageScripts();

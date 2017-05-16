@@ -38,15 +38,16 @@ abstract class HospedajeBase {
 
     public function printComponent(){
       ?>
-      <a href="hospedaje.php?hostID=<?=$this->idHospedaje?>" class="col-3">
+      <a href="hospedaje.php?hostId=<?=$this->idHospedaje?>" class="col-3">
         <div class="deal-host">
           <div>
-            <?php echo file_get_contents( $this->imagenPath);?>
+            <?php //echo file_get_contents( $this->imagenPath);?>
+            <img src="<?=$this->imagenPath?>" alt="">
           </div>
           <div class="margin-left">
             <p><?=$this->nombreHospedaje?></p>
             <div class="v-middle">
-              <p class="middle-line">$<?=$this->precioHospedaje?></p>
+              <!--<p class="middle-line">$<?=$this->precioHospedaje?></p>-->
               <p>$<?=$this->precioHospedaje?></p>
             </div>
           </div>

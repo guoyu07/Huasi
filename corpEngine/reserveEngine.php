@@ -43,7 +43,7 @@ class ReserveEngine extends DbConnection{
 
   public function selectUserInfo($idUser){
 
-    $sql = "SELECT userName, userLastName, userImagePath, userId FROM Users WHERE userId = :userId";
+    $sql = "SELECT userName, userLastName, userId FROM Users WHERE userId = :userId";
     $records = $this->connection->prepare($sql);
     $records->bindParam(':userId', $idUser);
     $records->execute();
@@ -150,7 +150,7 @@ class ReserveEngine extends DbConnection{
         <div class="reserve-info">
           <img src='<?=$row['hostImagePath']?>' alt='' class='img-responsive col-3'>
           <div class="text">
-            <h2 class="subtitle"><?=$row['hostName']?></h2>
+            <h2 class="sect-title"><?=$row['hostName']?></h2>
             <h2 class="subtitle"><?=count($this->reserveCollection)?> Reservas</h2>
             <button type="button" name="button" class="btn btn-secondary">Mostrar todo</button>
           </div>
