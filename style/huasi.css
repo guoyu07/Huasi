@@ -2251,3 +2251,69 @@ cursor: pointer;
   height: 30px;
   margin-bottom: 1em;
 }
+
+.corp-reserver{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 2em 1em;
+  border-bottom: 1px solid #dbe0e0;
+}
+
+.corp-reserver .btn{
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  background-color: #fff;
+}
+
+.reserve-info{
+  display: flex;
+  align-items: flex-start;
+}
+
+.reserve-info img{
+  margin-right: 1.2em;
+}
+
+.reserve-info .text{
+  display: flex;
+  flex-direction: column;
+}
+
+.host-reserve-info{
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  border-top: 1px solid #dbe0e0;
+}
+
+.host-reserve-info p{
+  flex: 1;
+}
+
+.host-reserve-info:last-of-type{
+  border-bottom: 1px solid #dbe0e0;
+}
+
+.res-holder{
+  padding: 2em 0 4em;
+  display: none;
+}
+
+.res-holder p{
+  margin: 0;
+}
+
+.reserve-corp .col-8{
+  margin-left: 1em;
+}
+
+.magic-hover a{
+  transition: 400ms;
+}
+
+.magic-hover:hover a,
+.magic-hover:hover{
+  color: #39AA94;
+}

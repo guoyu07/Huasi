@@ -239,9 +239,9 @@ class CorpDataOutput extends CorpEngine{
     <a id="Coments" data-value="Coments,<?=$this->corpId?>"><div>Comentarios y evaluaciones</div></a>
     <?php
     if($this->corpId === $_SESSION['corpId']){
-      /*
+
       echo "<a id='Reservs' data-value='Reservs,<?=$this->corpId?>'><div>Reservas</div></a>";
-      */
+      
     }
      ?>
 

@@ -191,6 +191,25 @@ $(document).ready(function() {
     });
   }
 
+  //funcion para mostrar y ocultar las reservas de cada host
+  function showReserve(){
+    var button = $('.btn-secondary');
+    button.click(function(event) {
+      var text = $(this).parent();
+      var reserveInfo = text.parent();
+      var corpReserver = reserveInfo.parent();
+      var holder = corpReserver.children('.res-holder');
+      holder.slideToggle(400);
+      if($(this).text() == 'Mostrar todo'){
+        $(this).text('Mostrar menos');
+      }else if ($(this).text() == 'Mostrar menos') {
+        $(this).text('Mostrar todo');
+      }
+    });
+
+
+  }
+
 
   //Mostrar los hospedajes por default al cargar la pagina
   //Funciones que ocurren al cargar la pagina
@@ -332,19 +351,16 @@ $(document).ready(function() {
           $.ajax({
 
             type: 'POST', //Tipo de envio
-            url: '../corpEngine/reserveEngine.php?fun=makeReserve', //path del documento php
+            url: '../corpEngine/reserveEngine.php?fun=getCorpReserve', //path del documento php
             //data: $(this).serialize() , //Enviar informacion de la forma
             data: {corpId: corpId}, //Enviar informacion de la forma
 
             //Si la operacion fue exitosa=
             success: function(data){
-
-              $('#update-show').css('display', 'flex'); //Mostrar barra de mensaje
-              $('#update-show p:first-of-type').text(data) //Mostrar mensaje
-              //Eliminar barra de mensaje al hacer click en (X).
-              $('#close').click(function(event) {
-                $(this).parent().fadeOut(800);
-              });
+              //Mostrar las reservas de cada corp
+              $('#corpWebView').html(data)
+              showReserve();
+              console.log(data);
 
             },
             error: function(){
